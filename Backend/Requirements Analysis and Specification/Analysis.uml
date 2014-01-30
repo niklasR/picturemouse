@@ -452,13 +452,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">760</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">276</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">159</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">203</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">qciYfUK0dEGTOELRc1V2ogAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="gwpMSqmxpkuoJwYOhDdFdAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="vUVCAhXi9k654SOnyWJ47gAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Already Logged In</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Already logged in Error</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="e9QeXg++YUOjYUkarytiXAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -485,13 +485,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">744</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">56</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">192</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">233</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">I4cOAAPbjkqSli/ZyzcPQwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Ye++sJs620W76ATj58IoXwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="XzwYGABsIESW0nAXWmCb4QAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Incorrect login details</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Incorrect login details Error</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="cklu4FdZH0emC81DFi+elwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -836,7 +836,7 @@
 <XPD:REF name="Views[3]">W12eUDnaVkmkVX/rdLpjbgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[9]" type="UMLUseCase" guid="qciYfUK0dEGTOELRc1V2ogAA">
-<XPD:ATTR name="Name" type="string">Already Logged In</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Already logged in Error</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">Is the administrator currently logged in?</XPD:ATTR>
 <XPD:REF name="Namespace">eyP+xAquA0KJzkQMPztT/QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -848,7 +848,7 @@
 <XPD:REF name="Extends[0]">COlJtTBgSEylSxuatnEIOQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[10]" type="UMLUseCase" guid="I4cOAAPbjkqSli/ZyzcPQwAA">
-<XPD:ATTR name="Name" type="string">Incorrect login details</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Incorrect login details Error</XPD:ATTR>
 <XPD:ATTR name="Documentation" type="string">Has the administrator entered the correct information?</XPD:ATTR>
 <XPD:REF name="Namespace">eyP+xAquA0KJzkQMPztT/QAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
