@@ -51,11 +51,11 @@ public class Database
             {
                 fileOutput = new FileOutputStream( "datebase.ser" );
                 objectOutput = new ObjectOutputStream( fileOutput );
-                objectOutput.writeObject( this.arrayOfShrubs ); // Saves the arrayOfShrubs 
-                                                          // object into a file.
-                objectOutput.writeObject( this.elementsUsed );  // Saves the value of the 
-                                                          // variable elementsUsed into 
-                                                          // the file.
+                // Saves the films, reviews and accounts objects into a file.
+                objectOutput.writeObject( this.films ); 
+                objectOutput.writeObject( this.reviews );
+                objectOutput.writeObject( this.accounts );
+                
                 objectOutput.close();
             }
        
@@ -68,7 +68,10 @@ public class Database
 	
 	public void loadFromFile()
 	{
-            this.arrayOfShrubs = null;
+            this.reviews = null;
+            this.accounts = null;
+            this.films = null;
+            
             FileInputStream fileInput = null;
             ObjectInputStream objectInput = null;
        
@@ -76,17 +79,13 @@ public class Database
             {
                 fileInput = new FileInputStream("database.ser");
                 objectInput = new ObjectInputStream( fileInput );
-                this.arrayOfShrubs = ( Shrub[] ) objectInput.readObject(); // Loads the first 
-                                                                      // contents of the 
-                                                                      // file and saves 
-                                                                      // it into 
-                                                                      // arrayOfShrubs.
-                this.elementsUsed = ( int ) objectInput.readObject();      // Loads the second 
-                                                                      // contents of the 
-                                                                      // file and sets 
-                                                                      // the value of the 
-                                                                      // variable 
-                                                                      // elementsUsed to it.
+                
+                // Loads the contents of the file and saves it into reviews, 
+                // accounts and films respectively.
+                this.reviews = ( List<Review> ) objectInput.readObject(); 
+                this.accounts = ( List<Account> ) objectInput.readObject(); 
+                this.films = ( List<Film> ) objectInput.readObject(); 
+                
                 objectInput.close();
             }
        
