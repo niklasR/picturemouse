@@ -28,11 +28,6 @@ public class CinemaTicket
 	
 	}
 	
-	public void delete()
-	{
-	
-	}
-        
         public int getSeatNumber(){
             return seat;
         }

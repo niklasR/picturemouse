@@ -30,9 +30,13 @@ public class Account
             this.firstName = firstName;
         }
         
-	public void modify(Object username, Object password, Object isAdmin, Object ticketsPurchased, Object firstName)
+	public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
 	{
-	
+            this.username = username;
+            this.password = password;
+            this.isAdmin = isAdmin;
+            this.ticketsPurchased = ticketsPurchased;
+            this.firstName = firstName;
 	}
         
         public String getUsername() {

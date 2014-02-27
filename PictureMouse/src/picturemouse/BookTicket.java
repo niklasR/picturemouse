@@ -23,8 +23,9 @@ public class BookTicket
             //Will need to replace this with reference of the actual Account
             Account account = new Account("JakeCarr", "password", false, new ArrayList<CinemaTicket>(), "Jake");
             String username = account.getUsername();
-            //When the frontend is intergrated, this fake CinemaTicket and Screening object will be replaced
+            //Will need to replace this with reference of the actual Screening
             Screening screening = new Screening(new Time(9, 0, 0), new Date(), new Film(), new HashMap<Integer, String>());
+            //When the frontend is intergrated, this fake CinemaTicket will be replaced
             CinemaTicket ticket = new CinemaTicket(10, screening);
             //If the seat in screening is availible then book
             if(screening.available(ticket.getSeatNumber())) {
