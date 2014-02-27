@@ -17,6 +17,10 @@ public class CreateAccount
 {
 	public void doIt()
 	{
-	
+            //When the frontend is intergrated, this fake Account object will be replaced
+            Account newAccount = new Account("JakeCarr", "password", false, new ArrayList<CinemaTicket>(), "Jake");
+            //This database will be replaced by the real database for the system
+            Database database = new Database();
+            database.save(newAccount);
 	}
 }

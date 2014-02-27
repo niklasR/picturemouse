@@ -19,10 +19,21 @@ public class Account
 	private String username;
 	private String password;
 	private Boolean isAdmin;
-	private List<CinemaTicket> ticketsPurchased;
+	private ArrayList<CinemaTicket> ticketsPurchased;
 	private String firstName;
+        
+        public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) {
+            this.username = username;
+            this.password = password;
+            this.isAdmin = isAdmin;
+            this.ticketsPurchased = ticketsPurchased;
+            this.firstName = firstName;
+        }
+        
 	public void modify(Object username, Object password, Object isAdmin, Object ticketsPurchased, Object firstName)
 	{
 	
 	}
+        
+        
 }
