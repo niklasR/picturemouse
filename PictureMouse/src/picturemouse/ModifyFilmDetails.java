@@ -15,7 +15,7 @@ package picturemouse;
 
 public class ModifyFilmDetails
 {
-	public void doIt(Object Film f)
+	public void doIt(Film f)
 	{
 	
 	}
