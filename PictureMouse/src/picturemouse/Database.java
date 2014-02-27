@@ -12,7 +12,8 @@ import java.util.ArrayList;
  * database which is used to store all of the current data for the session. It
  * can look up data, save data for the current session, load data stored from
  * the last session into a file and save data to a file so that it can be 
- * accessed in other sessions.
+ * accessed in other sessions. This class implements the Singleton design 
+ * pattern.
  *
  * @version 24/02/2014
  * @author John Every
@@ -20,6 +21,10 @@ import java.util.ArrayList;
  */
 public class Database
 {
+    /**
+     * Static variable to hold the one instance of the Database class.
+     */
+    private static Database uniqueInstance;
     /**
      * A List to store the current films.
      */
@@ -41,28 +46,53 @@ public class Database
     private Newsletter newsletter;
     
     /**
+     * Private constructor for instantiating Database objects, this means that
+     * only the Database class and instantiate itself.
+     */
+    private Database() {}
+    
+    /**
+     * This method instantiates the Database class if it has not yet been 
+     * instantiated and returns the one and only one instance of it.
+     * 
+     * @return The unique instance of the Database class.
+     */
+    public synchronized static Database getInstance()
+    {
+        // Checks to see if we have created the instance, if not then an 
+        // instance of the Database class is instantiated.
+        if (uniqueInstance == null)
+        {
+            uniqueInstance = new Database();
+        }
+        return uniqueInstance;
+    }
+    /**
+     * Returns the list of films currently in the database.
      * 
      * @return List of current films stored.
      */
-    public ArrayList<Film> getFilms()
+    public synchronized ArrayList<Film> getFilms()
     {
         return this.films;
     }
     
     /**
+     * Returns the list of customer accounts currently in the database.
      * 
      * @return List of current accounts stored.
      */
-    public ArrayList<Account> getAccounts()
+    public synchronized ArrayList<Account> getAccounts()
     {
         return this.accounts;
     }
     
     /**
+     * Returns the list of reviews currently in the database.
      * 
      * @return List of current reviews stored.
      */
-    public ArrayList<Review> getReviews()
+    public synchronized ArrayList<Review> getReviews()
     {
         return this.reviews;
     }
@@ -70,11 +100,12 @@ public class Database
     /**
      * This method adds a Film object, a Review object or an Account object 
      * to its corresponding List attribute. If it is passed a Newsletter 
-     * object then this is assigned to the newsletter attribute.
+     * object then this is assigned to the newsletter attribute of the 
+     * instance.
      * 
      * @param o Object to save to the database.
      */
-    public void save(Object o)
+    public synchronized void save(Object o)
     {
         if(o instanceof Newsletter)
         {
@@ -93,30 +124,94 @@ public class Database
             this.films.add((Film)o);
         }
     }
-	
-    public Film lookupFilm(int filmId)
+    
+    /**
+     * This method checks the list of films currently in the database, for a 
+     * film whose value for its filmId attribute is equal to the argument. 
+     * It removes the Film object from the list that satisfies this criteria 
+     * and returns it. If a Film object satisfying this criteria is not 
+     * currently in the database then this method will return null.
+     * 
+     * @param filmId The id of the wanted.
+     * @return The Film object wanted or null.
+     */
+    public synchronized Film lookupFilm(int filmId)
     {
-	
+	for (Film film : this.films)
+        {
+            if (film.getFilmId() == filmId)
+            {
+                this.films.remove(film);
+                return film;
+            }
+        }
+        
+        return null;
     }
 	
-    public Review lookupReview(int reviewId)
+    /**
+     * This method checks the list of reviews currently in the database, for a 
+     * review whose value for its reviewId attribute is equal to the argument. 
+     * It removes the Review object from the list that satisfies this criteria 
+     * and returns it. If a Review object satisfying this criteria is not 
+     * currently in the database then this method will return null.
+     * 
+     * @param reviewId The id of the review wanted.
+     * @return The Review object wanted or null.
+     */
+    public synchronized Review lookupReview(int reviewId)
     {
-	
+	for (Review review : this.reviews)
+        {
+            if (review.getReviewId() == reviewId)
+            {
+                this.reviews.remove(review);
+                return review;
+            }
+        }
+        
+        return null;
     }
 	
-    public Account lookupAccount(String username)
+    /**
+     * This method checks the list of accounts currently in the database, for 
+     * an account whose value for its username attribute is equal to the 
+     * argument. It removes the Account object from the list that satisfies 
+     * this criteria and returns it. If an Account object satisfying this 
+     * criteria is not currently in the database then this method will return 
+     * null.
+     * 
+     * @param username The username of the account wanted.
+     * @return The Account object wanted or null.
+     */
+    public synchronized Account lookupAccount(String username)
     {
-	
+        for (Account account : this.accounts)
+        {
+            if (account.getUsername() == username)
+            {
+                this.accounts.remove(account);
+                return account;
+            }
+        }
+        
+        return null;
     }
-	
-    public void saveToFile()
+    
+    /**
+     * Method saves this Database's contents into a serialised file, called 
+     * database.ser.
+     *
+     * @throws IOException
+     */
+    public synchronized void saveToFile()
     {
         FileOutputStream fileOutput = null;
         ObjectOutputStream objectOutput = null;
        
         try
         {
-            fileOutput = new FileOutputStream( "datebase.ser" );
+            fileOutput = new FileOutputStream( "database.ser" );
             objectOutput = new ObjectOutputStream( fileOutput );
             // Saves the films, reviews and accounts objects into a file.
             objectOutput.writeObject( this.films ); 
@@ -133,8 +228,12 @@ public class Database
         }
     }
 	
-	
-    public void loadFromFile()
+    /**
+     * Method should load and replace this Database's contents with the 
+     * serialised contents stored in the file called database.ser.
+     *
+     */
+    public synchronized void loadFromFile() 
     {
         this.reviews = null;
         this.accounts = null;
