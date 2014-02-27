@@ -11,7 +11,7 @@ package picturemouse;
 //
 //
 
-
+import java.util.ArrayList;
 
 
 public class Account
@@ -35,5 +35,11 @@ public class Account
 	
 	}
         
+        public String getUsername() {
+            return username;
+        }
         
+        public void addTicket(CinemaTicket ticket) {
+            ticketsPurchased.add(ticket);
+        }
 }

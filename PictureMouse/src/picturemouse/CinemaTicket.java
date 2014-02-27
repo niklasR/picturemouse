@@ -17,6 +17,12 @@ public class CinemaTicket
 {
 	private int seat;
 	private Screening screening;
+        
+        public CinemaTicket(int seat, Screening screening) {
+            this.seat = seat;
+            this.screening = screening;
+        }
+        
 	public void print()
 	{
 	
@@ -26,4 +32,8 @@ public class CinemaTicket
 	{
 	
 	}
+        
+        public int getSeatNumber(){
+            return seat;
+        }
 }

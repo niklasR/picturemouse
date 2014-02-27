@@ -10,13 +10,33 @@ package picturemouse;
 //
 //
 
-
-
+import java.sql.Time;
+import java.util.Date;
+import java.util.HashMap;
 
 public class Screening
 {
 	private Time time;
 	private Date date;
 	private Film film;
-	private Map <seatNumber: int, userID: int> seatingPlan;
+	private HashMap<Integer,String> seatingPlan;
+        
+        public Screening(Time time, Date date, Film film, HashMap<Integer, String> seatingPlan){
+            this.time = time;
+            this.date = date;
+            this.film = film;
+            this.seatingPlan = seatingPlan;
+        }
+        
+        public boolean available(int seatNumber) {
+            if(seatingPlan.containsValue(seatNumber)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+        public void book(int seatNumber, String username) {
+            seatingPlan.put(seatNumber, username);
+        }
 }
