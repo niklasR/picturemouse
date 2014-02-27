@@ -15,7 +15,7 @@ package picturemouse;
 
 public class DistributeNewsletter
 {
-	public void doIt(Object Newsletter n)
+	public void doIt(Newsletter n)
 	{
 	
 	}

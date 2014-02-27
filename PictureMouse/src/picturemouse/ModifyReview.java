@@ -15,7 +15,7 @@ package picturemouse;
 
 public class ModifyReview
 {
-	public void doIt(Object Review r)
+	public void doIt(Review r)
 	{
 	
 	}

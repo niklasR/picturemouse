@@ -15,7 +15,7 @@ package picturemouse;
 
 public class PrintTicket
 {
-	public void doIt(Object CinemaTicket ticket)
+	public void doIt(CinemaTicket ticket)
 	{
 	
 	}
