@@ -46,4 +46,5 @@ public class Account
         public void addTicket(CinemaTicket ticket) {
             ticketsPurchased.add(ticket);
         }
+        
 }

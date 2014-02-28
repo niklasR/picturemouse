@@ -11,26 +11,15 @@ package picturemouse;
 //
 //
 
-import java.util.ArrayList;
-import java.sql.Time;
-import java.util.Date;
-import java.util.HashMap;
-
 public class BookTicket
 {
-	public void doIt()
+	public void doIt(Screening screening, int seat, Account account)
 	{
-            //Will need to replace this with reference of the actual Account
-            Account account = new Account("JakeCarr", "password", false, new ArrayList<CinemaTicket>(), "Jake");
-            String username = account.getUsername();
-            //Will need to replace this with reference of the actual Screening
-            Screening screening = new Screening(new Time(9, 0, 0), new Date(), new Film(), new HashMap<Integer, String>());
-            //When the frontend is intergrated, this fake CinemaTicket will be replaced
-            CinemaTicket ticket = new CinemaTicket(10, screening);
+            CinemaTicket ticket = new CinemaTicket(seat, screening);
             //If the seat in screening is availible then book
             if(screening.available(ticket.getSeatNumber())) {
                 account.addTicket(ticket);
-                screening.book(ticket.getSeatNumber(), username);
+                screening.book(ticket.getSeatNumber(), account.getUsername());
             }
 	}
 }

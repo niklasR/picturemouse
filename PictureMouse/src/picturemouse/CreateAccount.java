@@ -15,12 +15,14 @@ import java.util.ArrayList;
 
 public class CreateAccount
 {
-	public void doIt()
+	public void doIt(String username, String password, boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
 	{
-            //When the frontend is intergrated, this fake Account object will be replaced
-            Account newAccount = new Account("JakeCarr", "password", false, new ArrayList<CinemaTicket>(), "Jake");
+            Account newAccount = new Account(username, password, isAdmin, ticketsPurchased, firstName);
             //This database will be replaced by the real database for the system
-            Database database = new Database();
-            database.save(newAccount);
+            Database database = Database.getInstance();
+            //Checking if the username already exists
+            if(database.lookupAccount(username)==null){
+                database.save(newAccount);
+            }
 	}
 }
