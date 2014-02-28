@@ -15,8 +15,16 @@ package picturemouse;
 
 public class DistributeNewsletter
 {
-	public void doIt(Newsletter n)
+        
+        Database db;
+    
+	public void doIt()
 	{
-	
+            String content;
+            
+            // Code to get content from GUI
+            
+            //Create Newsletter
+            db.getNewsletter().set(content);
 	}
 }
