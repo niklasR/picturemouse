@@ -16,10 +16,12 @@ package picturemouse;
 public class SignOn
 {
     
-        private boolean signedIn = false;
-        private String u;
-        private String p;
+
         Database db;
+        
+        boolean signedIn = false;
+        String u = "";
+        String p = "";
     
 	public void doIt()
 	{

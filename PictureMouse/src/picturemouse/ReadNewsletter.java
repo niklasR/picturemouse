@@ -13,12 +13,15 @@ package picturemouse;
 
 
 
-public class ReadNewsletter
-{
+public class ReadNewsletter{
+
+        Database db;
+
 	public void doIt()
 	{
             // where does newsletter come from?!
-            String Content = newsletter.display();
+            
+            String Content = db.getNewsletter().display();
             // code to give content to GUI for display
             
 	}

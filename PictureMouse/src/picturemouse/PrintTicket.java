@@ -8,19 +8,15 @@ package picturemouse;
 //  @ Date : 24/02/2014
 //  @ Author : 
 //
-//
-
-
-
 
 public class PrintTicket
 {
-	public void doIt(CinemaTicket ticket)
+    Database db;
+
+    public void doIt(CinemaTicket ticket)
 	{
-            
-            //Connect to database
-            
-            //Get cinema tickets from account
+            //Get cinema tickets from account            
+            db.account.ticketsPurchased.get(account.size()).print();
             
             //Check which haven't already expired
             
