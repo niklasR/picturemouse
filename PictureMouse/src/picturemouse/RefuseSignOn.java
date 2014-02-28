@@ -17,6 +17,6 @@ public class RefuseSignOn
 {
 	private void doIt()
 	{
-	
+            //display error in GUI and ask user to retry.
 	}
 }
