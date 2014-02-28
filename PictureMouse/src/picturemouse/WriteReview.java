@@ -13,10 +13,30 @@ package picturemouse;
 
 
 
+/**
+ * At this point the user has already chosen a film
+ * 
+ * @author Ollie Coleshill
+ */
 public class WriteReview
 {
-	public void doIt(Review r)
+    
+        Database db;
+    
+	public void doIt()
 	{
+            int reviewID;
+            Short stars;
+            String text;
+            int byUserID;
+            int filmID;
+                       
+            //Create new review object
+            Review review = new Review();
+            //Write review
+            review.modify(stars, reviewID, text, byUserID, filmID);
+            
+            db.save(review);
 	
 	}
 }

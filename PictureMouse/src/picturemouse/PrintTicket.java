@@ -17,6 +17,19 @@ public class PrintTicket
 {
 	public void doIt(CinemaTicket ticket)
 	{
+            
+            //Connect to database
+            
+            //Get cinema tickets from account
+            
+            //Check which haven't already expired
+            
+            //Give a choice of tickets
+            
+            //Display ticket contents on screen
+            
+            //Print tickets
+            
 	
 	}
 }

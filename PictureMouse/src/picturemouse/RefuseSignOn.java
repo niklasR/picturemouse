@@ -15,7 +15,10 @@ package picturemouse;
 
 public class RefuseSignOn
 {
-	private void doIt()
+	/**
+     *
+     */
+    public static void doIt()
 	{
             //display error in GUI and ask user to retry.
 	}

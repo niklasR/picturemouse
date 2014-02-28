@@ -43,6 +43,10 @@ public class Account
             return username;
         }
         
+        public String getPassword() {
+            return password;
+        }
+        
         public void addTicket(CinemaTicket ticket) {
             ticketsPurchased.add(ticket);
         }
