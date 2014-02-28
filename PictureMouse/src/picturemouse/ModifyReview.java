@@ -15,8 +15,15 @@ package picturemouse;
 
 public class ModifyReview
 {
-	public void doIt(Review r)
+	public void doIt()
 	{
-	
+            int reviewID;
+            Database db;
+            Short stars;
+            String text;
+            int byUserID;
+            int filmID;
+            
+            db.getReviews().get(reviewID).modify(stars, reviewID, text, byUserID, filmID);
 	}
 }
