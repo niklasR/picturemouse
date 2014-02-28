@@ -1,6 +1,7 @@
 package picturemouse;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -26,22 +27,22 @@ public class Database
      */
     private static Database uniqueInstance;
     /**
-     * A List to store the current films.
+     * An ArrayList to store the current films.
      */
     private ArrayList<Film> films;
     
     /**
-     * A List to store the current reviews.
+     * An ArrayList to store the current reviews.
      */
     private ArrayList<Review> reviews;
     
     /**
-     * A List to store the current accounts.
+     * An ArrayList to store the current accounts.
      */
     private ArrayList<Account> accounts;
     
     /**
-     * A List to store the current newsletter.
+     * An ArrayList to store the current newsletter.
      */
     private Newsletter newsletter;
     
@@ -198,7 +199,7 @@ public class Database
     {
         for (Account account : this.accounts)
         {
-            if (account.getUsername() == username)
+            if (account.getUsername().equals(username))
             {
                 this.accounts.remove(account);
                 return account;
@@ -242,8 +243,10 @@ public class Database
      * Method should load and replace this Database's contents with the 
      * serialised contents stored in the file called database.ser.
      *
+     * @throws IOException
+     * @throws ClassNotFoundException
      */
-    public synchronized void loadFromFile() 
+    public synchronized void loadFromFile() throws IOException, ClassNotFoundException
     {
         this.reviews = null;
         this.accounts = null;
@@ -253,29 +256,17 @@ public class Database
         FileInputStream fileInput = null;
         ObjectInputStream objectInput = null;
        
-        try
-        {
-            fileInput = new FileInputStream("database.ser");
-            objectInput = new ObjectInputStream( fileInput );
+        fileInput = new FileInputStream("database.ser");
+        objectInput = new ObjectInputStream( fileInput );
                 
-            // Loads the contents of the file and saves it into reviews, 
-            // accounts and films respectively.
-            this.reviews = ( ArrayList<Review> ) objectInput.readObject(); 
-            this.accounts = ( ArrayList<Account> ) objectInput.readObject(); 
-            this.films = ( ArrayList<Film> ) objectInput.readObject(); 
-            this.newsletter = ( Newsletter ) objectInput.readObject();
+        // Loads the contents of the file and saves it into reviews, 
+        // accounts and films respectively.
+        this.reviews = ( ArrayList<Review> ) objectInput.readObject(); 
+        this.accounts = ( ArrayList<Account> ) objectInput.readObject(); 
+        this.films = ( ArrayList<Film> ) objectInput.readObject(); 
+        this.newsletter = ( Newsletter ) objectInput.readObject();
                 
-            objectInput.close();
-        }
-       
-        catch( IOException e )
-        {
-            System.out.println("Something bad happened... Try again");
-        }
-           
-        catch( ClassNotFoundException e )
-        {
-           System.out.println("Missing data in file.");
-        }  
+        objectInput.close();
     }
+       
 }

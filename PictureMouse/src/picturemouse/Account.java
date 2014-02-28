@@ -22,7 +22,8 @@ public class Account
 	private ArrayList<CinemaTicket> ticketsPurchased;
 	private String firstName;
         
-        public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) {
+        public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) 
+        {
             this.username = username;
             this.password = password;
             this.isAdmin = isAdmin;
