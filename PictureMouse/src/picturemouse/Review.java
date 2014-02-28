@@ -16,12 +16,18 @@ package picturemouse;
 public class Review
 {
 	private short stars;
-	private int reviewId;
+	private int reviewID;
 	private String text;
-	private Account user;
-	private Film film;
-	public void modify(Object stars, Object reviewId, Object text, Object user, Object film)
+	private int userID;
+	private int film;
+        
+        
+	public void modify(short stars, int reviewID, String text, int byUserID, int filmID)
 	{
-	
+            this.stars = stars;
+            this.reviewID = reviewID;
+            this.text = text;
+            this.userID = byUserID;
+            this.film = filmID;
 	}
 }
