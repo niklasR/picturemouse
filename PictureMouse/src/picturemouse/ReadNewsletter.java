@@ -15,8 +15,11 @@ package picturemouse;
 
 public class ReadNewsletter
 {
-	public void doIt(Newsletter n)
+	public void doIt()
 	{
-	
+            // where does newsletter come from?!
+            String Content = newsletter.display();
+            // code to give content to GUI for display
+            
 	}
 }
