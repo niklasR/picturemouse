@@ -98,6 +98,16 @@ public class Database
     }
     
     /**
+     * Return the newsletter currently in the database.
+     * 
+     * @return Current newsletter stored.
+     */
+    public synchronized Newsletter getNewsletter()
+    {
+        return this.newsletter;
+    }
+    
+    /**
      * This method adds a Film object, a Review object or an Account object 
      * to its corresponding List attribute. If it is passed a Newsletter 
      * object then this is assigned to the newsletter attribute of the 
