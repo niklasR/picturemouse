@@ -66,19 +66,19 @@ public class Film
     
     /**
      * This method checks the list of screenings currently in the database, for 
-     * a screening whose value for its screeningID attribute is equal to the 
+     * a screening whose value for its screeningId attribute is equal to the 
      * argument. It returns the Screening object from the list that satisfies 
      * this criteria. If an Screening object satisfying this criteria is not
      * currently in the database then this method will return null.
      * 
-     * @param screeningID The screeningID of the screening wanted.
+     * @param screeningId The screeningId of the screening wanted.
      * @return The Screening object wanted or null.
      */
-    public synchronized Screening lookupScreening(int screeningID)
+    public synchronized Screening lookupScreening(int screeningId)
     {
         for (Screening screening : this.screenings)
         {
-            if (screening.getScreeningID() == screeningID)
+            if (screening.getScreeningId() == screeningId)
             {
                 return screening;
             }
