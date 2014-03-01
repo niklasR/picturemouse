@@ -35,11 +35,7 @@ public class Screening
         }
         
         public boolean available(int seatNumber) {
-            if(seatingPlan.containsKey(seatNumber)) {
-                return false;
-            } else {
-                return true;
-            }
+            return !seatingPlan.containsKey(seatNumber);
         }
         
         public void book(int seatNumber, String username) {
