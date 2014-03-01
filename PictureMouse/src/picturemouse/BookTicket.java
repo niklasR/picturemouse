@@ -13,9 +13,9 @@ package picturemouse;
 
 public class BookTicket
 {
-	public void doIt(int screening, int seat, Account account)
+	public void doIt(int screeningId, int seat, Account account)
 	{
-            CinemaTicket ticket = new CinemaTicket(seat, screening);
+            CinemaTicket ticket = new CinemaTicket(seat, screeningId);
             //If the seat in screening is availible then book
             if(screening.available(ticket.getSeatNumber())) {
                 account.addTicket(ticket);

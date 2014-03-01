@@ -17,9 +17,8 @@ public class DistributeNewsletter
         
         Database db = Database.getInstance();
     
-	public void doIt()
+	public void doIt(String content)
 	{
-            String content;
             
             // Code to get content Admin entered in GUI and subsequently
             // intialise variable.

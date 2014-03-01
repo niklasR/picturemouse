@@ -13,10 +13,12 @@ public class PrintTicket
 {
     Database db = Database.getInstance();
 
-    public void doIt(CinemaTicket ticket)
+    public void doIt(int seat, int screeningId)
 	{
-            //Get cinema tickets from account            
-            db.account.ticketsPurchased.get(account.size()).print();
+            
+            CinemaTicket ticket = new CinemaTicket(seat, screeningId);
+            ticket.print();
+            //Get cinema tickets from account  
             
             //Check which haven't already expired
             
