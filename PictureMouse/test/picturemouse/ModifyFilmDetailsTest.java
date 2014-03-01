@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- *
+ * May not need this due to similarities to Database class. Not finished!!
  * @author John
  */
 public class ModifyFilmDetailsTest {

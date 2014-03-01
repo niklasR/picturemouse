@@ -23,18 +23,15 @@ public class WriteReview
     
         Database db = Database.getInstance();
     
-	public void doIt()
+	public void doIt(short stars, String text, String username, int filmId)
 	{
-            int reviewID;
-            Short stars;
-            String text;
-            int byUserID;
-            int filmID;
+            // generate this ourselves.
+            int reviewID = db.getReviews().size();
                        
             //Create new review object
             Review review = new Review();
             //Write review
-            review.modify(stars, reviewID, text, byUserID, filmID);
+            review.modify(stars, reviewID, text, username, filmId);
             
             db.save(review);
 	

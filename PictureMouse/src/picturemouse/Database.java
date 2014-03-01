@@ -67,6 +67,7 @@ public class Database
         }
         return uniqueInstance;
     }
+    
     /**
      * Returns the list of films currently in the database.
      * 
