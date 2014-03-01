@@ -16,11 +16,11 @@ package picturemouse;
 public class CinemaTicket
 {
 	private int seat;
-	private Screening screening;
+	private int screeningId;
         
-        public CinemaTicket(int seat, Screening screening) {
+        public CinemaTicket(int seat, int screeningId) {
             this.seat = seat;
-            this.screening = screening;
+            this.screeningId = screeningId;
         }
         
 	public void print()

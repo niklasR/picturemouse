@@ -16,20 +16,26 @@ import java.util.HashMap;
 
 public class Screening
 {
+    /**
+     * ScreeningId uniquely defines a Screening object as there could be 
+     * multiple screenings that have equal values for the other attributes.
+     */
+        private int screeningId;
 	private Time time;
 	private Date date;
-	private Film film;
+	private int filmId;
 	private HashMap<Integer,String> seatingPlan;
         
-        public Screening(Time time, Date date, Film film, HashMap<Integer, String> seatingPlan){
+        public Screening(int screeningId, Time time, Date date, int filmId, HashMap<Integer, String> seatingPlan){
+            this.screeningId = screeningId;
             this.time = time;
             this.date = date;
-            this.film = film;
+            this.filmId = filmId;
             this.seatingPlan = seatingPlan;
         }
         
         public boolean available(int seatNumber) {
-            if(seatingPlan.containsValue(seatNumber)) {
+            if(seatingPlan.containsKey(seatNumber)) {
                 return false;
             } else {
                 return true;
