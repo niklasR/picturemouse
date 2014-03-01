@@ -21,6 +21,7 @@ public class Account
 	private Boolean isAdmin;
 	private ArrayList<CinemaTicket> ticketsPurchased;
 	private String firstName;
+        private boolean SignedOn;
         
         public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) 
         {
@@ -29,6 +30,7 @@ public class Account
             this.isAdmin = isAdmin;
             this.ticketsPurchased = ticketsPurchased;
             this.firstName = firstName;
+            this.SignedOn = false;
         }
         
 	public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
@@ -52,4 +54,11 @@ public class Account
             ticketsPurchased.add(ticket);
         }
         
+        public void signOn(){
+            SignedOn = true;
+        }
+        
+        public void signOff(){
+            SignedOn = false;
+        }
 }

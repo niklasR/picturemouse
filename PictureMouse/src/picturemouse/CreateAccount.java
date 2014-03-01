@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 public class CreateAccount
 {
-	public void doIt(String username, String password, boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
+	public void doIt(String username, String password, boolean isAdmin, String firstName)
 	{
-            Account newAccount = new Account(username, password, isAdmin, ticketsPurchased, firstName);
-            //This database will be replaced by the real database for the system
+            //Creating Account with new ArrayList for ticketsPuchased as they would have no tickets
+            Account newAccount = new Account(username, password, isAdmin, new ArrayList<CinemaTicket>(), firstName);
             Database database = Database.getInstance();
             //Checking if the username already exists
             if(database.lookupAccount(username)==null){
