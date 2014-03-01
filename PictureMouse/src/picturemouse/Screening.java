@@ -41,4 +41,8 @@ public class Screening
         public void book(int seatNumber, String username) {
             seatingPlan.put(seatNumber, username);
         }
+        
+        public int getScreeningId() {
+            return screeningId;
+        }
 }

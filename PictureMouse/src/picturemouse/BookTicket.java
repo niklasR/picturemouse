@@ -13,10 +13,12 @@ package picturemouse;
 
 public class BookTicket
 {
-	public void doIt(int screening, int seat, String username)
+	public void doIt(int filmID, int screeningID, int seat, String username)
 	{
             Database database = Database.getInstance();
             Account account = database.lookupAccount(username);
+            Film film = database.lookupFilm(filmID);
+            Screening screening = film.lookupScreening(5);
             CinemaTicket ticket = new CinemaTicket(seat, screening);
             //If the seat in screening is availible then book
             if(screening.available(seat)) {
