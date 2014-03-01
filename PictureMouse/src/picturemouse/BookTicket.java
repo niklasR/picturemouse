@@ -21,7 +21,7 @@ public class BookTicket
             //If the seat in screening is availible then book
             if(screening.available(seat)) {
                 account.addTicket(ticket);
-                screening.book(Integer.valueOf(seat), username);
+                screening.book(seat, username);
             }
 	}
 }
