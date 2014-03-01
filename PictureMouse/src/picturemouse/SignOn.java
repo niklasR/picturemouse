@@ -17,7 +17,7 @@ public class SignOn
 {
     
 
-        Database db;
+        Database db = Database.getInstance();
         
         boolean signedIn = false;
         String u = "";

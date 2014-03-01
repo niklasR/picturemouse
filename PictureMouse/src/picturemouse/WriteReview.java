@@ -21,7 +21,7 @@ package picturemouse;
 public class WriteReview
 {
     
-        Database db;
+        Database db = Database.getInstance();
     
 	public void doIt()
 	{

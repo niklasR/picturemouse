@@ -15,7 +15,7 @@ package picturemouse;
 
 public class ReadNewsletter{
 
-        Database db;
+        Database db = Database.getInstance();
 
 	public void doIt()
 	{

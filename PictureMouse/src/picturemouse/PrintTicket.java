@@ -11,7 +11,7 @@ package picturemouse;
 
 public class PrintTicket
 {
-    Database db;
+    Database db = Database.getInstance();
 
     public void doIt(CinemaTicket ticket)
 	{
