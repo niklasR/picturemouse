@@ -28,19 +28,20 @@ public class CinemaTicket
     }
 
     /**
-     * Method to print the ticket.
-     */
-    public void print()
-    {
-
-    }
-
-    /**
      * Return method for the seat number.
      * 
      * @return Seat number of ticket
      */
     public int getSeatNumber(){
         return seat;
+    }
+    
+    /**
+     * Return method for the screening.
+     * 
+     * @return screening of ticket
+     */
+    public Screening getScreening(){
+        return screening;
     }
 }
