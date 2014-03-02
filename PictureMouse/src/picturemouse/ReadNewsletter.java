@@ -6,7 +6,7 @@ package picturemouse;
 //  @ Project : PictureMouse
 //  @ File Name : ReadNewsletter.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author: Oliver Coleshill
 //
 //
 
@@ -20,6 +20,5 @@ public class ReadNewsletter{
 	public void doIt()
 	{            
             String Content = database.getNewsletter().display();
-            // code to give content to GUI for display
 	}
 }
