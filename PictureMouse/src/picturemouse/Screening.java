@@ -72,4 +72,14 @@ public class Screening
     public int getScreeningId() {
         return screeningId;
     }
+    
+    /**
+     * Method to get the username of the account that has booked the seat
+     * 
+     * @param seatNumber seat number that is booked
+     * @return the username that the seat is booked for
+     */
+    public String getUsername(int seatNumber) {
+        return seatingPlan.get(seatNumber);
+    }
 }
