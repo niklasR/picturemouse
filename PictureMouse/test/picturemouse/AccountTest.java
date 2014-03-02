@@ -38,14 +38,6 @@ public class AccountTest {
         }
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
         account = new Account("username1", "password1", true, new ArrayList<CinemaTicket>(), "Jake");

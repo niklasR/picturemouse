@@ -215,7 +215,10 @@ public class Database
         {
             if (account.getUsername().equals(username))
             {
-                this.accounts.remove(account);
+                if(modifying)
+                {
+                    this.accounts.remove(account);
+                }
                 return account;
             }
         }

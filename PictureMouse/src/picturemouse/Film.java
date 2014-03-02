@@ -35,6 +35,14 @@ public class Film
      */
     private ArrayList<Screening> screenings;
      
+    public Film(int filmId, String name, File trailer, String synopsis, ArrayList<Screening> screenings) {
+        this.filmId = filmId;
+        this.name = name;
+        this.trailer = trailer;
+        this.synopsis = synopsis;
+        this.screenings = screenings;
+    }
+    
     /**
      * Method used primarily to modify all details of a film in the 
      * ModifyFilmDetails class.
