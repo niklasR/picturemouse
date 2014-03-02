@@ -13,12 +13,13 @@ package picturemouse;
 
 
 
-public class ReadNewsletter{
-
-        Database database = Database.getInstance();
+public class ReadNewsletter{        
 
 	public void doIt()
-	{            
+	{        
+            
+            Database database = Database.getInstance();
+            
             String Content = database.getNewsletter().display();
 	}
 }

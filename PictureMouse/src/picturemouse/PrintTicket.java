@@ -18,7 +18,6 @@ import java.text.SimpleDateFormat;
 
 public class PrintTicket implements Printable
 {
-    Database database = Database.getInstance();
     
     //toPrint will store contents of the ticket to be printed
     private String toPrint;
@@ -61,6 +60,8 @@ public class PrintTicket implements Printable
     }
     
     public void doIt(int seat, int screeningId, int filmId){
+        
+        Database database = Database.getInstance();
 
         Film film = database.lookupFilm(filmId, false);
         Screening screening = film.lookupScreening(screeningId);

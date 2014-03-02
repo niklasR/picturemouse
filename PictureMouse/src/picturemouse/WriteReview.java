@@ -9,10 +9,11 @@ package picturemouse;
 public class WriteReview
 {
     
-        Database database = Database.getInstance();
-    
 	public void doIt(short stars, String text, String username, int filmId)
 	{
+            
+            Database database = Database.getInstance();
+            
             // Generate the reviewId
             int reviewId = database.getReviews().size();
                        

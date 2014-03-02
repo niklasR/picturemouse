@@ -13,9 +13,6 @@ package picturemouse;
 public class SignOn
 {
     
-
-    Database database = Database.getInstance();
-    
     /**
      * Check whether the account is signed on
      * If yes, return true
@@ -23,6 +20,8 @@ public class SignOn
      */
     public boolean doIt(String u, String p)
 	{
+            
+            Database database = Database.getInstance();
             
             //Check signed in
             Account account = database.lookupAccount(u, false);
