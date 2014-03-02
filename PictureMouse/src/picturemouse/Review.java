@@ -1,4 +1,5 @@
 package picturemouse;
+import java.io.Serializable;
 /**
  * 
  * @author Oliver Coleshill & Niklas Rahmel
@@ -7,7 +8,7 @@ package picturemouse;
 
 
 
-public class Review
+public class Review implements Serializable
 {       
         /**
          * Rating of film for review.
