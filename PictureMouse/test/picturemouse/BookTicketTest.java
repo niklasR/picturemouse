@@ -37,7 +37,7 @@ public class BookTicketTest {
         //Creating Film
         film = new Film(1, "film", new File(""), "synopsis", screenings);
         //Creating Account
-        account = new Account("username1", "password1", true, new ArrayList<CinemaTicket>(), "Jake");
+        account = new Account("username1", "password1", true, new ArrayList<CinemaTicket>(), "Jake", 1234567890123456L);
         //Saving Film to database
         database.save(film);
         database.save(account);

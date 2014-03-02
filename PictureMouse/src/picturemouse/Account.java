@@ -26,20 +26,18 @@ public class Account implements Serializable
     private Boolean isAdmin;
     private ArrayList<CinemaTicket> ticketsPurchased;
     private String firstName;
-    private boolean signedOn;
+    private boolean SignedOn;
+    private long creditCardNo;
 
-    public Account()
-    {
-        
-    }
-    public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) 
+    public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName, long creditCardNo) 
     {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
         this.ticketsPurchased = ticketsPurchased;
         this.firstName = firstName;
-        this.signedOn = false;
+        this.SignedOn = false;
+        this.creditCardNo = creditCardNo;
     }
 
     /**
@@ -52,14 +50,16 @@ public class Account implements Serializable
      * @param isAdmin New administration setting
      * @param ticketsPurchased New ArrayList of tickets purchased
      * @param firstName New first name
+     * @param creditCardNo New credit card number
      */
-    public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
+    public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName, long creditCardNo)
     {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
         this.ticketsPurchased = ticketsPurchased;
         this.firstName = firstName;
+        this.creditCardNo = creditCardNo;
     }
 
     /**
@@ -101,10 +101,17 @@ public class Account implements Serializable
     public String getFirstName() {
         return firstName;
     }
+    
+    /**
+     * Method to return credit card number
+     * @return credit card number
+     */
+    public long getCreditCardNo() {
+        return creditCardNo;
+    }
 
     /**
      * Method to add a new ticket to the Account's ticket purchased list.
-     * 
      * @param ticket CinemaTicket to be add to the tickets purchased
      */
     public void addTicket(CinemaTicket ticket) {
@@ -115,14 +122,14 @@ public class Account implements Serializable
      * Method to signal that the account has signed on.
      */
     public void signOn(){
-        signedOn = true;
+        SignedOn = true;
     }
 
     /**
      * Method to signal that the account has signed off.
      */
     public void signOff(){
-        signedOn = false;
+        SignedOn = false;
     }
     
     /**
@@ -130,7 +137,7 @@ public class Account implements Serializable
      * @return
      */
     public boolean checkSignedOn(){
-        return signedOn;
+        return SignedOn;
     }
     
 }
