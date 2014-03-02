@@ -26,7 +26,7 @@ public class Account implements Serializable
     private Boolean isAdmin;
     private ArrayList<CinemaTicket> ticketsPurchased;
     private String firstName;
-    private boolean SignedOn;
+    private boolean signedOn;
     private long creditCardNo;
 
     public Account()
@@ -40,7 +40,7 @@ public class Account implements Serializable
         this.isAdmin = isAdmin;
         this.ticketsPurchased = ticketsPurchased;
         this.firstName = firstName;
-        this.SignedOn = false;
+        this.signedOn = false;
         this.creditCardNo = creditCardNo;
     }
 
@@ -126,14 +126,14 @@ public class Account implements Serializable
      * Method to signal that the account has signed on.
      */
     public void signOn(){
-        SignedOn = true;
+        signedOn = true;
     }
 
     /**
      * Method to signal that the account has signed off.
      */
     public void signOff(){
-        SignedOn = false;
+        signedOn = false;
     }
     
     /**
@@ -141,7 +141,7 @@ public class Account implements Serializable
      * @return boolean to tell whether the account is currently logged on
      */
     public boolean checkSignedOn(){
-        return SignedOn;
+        return signedOn;
     }
     
 }
