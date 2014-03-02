@@ -34,7 +34,7 @@ public class AccountTest {
         }
         //Creating cinema tickets
         for(int i=0; i<9; i++){
-            tickets[i] = new CinemaTicket(i*2, screenings[i%3]);
+            tickets[i] = new CinemaTicket(i*2, screenings[i%3].getScreeningId());
         }
     }
     

@@ -67,7 +67,7 @@ public class BookTicketTest {
         instance.doIt(filmId, screeningId, seat, username);
         //Check that account has added ticket
         CinemaTicket ticket = account.getTicketsPurchased().get(0);
-        assertEquals(screeningId, ticket.getScreening().getScreeningId());
+        assertEquals(screeningId, ticket.getScreeningId());
         assertEquals(seat, ticket.getSeatNumber());
         //Check that the seating plan is updated
         assertEquals(false, screening.available(seat));

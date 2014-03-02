@@ -35,13 +35,13 @@ public class CinemaTicket
     public int getSeatNumber(){
         return seat;
     }
-    
+
     /**
      * Return method for the screening.
      * 
      * @return screening of ticket
      */
-    public int getScreening(){
+    public int getScreeningId(){
         return screeningId;
     }
 }
