@@ -5,6 +5,7 @@
 package picturemouse;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -58,7 +59,7 @@ public class DatabaseTest {
      * Test of saveToFile method, of class Database.
      */
     @Test
-    public void testSaveToFile() {
+    public void testSaveToFile() throws IOException {
         database.saveToFile();
     }
 
