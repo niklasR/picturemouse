@@ -14,11 +14,13 @@ package picturemouse;
 
 public class DistributeNewsletter
 {
-        
-        Database database = Database.getInstance();
     
 	public void doIt(String content)
 	{
+            /**
+             * database storing all the data.
+             */
+            Database database = Database.getInstance();
             
             // Code to get content Admin entered in GUI and subsequently
             // intialise variable.
