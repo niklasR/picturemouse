@@ -72,6 +72,30 @@ public class Account
     public String getPassword() {
         return password;
     }
+    
+    /**
+     * Method to return administration setting.
+     * @return administration setting
+     */
+    public boolean getAdminSetting() {
+        return isAdmin;
+    }
+    
+    /**
+     * Method to return tickets purchased.
+     * @return ArrayList of tickets purchased
+     */
+    public ArrayList<CinemaTicket> getTicketsPurchased() {
+        return ticketsPurchased;
+    }
+    
+    /**
+     * Method to return first name
+     * @return first name
+     */
+    public String getFirstName() {
+        return firstName;
+    }
 
     /**
      * Method to add a new ticket to the Account's ticket purchased list.
