@@ -13,6 +13,7 @@ package picturemouse;
 import java.sql.Time;
 import java.util.Date;
 import java.util.HashMap;
+import java.io.Serializable;
 
 /**
  * Class for every Screening of every Film. This class contains information 
@@ -21,7 +22,7 @@ import java.util.HashMap;
  * 
  * @author jakecarr
  */
-public class Screening
+public class Screening implements Serializable
 {
     /**
      * ScreeningId uniquely defines a Screening object as there could be 
