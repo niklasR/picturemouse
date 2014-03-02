@@ -11,6 +11,7 @@ package picturemouse;
 //
 //
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  * needs to be uniquely identifiable and contain useful and relevant fields.
  * @author jakecarr
  */
-public class Account
+public class Account implements Serializable
 {
     private String username;
     private String password;

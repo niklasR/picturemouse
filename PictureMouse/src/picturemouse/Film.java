@@ -1,6 +1,7 @@
 package picturemouse;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * @author John Every 
  * 
  */
-public class Film
+public class Film implements Serializable
 {
     /**
      * Integer value representing the unique film identification number.
