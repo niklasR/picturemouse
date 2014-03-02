@@ -19,7 +19,6 @@ public class SignOn
 
         Database db = Database.getInstance();
         
-        boolean signedIn = false;
         String u = "";
         String p = "";
     
@@ -27,8 +26,8 @@ public class SignOn
 	{
             
             //Check signed in
-            
-            if (signedIn != true){
+            Account account = db.lookupAccount(u);
+            if (account.checkSignedOn() != true){
                 ask(u, p);
             }
             	
@@ -57,7 +56,7 @@ public class SignOn
             
             //Check password matches password in Account object
             if (p.equals(account.getPassword())){
-                signedIn = true;
+                account.signOn();
             } else {
             //Else RefuseSignOn
             RefuseSignOn.doIt();

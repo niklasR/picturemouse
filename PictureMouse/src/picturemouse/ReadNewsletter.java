@@ -18,11 +18,8 @@ public class ReadNewsletter{
         Database db = Database.getInstance();
 
 	public void doIt()
-	{
-            // where does newsletter come from?!
-            
+	{            
             String Content = db.getNewsletter().display();
             // code to give content to GUI for display
-            
 	}
 }

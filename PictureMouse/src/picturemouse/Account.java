@@ -94,4 +94,13 @@ public class Account
     public void signOff(){
         SignedOn = false;
     }
+    
+    /**
+     * Method to check whether the account is signed in
+     * @return
+     */
+    public boolean checkSignedOn(){
+        return SignedOn;
+    }
+    
 }
