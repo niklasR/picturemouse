@@ -6,17 +6,14 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : WriteReview.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Oliver Coleshill
 //
 //
-
-
-
 
 /**
  * At this point the user has already chosen a film
  * 
- * @author Ollie Coleshill
+ * @author Oliver Coleshill
  */
 public class WriteReview
 {
@@ -25,13 +22,14 @@ public class WriteReview
     
 	public void doIt(short stars, String text, String username, int filmId)
 	{
-            // generate this ourselves.
-            int reviewID = database.getReviews().size();
+            // Generate the reviewId
+            int reviewId = database.getReviews().size();
                        
             //Create new review object
             Review review = new Review();
+            
             //Write review
-            review.modify(stars, reviewID, text, username, filmId);
+            review.modify(stars, reviewId, text, username, filmId);
             
             database.save(review);
 	
