@@ -25,17 +25,17 @@ public class BookTicket
      * and then save, within the database, the booked ticket if it is available.
      * 
      * @param filmId filmId of film that the ticket is for
-     * @param screeningId screeningId of screening the ticket is for
+     * @param screeningID screeningId of screening the ticket is for
      * @param seat seat number that the ticket is for
      * @param username username of account that have purchased the ticket
      */
-    public void doIt(int filmId, int screeningId, int seat, String username)
+    public void doIt(int filmID, int screeningID, int seat, String username)
     {
         //Finding the database, account, film and screening
         Database database = Database.getInstance();
         Account account = database.lookupAccount(username);
-        Film film = database.lookupFilm(filmId);
-        Screening screening = film.lookupScreening(screeningId);
+        Film film = database.lookupFilm(filmID);
+        Screening screening = film.lookupScreening(screeningID);
         //Creating the CinemaTicket
         CinemaTicket ticket = new CinemaTicket(seat, screening);
         //If the seat in screening is availible then book
