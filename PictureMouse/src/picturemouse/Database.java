@@ -237,28 +237,21 @@ public class Database
      *
      * @throws IOException
      */
-    public synchronized void saveToFile()
+    public synchronized void saveToFile() throws IOException
     {
         FileOutputStream fileOutput = null;
         ObjectOutputStream objectOutput = null;
        
-        try
-        {
-            fileOutput = new FileOutputStream( "database.ser" );
-            objectOutput = new ObjectOutputStream( fileOutput );
-            // Saves the films, reviews and accounts objects into a file.
-            objectOutput.writeObject( this.films ); 
-            objectOutput.writeObject( this.reviews );
-            objectOutput.writeObject( this.accounts );
-            objectOutput.writeObject( this.newsletter );
-                
-            objectOutput.close();
-        }
+        fileOutput = new FileOutputStream( "database.ser" );
+        objectOutput = new ObjectOutputStream( fileOutput );
+        // Saves the films, reviews and accounts objects into a file.
+        objectOutput.writeObject( this.films ); 
+        objectOutput.writeObject( this.reviews );
+        objectOutput.writeObject( this.accounts );
+        objectOutput.writeObject( this.newsletter );
+
+        objectOutput.close();
        
-        catch( IOException e )
-        {
-            System.out.println("Something bad happened... Try again");
-        }
     }
 	
     /**
