@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class PrintTicket implements Printable
 {
-    Database db = Database.getInstance();
+    Database database = Database.getInstance();
     private String toPrint;
     
     public PrintTicket(String printDataIn)
@@ -52,7 +52,7 @@ public class PrintTicket implements Printable
     
     public void doIt(int seat, int screeningId, int filmId) {
 
-        Film film = db.lookupFilm(filmId, false);
+        Film film = database.lookupFilm(filmId, false);
         
         String toPrint = "Picture Mouse Cinema Ticket\n" + film.getFilmName() + "\nYour seat number is: " + seat;
         PrinterJob job = PrinterJob.getPrinterJob();
