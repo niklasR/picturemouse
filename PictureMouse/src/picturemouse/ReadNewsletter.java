@@ -15,11 +15,11 @@ package picturemouse;
 
 public class ReadNewsletter{
 
-        Database db = Database.getInstance();
+        Database database = Database.getInstance();
 
 	public void doIt()
 	{            
-            String Content = db.getNewsletter().display();
+            String Content = database.getNewsletter().display();
             // code to give content to GUI for display
 	}
 }
