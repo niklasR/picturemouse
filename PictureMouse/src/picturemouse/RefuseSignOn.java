@@ -13,10 +13,10 @@ package picturemouse;
 public class RefuseSignOn
 {
     
-    Database database = Database.getInstance();
-    
     public static void doIt()
 	{   
+             Database database = Database.getInstance();
+             
             // display error in GUI and ask user to retry.
             
             // call to SignOn.ask() ?
