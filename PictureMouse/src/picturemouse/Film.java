@@ -72,6 +72,11 @@ public class Film
         return this.filmId;
     }
     
+    public String getFilmName()
+    {
+        return this.name;
+    }
+    
     /**
      * This method checks the list of screenings currently in the database, for 
      * a screening whose value for its screeningId attribute is equal to the 
