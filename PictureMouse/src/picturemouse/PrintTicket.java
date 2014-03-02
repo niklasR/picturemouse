@@ -68,7 +68,7 @@ public class PrintTicket implements Printable
         Film film = database.lookupFilm(filmId, false);
         
         //Get information that needs to be on the ticket and save it to a string
-        String toPrint = "Picture Mouse Cinema Ticket\n" + film.getFilmName() + "\nYour seat number is: " + seat;
+        toPrint = "Picture Mouse Cinema Ticket for " + film.getFilmName() + ". Your seat number is: " + String.valueOf(seat);
         
         PrinterJob job = PrinterJob.getPrinterJob();
         job.setPrintable(new PrintTicket(toPrint));
