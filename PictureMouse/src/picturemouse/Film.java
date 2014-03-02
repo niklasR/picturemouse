@@ -80,6 +80,11 @@ public class Film implements Serializable
         return this.name;
     }
     
+    public String getSynopsis()
+    {
+        return synopsis;
+    }
+    
     /**
      * This method checks the list of screenings currently in the database, for 
      * a screening whose value for its screeningId attribute is equal to the 
