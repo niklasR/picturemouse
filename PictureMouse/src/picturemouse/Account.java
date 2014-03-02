@@ -23,6 +23,7 @@ public class Account implements Serializable
     {
         
     }
+    
     public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName, long creditCardNo) 
     {
         this.username = username;
