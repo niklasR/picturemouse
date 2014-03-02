@@ -25,9 +25,19 @@ public class DistributeNewsletter
             // Code to get content Admin entered in GUI and subsequently
             // intialise variable.
             
-            // Create Newsletter for distribution
-            database.getNewsletter().set(content);
+            /**
+             * Newsletter object to store the newsletter for modification.
+             * 
+             */
+            Newsletter newsletter;
+            newsletter = database.getNewsletter();
+            newsletter.set(content);
             
-            // Newsletter nor ready to be displayed in ReadNewsletter.
+            // save newsletter in database.
+            database.save(newsletter);
+            
+            
+            
+            // Newsletter now ready to be displayed in ReadNewsletter.
 	}
 }

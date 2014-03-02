@@ -25,9 +25,11 @@ public class ModifyReview
      */
     public void doIt(int oldReviewId, int newReviewId, short newStars, String newText, String newUsername, int newFilmId)
     {
+        
         /**
          * Database object storing all the reviews
          */
+        
         Database database = Database.getInstance();
         Review review = database.lookupReview(oldReviewId, true);
         review.modify(newStars, newReviewId, newText, newUsername, newFilmId);
@@ -65,4 +67,3 @@ public class ModifyReview
              */
             /*db.getReviews().get(reviewID).modify(stars, reviewID, text, byUserID, filmID);/*
 	}*/
-
