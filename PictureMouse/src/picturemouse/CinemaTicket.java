@@ -6,29 +6,41 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : CinemaTicket.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Jake Carr
 //
 //
 
 
 
-
+/**
+ * Class for every Cinema Ticket that is booked. This class should allow the
+ * user to print and contain what seat and screening the ticket corresponds to.
+ * @author jakecarr
+ */
 public class CinemaTicket
 {
-	private int seat;
-	private Screening screening;
-        
-        public CinemaTicket(int seat, Screening screening) {
-            this.seat = seat;
-            this.screening = screening;
-        }
-        
-	public void print()
-	{
-	
-	}
-	
-        public int getSeatNumber(){
-            return seat;
-        }
+    private int seat;
+    private Screening screening;
+
+    public CinemaTicket(int seat, Screening screening) {
+        this.seat = seat;
+        this.screening = screening;
+    }
+
+    /**
+     * Method to print the ticket.
+     */
+    public void print()
+    {
+
+    }
+
+    /**
+     * Return method for the seat number.
+     * 
+     * @return Seat number of ticket
+     */
+    public int getSeatNumber(){
+        return seat;
+    }
 }

@@ -7,58 +7,91 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : Account.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Jake Carr
 //
 //
 
 import java.util.ArrayList;
 
-
+/**
+ * Class for the Account associated with every customer and administrator. This account
+ * needs to be uniquely identifiable and contain useful and relevant fields.
+ * @author jakecarr
+ */
 public class Account
 {
-	private String username;
-	private String password;
-	private Boolean isAdmin;
-	private ArrayList<CinemaTicket> ticketsPurchased;
-	private String firstName;
-        private boolean SignedOn;
-        
-        public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) 
-        {
-            this.username = username;
-            this.password = password;
-            this.isAdmin = isAdmin;
-            this.ticketsPurchased = ticketsPurchased;
-            this.firstName = firstName;
-            this.SignedOn = false;
-        }
-        
-	public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
-	{
-            this.username = username;
-            this.password = password;
-            this.isAdmin = isAdmin;
-            this.ticketsPurchased = ticketsPurchased;
-            this.firstName = firstName;
-	}
-        
-        public String getUsername() {
-            return username;
-        }
-        
-        public String getPassword() {
-            return password;
-        }
-        
-        public void addTicket(CinemaTicket ticket) {
-            ticketsPurchased.add(ticket);
-        }
-        
-        public void signOn(){
-            SignedOn = true;
-        }
-        
-        public void signOff(){
-            SignedOn = false;
-        }
+    private String username;
+    private String password;
+    private Boolean isAdmin;
+    private ArrayList<CinemaTicket> ticketsPurchased;
+    private String firstName;
+    private boolean SignedOn;
+
+    public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) 
+    {
+        this.username = username;
+        this.password = password;
+        this.isAdmin = isAdmin;
+        this.ticketsPurchased = ticketsPurchased;
+        this.firstName = firstName;
+        this.SignedOn = false;
+    }
+
+    /**
+     * Method to modify the Account object. Allows you to change any 
+     * attribute. If you want to keep an attribute the same then you will
+     * have to enter the current attribute value.
+     * 
+     * @param username New username
+     * @param password New password
+     * @param isAdmin New administration setting
+     * @param ticketsPurchased New ArrayList of tickets purchased
+     * @param firstName New first name
+     */
+    public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
+    {
+        this.username = username;
+        this.password = password;
+        this.isAdmin = isAdmin;
+        this.ticketsPurchased = ticketsPurchased;
+        this.firstName = firstName;
+    }
+
+    /**
+     * Method to return the unique username of the account.
+     * @return username of Account
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Method to return the password.
+     * @return password of Account
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Method to add a new ticket to the Account's ticket purchased list.
+     * @param ticket CinemaTicket to be add to the tickets purchased
+     */
+    public void addTicket(CinemaTicket ticket) {
+        ticketsPurchased.add(ticket);
+    }
+
+    /**
+     * Method to signal that the account has signed on.
+     */
+    public void signOn(){
+        SignedOn = true;
+    }
+
+    /**
+     * Method to signal that the account has signed off.
+     */
+    public void signOff(){
+        SignedOn = false;
+    }
 }

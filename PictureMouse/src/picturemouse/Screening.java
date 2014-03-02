@@ -6,7 +6,7 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : Screening.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Jake Carr
 //
 //
 
@@ -14,35 +14,62 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.HashMap;
 
+/**
+ * Class for every Screening of every Film. This class contains information 
+ * about the screening, including the seating plan which is used to tell
+ * whether a ticket has been booked already or not.
+ * 
+ * @author jakecarr
+ */
 public class Screening
 {
     /**
      * ScreeningId uniquely defines a Screening object as there could be 
      * multiple screenings that have equal values for the other attributes.
      */
-        private int screeningId;
-	private Time time;
-	private Date date;
-	private int filmId;
-	private HashMap<Integer,String> seatingPlan;
-        
-        public Screening(int screeningId, Time time, Date date, int filmId, HashMap<Integer, String> seatingPlan){
-            this.screeningId = screeningId;
-            this.time = time;
-            this.date = date;
-            this.filmId = filmId;
-            this.seatingPlan = seatingPlan;
-        }
-        
-        public boolean available(int seatNumber) {
-            return !seatingPlan.containsKey(seatNumber);
-        }
-        
-        public void book(int seatNumber, String username) {
-            seatingPlan.put(seatNumber, username);
-        }
-        
-        public int getScreeningId() {
-            return screeningId;
-        }
+    private int screeningId;
+    private Time time;
+    private Date date;
+    private int filmId;
+    private HashMap<Integer,String> seatingPlan;
+
+    public Screening(int screeningId, Time time, Date date, int filmId, HashMap<Integer, String> seatingPlan){
+        this.screeningId = screeningId;
+        this.time = time;
+        this.date = date;
+        this.filmId = filmId;
+        this.seatingPlan = seatingPlan;
+    }
+
+    /**
+     * Method to check whether a seat is available for a specific Screening.
+     * This essentially returns the opposite of a the HashMap containsKey() 
+     * method as this will return true if the seat is is taken.
+     * 
+     * @param seatNumber seatNumber that you want to check is available
+     * @return whether or not the seat is available.
+     */
+    public boolean available(int seatNumber) {
+        return !seatingPlan.containsKey(seatNumber);
+    }
+
+    /**
+     * Method to book a seat number with an account. It users the username of
+     * the account and stores this as a value in the HashMap, seatingPlan, with 
+     * the seat number as a key.
+     * 
+     * @param seatNumber seat number booking for
+     * @param username  username of account booking
+     */
+    public void book(int seatNumber, String username) {
+        seatingPlan.put(seatNumber, username);
+    }
+
+    /**
+     * Method to return the screeningId
+     * @return the screeningId of a Screening
+     */
+    public int getScreeningId() {
+        return screeningId;
+    }
 }

@@ -7,25 +7,41 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : BookTicket.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Jake Carr
 //
 //
 
+/**
+ * This class is to allow the system to book tickets for customers. It acts as
+ * a link between the front-end and the back-end of the system.
+ * @author jakecarr
+ */
 public class BookTicket
 {
-	public void doIt(int filmId, int screeningId, int seat, String username)
-	{
-            //Finding the database, account, film and screening
-            Database database = Database.getInstance();
-            Account account = database.lookupAccount(username);
-            Film film = database.lookupFilm(filmId);
-            Screening screening = film.lookupScreening(screeningId);
-            //Creating the CinemaTicket
-            CinemaTicket ticket = new CinemaTicket(seat, screening);
-            //If the seat in screening is availible then book
-            if(screening.available(seat)) {
-                account.addTicket(ticket);
-                screening.book(seat, username);
-            }
-	}
+    /**
+     * Method for when a ticket needs to be booked. This method will be called
+     * from the front-end of the system, where the film, screening, seat and
+     * account information will be collected. The method will create the ticket
+     * and then save, within the database, the booked ticket if it is available.
+     * 
+     * @param filmId filmId of film that the ticket is for
+     * @param screeningId screeningId of screening the ticket is for
+     * @param seat seat number that the ticket is for
+     * @param username username of account that have purchased the ticket
+     */
+    public void doIt(int filmId, int screeningId, int seat, String username)
+    {
+        //Finding the database, account, film and screening
+        Database database = Database.getInstance();
+        Account account = database.lookupAccount(username);
+        Film film = database.lookupFilm(filmId);
+        Screening screening = film.lookupScreening(screeningId);
+        //Creating the CinemaTicket
+        CinemaTicket ticket = new CinemaTicket(seat, screening);
+        //If the seat in screening is availible then book
+        if(screening.available(seat)) {
+            account.addTicket(ticket);
+            screening.book(seat, username);
+        }
+    }
 }

@@ -6,23 +6,40 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : CreateAccount.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Jake Carr
 //
 //
 
 import java.util.ArrayList;
 
-
+/**
+ * This class is to allow the system to create accounts. It acts as
+ * a link between the front-end and the back-end of the system.
+ * @author jakecarr
+ */
 public class CreateAccount
 {
-	public void doIt(String username, String password, boolean isAdmin, String firstName)
-	{
-            //Creating Account with new ArrayList for ticketsPuchased as they would have no tickets
-            Account newAccount = new Account(username, password, isAdmin, new ArrayList<CinemaTicket>(), firstName);
-            Database database = Database.getInstance();
-            //Checking if the username already exists
-            if(database.lookupAccount(username)==null){
-                database.save(newAccount);
-            }
-	}
+    /**
+     * Method for when a new account is created. This method will be called
+     * from the front-end of the system. It is assumed that the front-end
+     * makes sure that the password is longer than 8 letters. The new Account
+     * will be saved to the main database after checking it does not exist.
+     * If the username does exist, it will not save the new account.
+     * 
+     * @param username New username
+     * @param password New password
+     * @param isAdmin New administration setting
+     * @param firstName New first name
+     */
+    public void doIt(String username, String password, boolean isAdmin, String firstName)
+    {
+        //Creating Account with new ArrayList for ticketsPuchased as they would 
+        //have no tickets
+        Account newAccount = new Account(username, password, isAdmin, new ArrayList<CinemaTicket>(), firstName);
+        Database database = Database.getInstance();
+        //Checking if the username already exists
+        if(database.lookupAccount(username)==null){
+            database.save(newAccount);
+        }
+    }
 }
