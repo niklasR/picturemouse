@@ -28,16 +28,17 @@ public class ModifyCustomerDetails
      * @param newTicketsPurchased New TicketsPurchased field(elements are 
      *                            inserted, adapted or removed in front-end).
      * @param newFirstName New first name field. 
+     * @param newCreditCardNo New credit card number field.
      */
     public void doIt(String oldUsername, String newUsername, 
             String newPassword, boolean newIsAdmin, 
             ArrayList<CinemaTicket> newTicketsPurchased, 
-            String newFirstName)
+            String newFirstName, long newCreditCardNo)
     {
         Database database = Database.getInstance();
         Account account = database.lookupAccount(oldUsername, true);
         account.modify(newUsername, newPassword, newIsAdmin, 
-                                    newTicketsPurchased, newFirstName);
+                           newTicketsPurchased, newFirstName, newCreditCardNo);
         database.save(account);
     }
     

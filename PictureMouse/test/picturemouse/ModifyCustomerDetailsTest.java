@@ -29,8 +29,9 @@ public class ModifyCustomerDetailsTest {
         boolean newIsAdmin = false;
         ArrayList<CinemaTicket> newTicketsPurchased = null;
         String newFirstName = "";
+        long newCreditCardNo = 6543210987654321L;
         ModifyCustomerDetails instance = new ModifyCustomerDetails();
-        instance.doIt(oldUsername, newUsername, newPassword, newIsAdmin, newTicketsPurchased, newFirstName);
+        instance.doIt(oldUsername, newUsername, newPassword, newIsAdmin, newTicketsPurchased, newFirstName, newCreditCardNo);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

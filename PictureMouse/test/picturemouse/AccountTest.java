@@ -40,7 +40,7 @@ public class AccountTest {
     
     @Before
     public void setUp() {
-        account = new Account("username1", "password1", true, new ArrayList<CinemaTicket>(), "Jake");
+        account = new Account("username1", "password1", true, new ArrayList<CinemaTicket>(), "Jake", 1234567890123456L);
         for(int i=0; i<5; i++){
             account.addTicket(tickets[i]);
         }
@@ -62,14 +62,16 @@ public class AccountTest {
         Boolean isAdmin = false;
         ArrayList<CinemaTicket> ticketsPurchased = null;
         String firstName = "modifiedFN";
+        long creditCardNo = 6543210987654321L;
         Account instance = account;
-        instance.modify(username, password, isAdmin, ticketsPurchased, firstName);
+        instance.modify(username, password, isAdmin, ticketsPurchased, firstName, creditCardNo);
         //Testing that the attributes have changed to the new values
         assertEquals(username, instance.getUsername());
         assertEquals(password, instance.getPassword());
         assertEquals(isAdmin, instance.getAdminSetting());
         assertEquals(ticketsPurchased, instance.getTicketsPurchased());
         assertEquals(firstName, instance.getFirstName());
+        assertEquals(creditCardNo, instance.getCreditCardNo());
     }
 
     /**

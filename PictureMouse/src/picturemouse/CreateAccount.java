@@ -22,7 +22,8 @@ public class CreateAccount
     /**
      * Method for when a new account is created. This method will be called
      * from the front-end of the system. It is assumed that the front-end
-     * makes sure that the password is longer than 8 letters. The new Account
+     * makes sure that the password is longer than 8 letters and includes
+     * at least 1 upper-case character and at least 1 digit. The new Account
      * will be saved to the main database after checking it does not exist.
      * If the username does exist, it will not save the new account.
      * 
@@ -31,11 +32,11 @@ public class CreateAccount
      * @param isAdmin New administration setting
      * @param firstName New first name
      */
-    public void doIt(String username, String password, boolean isAdmin, String firstName)
+    public void doIt(String username, String password, boolean isAdmin, String firstName, long creditCardNo)
     {
         //Creating Account with new ArrayList for ticketsPuchased as they would 
         //have no tickets
-        Account newAccount = new Account(username, password, isAdmin, new ArrayList<CinemaTicket>(), firstName);
+        Account newAccount = new Account(username, password, isAdmin, new ArrayList<CinemaTicket>(), firstName, creditCardNo);
         Database database = Database.getInstance();
         //Checking if the username already exists
         if(database.lookupAccount(username, false)==null){

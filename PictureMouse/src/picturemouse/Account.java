@@ -27,8 +27,9 @@ public class Account implements Serializable
     private ArrayList<CinemaTicket> ticketsPurchased;
     private String firstName;
     private boolean SignedOn;
+    private long creditCardNo;
 
-    public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) 
+    public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName, long creditCardNo) 
     {
         this.username = username;
         this.password = password;
@@ -36,6 +37,7 @@ public class Account implements Serializable
         this.ticketsPurchased = ticketsPurchased;
         this.firstName = firstName;
         this.SignedOn = false;
+        this.creditCardNo = creditCardNo;
     }
 
     /**
@@ -48,14 +50,16 @@ public class Account implements Serializable
      * @param isAdmin New administration setting
      * @param ticketsPurchased New ArrayList of tickets purchased
      * @param firstName New first name
+     * @param creditCardNo New credit card number
      */
-    public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName)
+    public void modify(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName, long creditCardNo)
     {
         this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
         this.ticketsPurchased = ticketsPurchased;
         this.firstName = firstName;
+        this.creditCardNo = creditCardNo;
     }
 
     /**
@@ -96,6 +100,14 @@ public class Account implements Serializable
      */
     public String getFirstName() {
         return firstName;
+    }
+    
+    /**
+     * Method to return credit card number
+     * @return credit card number
+     */
+    public long getCreditCardNo() {
+        return creditCardNo;
     }
 
     /**
