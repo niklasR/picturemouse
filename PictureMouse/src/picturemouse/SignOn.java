@@ -6,13 +6,14 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : SignOn.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Oliver Coleshill
 //
 //
 
-
-
-
+/**
+ *
+ * @author Oliver Coleshill
+ */
 public class SignOn
 {
     
@@ -35,23 +36,7 @@ public class SignOn
         
         public void ask(String u, String p){
             
-            //Connect to database
-            
-            
-            //Ask for username
-            
-            System.out.println("Username: ");
-            
-            //Ask for password
-            
-            System.out.println("Password: ");
-            
-            //Use Account for temporary 
-
-            
             //Check username exists in the database
-            //Iterate through ArrayList to check if the username exists
-            //Else RefuseSignOn
             Account account = database.lookupAccount(u, false);
             
             //Check password matches password in Account object
@@ -61,6 +46,7 @@ public class SignOn
             } 
             else 
             {
+                
             //Else RefuseSignOn
             RefuseSignOn.doIt();
             }
