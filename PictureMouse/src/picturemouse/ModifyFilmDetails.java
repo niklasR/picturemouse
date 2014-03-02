@@ -36,7 +36,7 @@ public class ModifyFilmDetails
             ArrayList<Screening> newScreenings)
     {
         Database database = Database.getInstance();
-        Film film = database.lookupFilm(oldfilmId);
+        Film film = database.lookupFilm(oldfilmId, true);
         film.modify(newFilmId, newName, newTrailer, newSynopsis, 
                                                 newScreenings);
         database.save(film);

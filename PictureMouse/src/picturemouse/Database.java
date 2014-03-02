@@ -140,19 +140,25 @@ public class Database
      * This method checks the list of films currently in the database, for a 
      * film whose value for its filmId attribute is equal to the argument. 
      * It removes the Film object from the list that satisfies this criteria 
-     * and returns it. If a Film object satisfying this criteria is not 
-     * currently in the database then this method will return null.
+     * if modifying is set to true and returns it. If a Film object satisfying  
+     * this criteria is not currently in the database then this method will 
+     * return null.
      * 
      * @param filmId The id of the wanted.
+     * @param modifying This indicates whether a change is needed to the 
+     *                  list of films.
      * @return The Film object wanted or null.
      */
-    public synchronized Film lookupFilm(int filmId)
+    public synchronized Film lookupFilm(int filmId, boolean modifying)
     {
 	for (Film film : this.films)
         {
             if (film.getFilmId() == filmId)
             {
-                this.films.remove(film);
+                if(modifying)
+                {
+                    this.films.remove(film);
+                }
                 return film;
             }
         }
@@ -163,20 +169,26 @@ public class Database
     /**
      * This method checks the list of reviews currently in the database, for a 
      * review whose value for its reviewId attribute is equal to the argument. 
-     * It removes the Review object from the list that satisfies this criteria 
-     * and returns it. If a Review object satisfying this criteria is not 
-     * currently in the database then this method will return null.
+     * It removes the Review object from the list that satisfies this criteria  
+     * if modifying is set to true and returns it. If a Review object  
+     * satisfying this criteria is not currently in the database then this 
+     * method will return null.
      * 
      * @param reviewId The id of the review wanted.
+     * @param modifying This indicates whether a change is needed to the 
+     *                  list of reviews.
      * @return The Review object wanted or null.
      */
-    public synchronized Review lookupReview(int reviewId)
+    public synchronized Review lookupReview(int reviewId, boolean modifying)
     {
 	for (Review review : this.reviews)
         {
             if (review.getReviewId() == reviewId)
             {
-                this.reviews.remove(review);
+                if(modifying)
+                {
+                    this.reviews.remove(review);
+                }
                 return review;
             }
         }
@@ -188,14 +200,16 @@ public class Database
      * This method checks the list of accounts currently in the database, for 
      * an account whose value for its username attribute is equal to the 
      * argument. It removes the Account object from the list that satisfies 
-     * this criteria and returns it. If an Account object satisfying this 
-     * criteria is not currently in the database then this method will return 
-     * null.
+     * this criteria if modifying is set to true and returns it. If an Account 
+     * object satisfying this criteria is not currently in the database then 
+     * this method will return null.
      * 
      * @param username The username of the account wanted.
+     * @param modifying This indicates whether a change is needed to the 
+     *                  list of accounts.
      * @return The Account object wanted or null.
      */
-    public synchronized Account lookupAccount(String username)
+    public synchronized Account lookupAccount(String username, boolean modifying)
     {
         for (Account account : this.accounts)
         {

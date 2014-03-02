@@ -83,9 +83,9 @@ public class DatabaseTest {
     @Test
     public void testLookupFilm() {
         int filmId = 1;
-        Film result = database.lookupFilm(filmId);
+        Film result = database.lookupFilm(filmId, true);
         assertEquals(1, result.getFilmId());
-        assertEquals(null, database.lookupFilm(filmId));
+        assertEquals(null, database.lookupFilm(filmId, false));
     }
 
     /**
@@ -94,9 +94,9 @@ public class DatabaseTest {
     @Test
     public void testLookupReview() {
         int reviewId = 1;
-        Review result = database.lookupReview(reviewId);
+        Review result = database.lookupReview(reviewId, true);
         assertEquals(1, result.getReviewId());
-        assertEquals(null, database.lookupReview(reviewId));
+        assertEquals(null, database.lookupReview(reviewId, true));
     }
 
     /**
@@ -105,9 +105,9 @@ public class DatabaseTest {
     @Test
     public void testLookupAccount() {
         String username = "jevery21";
-        Account result = database.lookupAccount(username);
+        Account result = database.lookupAccount(username, true);
         assertEquals("jevery21", result.getUsername());
-        assertEquals(null, database.lookupAccount(username));
+        assertEquals(null, database.lookupAccount(username, true));
     }
 
 }

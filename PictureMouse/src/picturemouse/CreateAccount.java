@@ -38,7 +38,7 @@ public class CreateAccount
         Account newAccount = new Account(username, password, isAdmin, new ArrayList<CinemaTicket>(), firstName);
         Database database = Database.getInstance();
         //Checking if the username already exists
-        if(database.lookupAccount(username)==null){
+        if(database.lookupAccount(username, false)==null){
             database.save(newAccount);
         }
     }

@@ -35,7 +35,7 @@ public class ModifyCustomerDetails
             String newFirstName)
     {
         Database database = Database.getInstance();
-        Account account = database.lookupAccount(oldUsername);
+        Account account = database.lookupAccount(oldUsername, true);
         account.modify(newUsername, newPassword, newIsAdmin, 
                                     newTicketsPurchased, newFirstName);
         database.save(account);

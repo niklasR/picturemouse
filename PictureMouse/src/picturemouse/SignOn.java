@@ -26,7 +26,7 @@ public class SignOn
 	{
             
             //Check signed in
-            Account account = db.lookupAccount(u);
+            Account account = db.lookupAccount(u, false);
             if (account.checkSignedOn() != true){
                 ask(u, p);
             }
@@ -52,12 +52,15 @@ public class SignOn
             //Check username exists in the database
             //Iterate through ArrayList to check if the username exists
             //Else RefuseSignOn
-            Account account = db.lookupAccount(u);
+            Account account = db.lookupAccount(u, false);
             
             //Check password matches password in Account object
-            if (p.equals(account.getPassword())){
+            if (p.equals(account.getPassword()))
+            {
                 account.signOn();
-            } else {
+            } 
+            else 
+            {
             //Else RefuseSignOn
             RefuseSignOn.doIt();
             }

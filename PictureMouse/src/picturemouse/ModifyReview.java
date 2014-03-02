@@ -33,7 +33,7 @@ public class ModifyReview
          * Database object storing all the reviews
          */
         Database database = Database.getInstance();
-        Review review = database.lookupReview(oldReviewId);
+        Review review = database.lookupReview(oldReviewId, true);
         review.modify(newStars, newReviewId, newText, newUsername, newFilmId);
         database.save(review);
     }
