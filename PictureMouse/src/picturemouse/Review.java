@@ -60,7 +60,7 @@ public class Review
          * Method to get the rating for the review.
          * @return number of stars
          */
-        public short getStarts()
+        public short getStars()
         {
             return this.stars;
         }        
