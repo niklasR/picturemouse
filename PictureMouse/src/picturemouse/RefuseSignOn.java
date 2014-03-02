@@ -15,7 +15,7 @@ package picturemouse;
 public class RefuseSignOn
 {
     
-    Database db = Database.getInstance();
+    Database database = Database.getInstance();
     
     public static void doIt()
 	{   

@@ -15,7 +15,7 @@ package picturemouse;
 public class DistributeNewsletter
 {
         
-        Database db = Database.getInstance();
+        Database database = Database.getInstance();
     
 	public void doIt(String content)
 	{
@@ -24,7 +24,7 @@ public class DistributeNewsletter
             // intialise variable.
             
             // Create Newsletter for distribution
-            db.getNewsletter().set(content);
+            database.getNewsletter().set(content);
             
             // Newsletter nor ready to be displayed in ReadNewsletter.
 	}
