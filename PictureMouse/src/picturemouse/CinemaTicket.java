@@ -41,7 +41,7 @@ public class CinemaTicket
      * 
      * @return screening of ticket
      */
-    public Screening getScreening(){
-        return screening;
+    public int getScreening(){
+        return screeningId;
     }
 }
