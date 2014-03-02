@@ -21,19 +21,19 @@ package picturemouse;
 public class WriteReview
 {
     
-        Database db = Database.getInstance();
+        Database database = Database.getInstance();
     
 	public void doIt(short stars, String text, String username, int filmId)
 	{
             // generate this ourselves.
-            int reviewID = db.getReviews().size();
+            int reviewID = database.getReviews().size();
                        
             //Create new review object
             Review review = new Review();
             //Write review
             review.modify(stars, reviewID, text, username, filmId);
             
-            db.save(review);
+            database.save(review);
 	
 	}
 }
