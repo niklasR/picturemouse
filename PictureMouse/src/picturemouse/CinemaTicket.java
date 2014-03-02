@@ -28,14 +28,6 @@ public class CinemaTicket
     }
 
     /**
-     * Method to print the ticket.
-     */
-    public void print()
-    {
-
-    }
-
-    /**
      * Return method for the seat number.
      * 
      * @return Seat number of ticket
