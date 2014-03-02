@@ -37,7 +37,7 @@ public class BookTicket
         Film film = database.lookupFilm(filmId);
         Screening screening = film.lookupScreening(screeningId);
         //Creating the CinemaTicket
-        CinemaTicket ticket = new CinemaTicket(seat, screening);
+        CinemaTicket ticket = new CinemaTicket(seat, screeningId);
         //If the seat in screening is availible then book
         if(screening.available(seat)) {
             account.addTicket(ticket);
