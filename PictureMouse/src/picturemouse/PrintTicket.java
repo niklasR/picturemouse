@@ -9,25 +9,64 @@ package picturemouse;
 //  @ Author : 
 //
 
-public class PrintTicket
+import java.awt.*;
+import java.awt.print.*;
+import java.io.BufferedReader;
+import java.io.StringReader;
+import java.io.IOException;
+
+public class PrintTicket implements Printable
 {
     Database db = Database.getInstance();
+    private String toPrint;
+    
+    public PrintTicket(String printDataIn)
+    {
+        this.toPrint = printDataIn;
+    }
+    
+    
+    public int print(Graphics g, PageFormat pf, int page) throws PrinterException
+        {
+            if (page > 0){
+                return NO_SUCH_PAGE;
+            }
 
-    public void doIt(int seat, int screeningId)
-	{
+            Graphics2D g2d = (Graphics2D)g;
             
-            CinemaTicket ticket = new CinemaTicket(seat, screeningId);
-            ticket.print();
-            //Get cinema tickets from account  
-            
-            //Check which haven't already expired
-            
-            //Give a choice of tickets
-            
-            //Display ticket contents on screen
-            
-            //Print tickets
-            
-	
-	}
+            g2d.translate(pf.getImageableX(), pf.getImageableY());
+
+            BufferedReader br = new BufferedReader(new StringReader(toPrint));
+
+            try{
+                String line;
+                while ((line = br.readLine()) != null){
+                    g2d.drawString(line, 100, 100);
+                }
+            } catch (IOException e) {
+                
+            }
+
+            return PAGE_EXISTS;
+    }
+    
+    public void doIt(int seat, int screeningId, int filmId) {
+
+        Film film = db.lookupFilm(filmId, false);
+        
+        String toPrint = "Picture Mouse Cinema Ticket\n" + film.getFilmName() + "\nYour seat number is: " + seat;
+        PrinterJob job = PrinterJob.getPrinterJob();
+        job.setPrintable(new PrintTicket(toPrint));
+        boolean doPrint = job.printDialog();
+        
+        if (doPrint){
+            try{
+                job.print();
+            } catch (PrinterException e) {
+                
+            }
+        }
+        
+    }
+        
 }
