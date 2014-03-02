@@ -10,8 +10,6 @@ package picturemouse;
  */
 
 
-
-
 public class RefuseSignOn
 {
     

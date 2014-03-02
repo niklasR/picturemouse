@@ -6,8 +6,6 @@ import java.io.Serializable;
  * @version 02/03/2014
  */
 
-
-
 public class Review implements Serializable
 {       
         /**
