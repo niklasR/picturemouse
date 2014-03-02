@@ -11,13 +11,16 @@ package picturemouse;
 //
 //
 
-
+import java.util.ArrayList;
 
 
 public class BrowseFilms
 {
-	public void doIt()
-	{
-	
-	}
+    public String doIt()
+    {
+        //Finding the database, account, film and screening
+        Database database = Database.getInstance();
+        ArrayList<Film> films = database.getFilms();
+        return "";
+    }
 }

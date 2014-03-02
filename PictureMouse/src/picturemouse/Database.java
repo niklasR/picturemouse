@@ -49,7 +49,12 @@ public class Database
      * Private constructor for instantiating Database objects, this means that
      * only the Database class and instantiate itself.
      */
-    private Database() {}
+    private Database() {
+        films = new ArrayList<>();
+        reviews = new ArrayList<>();
+        accounts = new ArrayList<>();
+        newsletter = new Newsletter();
+    }
     
     /**
      * This method instantiates the Database class if it has not yet been 

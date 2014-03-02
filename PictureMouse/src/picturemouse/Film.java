@@ -35,7 +35,9 @@ public class Film implements Serializable
      * ArrayList to store all the screenings available for a film.
      */
     private ArrayList<Screening> screenings;
-     
+    
+    public Film(){}
+    
     public Film(int filmId, String name, File trailer, String synopsis, ArrayList<Screening> screenings) {
         this.filmId = filmId;
         this.name = name;
