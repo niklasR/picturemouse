@@ -6,7 +6,7 @@ package picturemouse;
 //  @ Project : Untitled
 //  @ File Name : PrintTicket.java
 //  @ Date : 24/02/2014
-//  @ Author : 
+//  @ Author : Ollie Coleshill
 //
 
 import java.awt.*;
@@ -15,50 +15,67 @@ import java.io.BufferedReader;
 import java.io.StringReader;
 import java.io.IOException;
 
+/**
+ * Class to print the details of a ticket to a physical printer via a print dialogue
+ * @author Ollie Coleshill
+ */
 public class PrintTicket implements Printable
 {
     Database database = Database.getInstance();
+    
+    //toPrint will store contents of the ticket to be printed
     private String toPrint;
-    
-    public PrintTicket(String printDataIn)
-    {
-        this.toPrint = printDataIn;
-    }
-    
-    
+   
+    @Override
     public int print(Graphics g, PageFormat pf, int page) throws PrinterException
-        {
-            if (page > 0){
-                return NO_SUCH_PAGE;
+    {
+        if (page > 0){
+            return NO_SUCH_PAGE;
+        }
+
+        //Use Graphics to create a page that we can put our text on
+        Graphics2D g2d = (Graphics2D)g;
+
+        //Set margins
+        g2d.translate(pf.getImageableX(), pf.getImageableY());
+
+        BufferedReader br = new BufferedReader(new StringReader(toPrint));
+
+        //Attempt to draw page
+        try{
+            String text;
+            while ((text = br.readLine()) != null){
+                g2d.drawString(text, 100, 100);
             }
+        } catch (IOException e) {
+            System.out.println("Unable to draw page");
+        }
 
-            Graphics2D g2d = (Graphics2D)g;
-            
-            g2d.translate(pf.getImageableX(), pf.getImageableY());
-
-            BufferedReader br = new BufferedReader(new StringReader(toPrint));
-
-            try{
-                String line;
-                while ((line = br.readLine()) != null){
-                    g2d.drawString(line, 100, 100);
-                }
-            } catch (IOException e) {
-                
-            }
-
-            return PAGE_EXISTS;
+        return PAGE_EXISTS;
     }
     
-    public void doIt(int seat, int screeningId, int filmId) {
+    
+    /**
+     * Constructor to be used in doIt class as this implements Printable
+     * @param toPrint String containing text to print
+     */
+    public PrintTicket(String toPrint){
+        this.toPrint = toPrint;
+    }
+    
+    public void doIt(int seat, int screeningId, int filmId){
 
         Film film = database.lookupFilm(filmId, false);
         
+        //Get information that needs to be on the ticket and save it to a string
         String toPrint = "Picture Mouse Cinema Ticket\n" + film.getFilmName() + "\nYour seat number is: " + seat;
+        
         PrinterJob job = PrinterJob.getPrinterJob();
         job.setPrintable(new PrintTicket(toPrint));
         boolean doPrint = job.printDialog();
         
+        //Open the print dialog
+        //Part of java so should work on any OS
         if (doPrint){
             try{
                 job.print();
