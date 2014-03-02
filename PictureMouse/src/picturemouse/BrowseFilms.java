@@ -16,11 +16,19 @@ import java.util.ArrayList;
 
 public class BrowseFilms
 {
-    public String doIt()
+    public String[] doIt()
     {
         //Finding the database, account, film and screening
         Database database = Database.getInstance();
         ArrayList<Film> films = database.getFilms();
-        return "";
+        Film film;
+        String[] filmStrings = new String[films.size()];
+        //Changes the film objects into a String object understandable to the 
+        //front-end of the program.
+        for (int i = 0; i<films.size(); i++) {
+            film = films.get(i);
+            filmStrings[i] = film.getFilmId()+", "+film.getFilmName()+", "+film.getSynopsis();
+        }
+        return filmStrings;
     }
 }
