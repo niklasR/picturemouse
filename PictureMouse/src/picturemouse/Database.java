@@ -270,9 +270,9 @@ public class Database
      */
     public synchronized void loadFromFile() throws IOException, ClassNotFoundException
     {
-        this.reviews = null;
         this.accounts = null;
         this.films = null;
+        this.reviews = null;
         this.newsletter = null;
             
         FileInputStream fileInput = null;
@@ -282,10 +282,10 @@ public class Database
         objectInput = new ObjectInputStream( fileInput );
                 
         // Loads the contents of the file and saves it into reviews, 
-        // accounts and films respectively.
-        this.reviews = ( ArrayList<Review> ) objectInput.readObject(); 
-        this.accounts = ( ArrayList<Account> ) objectInput.readObject(); 
+        // accounts and films respectively. 
         this.films = ( ArrayList<Film> ) objectInput.readObject(); 
+        this.reviews = ( ArrayList<Review> ) objectInput.readObject(); 
+        this.accounts = ( ArrayList<Account> ) objectInput.readObject();
         this.newsletter = ( Newsletter ) objectInput.readObject();
                 
         objectInput.close();

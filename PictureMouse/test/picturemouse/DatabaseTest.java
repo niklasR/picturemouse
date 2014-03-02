@@ -4,6 +4,7 @@
  */
 package picturemouse;
 
+import java.io.File;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,12 +23,12 @@ public class DatabaseTest {
      */
     @Test
     public void testSave() {
-        Newsletter n = null;
+        Newsletter n = new Newsletter();
         n.set("John Every");
         database.save(n);
         assertEquals("John Every", database.getNewsletter().display());
         
-        Film f = null;
+        Film f = new Film();
         ArrayList<Screening> screenings = new ArrayList<>();
         Time t = new Time(9, 30, 0);
         Date date = new Date();
@@ -35,20 +36,21 @@ public class DatabaseTest {
         plan.put(1,"jevery21");
         Screening s1 = new Screening(1, t, date, 1, plan);
         screenings.add(s1);
-        f.modify(1, "Batman", null, "About a young man who beats people up!", screenings);
+        f.modify(1, "Batman", new File(""), "About a young man who beats people up!", screenings);
         database.save(f);
         assertEquals(1, database.getFilms().get(0).getFilmId());
         
-        Account c = null;
+        Account c = new Account();
         ArrayList<CinemaTicket> cinemaTickets = new ArrayList<>();
         CinemaTicket c1 = new CinemaTicket(1, 1);
         cinemaTickets.add(c1);
         c.modify("jevery21", "123456", false, cinemaTickets, "John");
-        database.save(f);
-        assertEquals(1, database.getAccounts().get(0).getUsername());
+        database.save(c);
+        assertEquals("jevery21", database.getAccounts().get(0).getUsername());
         
-        Review r = null;
+        Review r = new Review();
         r.modify((short)5, 1, "It was fantastic. A must see!", "jevery21", 1);
+        database.save(r);
         assertEquals(1, database.getReviews().get(0).getReviewId());
     }
     

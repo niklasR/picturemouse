@@ -26,8 +26,12 @@ public class Account implements Serializable
     private Boolean isAdmin;
     private ArrayList<CinemaTicket> ticketsPurchased;
     private String firstName;
-    private boolean SignedOn;
+    private boolean signedOn;
 
+    public Account()
+    {
+        
+    }
     public Account(String username, String password, Boolean isAdmin, ArrayList<CinemaTicket> ticketsPurchased, String firstName) 
     {
         this.username = username;
@@ -35,7 +39,7 @@ public class Account implements Serializable
         this.isAdmin = isAdmin;
         this.ticketsPurchased = ticketsPurchased;
         this.firstName = firstName;
-        this.SignedOn = false;
+        this.signedOn = false;
     }
 
     /**
@@ -100,6 +104,7 @@ public class Account implements Serializable
 
     /**
      * Method to add a new ticket to the Account's ticket purchased list.
+     * 
      * @param ticket CinemaTicket to be add to the tickets purchased
      */
     public void addTicket(CinemaTicket ticket) {
@@ -110,14 +115,14 @@ public class Account implements Serializable
      * Method to signal that the account has signed on.
      */
     public void signOn(){
-        SignedOn = true;
+        signedOn = true;
     }
 
     /**
      * Method to signal that the account has signed off.
      */
     public void signOff(){
-        SignedOn = false;
+        signedOn = false;
     }
     
     /**
@@ -125,7 +130,7 @@ public class Account implements Serializable
      * @return
      */
     public boolean checkSignedOn(){
-        return SignedOn;
+        return signedOn;
     }
     
 }
