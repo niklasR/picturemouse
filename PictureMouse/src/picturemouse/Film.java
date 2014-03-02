@@ -85,6 +85,14 @@ public class Film implements Serializable
         return synopsis;
     }
     
+    public void removeScreening(Screening screening){
+        this.screenings.remove(screening);
+    }
+    
+    public void addScreening(Screening screening){
+        this.screenings.add(screening);
+    }
+    
     /**
      * This method checks the list of screenings currently in the database, for 
      * a screening whose value for its screeningId attribute is equal to the 
