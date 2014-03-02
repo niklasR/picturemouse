@@ -82,4 +82,9 @@ public class Screening
     public String getUsername(int seatNumber) {
         return seatingPlan.get(seatNumber);
     }
+    
+    public Date getDate(){
+        return date;
+    }
+    
 }
