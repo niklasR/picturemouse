@@ -14,18 +14,33 @@ package picturemouse;
 
 public class DistributeNewsletter
 {
-        
-        Database db = Database.getInstance();
     
 	public void doIt(String content)
 	{
+<<<<<<< HEAD
+=======
+            /**
+             * database storing all the data.
+             */
+            Database database = Database.getInstance();
+>>>>>>> 384886c88c989c0b2874d29c0b4e87a3c8bf5766
             
             // Code to get content Admin entered in GUI and subsequently
             // intialise variable.
             
-            // Create Newsletter for distribution
-            db.getNewsletter().set(content);
+            /**
+             * Newsletter object to store the newsletter for modification.
+             * 
+             */
+            Newsletter newsletter;
+            newsletter = database.getNewsletter();
+            newsletter.set(content);
             
-            // Newsletter nor ready to be displayed in ReadNewsletter.
+            // save newsletter in database.
+            database.save(newsletter);
+            
+            
+            
+            // Newsletter now ready to be displayed in ReadNewsletter.
 	}
 }

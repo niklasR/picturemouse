@@ -1,6 +1,7 @@
 package picturemouse;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * @author John Every 
  * 
  */
-public class Film
+public class Film implements Serializable
 {
     /**
      * Integer value representing the unique film identification number.
@@ -34,7 +35,17 @@ public class Film
      * ArrayList to store all the screenings available for a film.
      */
     private ArrayList<Screening> screenings;
-     
+    
+    public Film(){}
+    
+    public Film(int filmId, String name, File trailer, String synopsis, ArrayList<Screening> screenings) {
+        this.filmId = filmId;
+        this.name = name;
+        this.trailer = trailer;
+        this.synopsis = synopsis;
+        this.screenings = screenings;
+    }
+    
     /**
      * Method used primarily to modify all details of a film in the 
      * ModifyFilmDetails class.
@@ -62,5 +73,46 @@ public class Film
     public int getFilmId()
     {
         return this.filmId;
+    }
+    
+    public String getFilmName()
+    {
+        return this.name;
+    }
+    
+    public String getSynopsis()
+    {
+        return synopsis;
+    }
+    
+    public void removeScreening(Screening screening){
+        this.screenings.remove(screening);
+    }
+    
+    public void addScreening(Screening screening){
+        this.screenings.add(screening);
+    }
+    
+    /**
+     * This method checks the list of screenings currently in the database, for 
+     * a screening whose value for its screeningId attribute is equal to the 
+     * argument. It returns the Screening object from the list that satisfies 
+     * this criteria. If an Screening object satisfying this criteria is not
+     * currently in the database then this method will return null.
+     * 
+     * @param screeningId The screeningId of the screening wanted.
+     * @return The Screening object wanted or null.
+     */
+    public synchronized Screening lookupScreening(int screeningId)
+    {
+        for (Screening screening : this.screenings)
+        {
+            if (screening.getScreeningId() == screeningId)
+            {
+                return screening;
+            }
+        }
+        
+        return null;
     }
 }
