@@ -2,8 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package picturemouse;
+package picturemouse.backend;
 
+import picturemouse.backend.Review;
+import picturemouse.backend.Newsletter;
+import picturemouse.backend.Account;
+import picturemouse.backend.Database;
+import picturemouse.backend.CinemaTicket;
+import picturemouse.backend.Film;
+import picturemouse.backend.Screening;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Time;

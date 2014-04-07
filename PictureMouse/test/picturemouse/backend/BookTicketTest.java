@@ -4,8 +4,14 @@
  * and open the template in the editor.
  */
 
-package picturemouse;
+package picturemouse.backend;
 
+import picturemouse.backend.Account;
+import picturemouse.backend.BookTicket;
+import picturemouse.backend.Database;
+import picturemouse.backend.CinemaTicket;
+import picturemouse.backend.Film;
+import picturemouse.backend.Screening;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

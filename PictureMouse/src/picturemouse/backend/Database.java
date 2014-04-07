@@ -1,4 +1,4 @@
-package picturemouse;
+package picturemouse.backend;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 
-package picturemouse;
+package picturemouse.backend;
 
+import picturemouse.backend.Account;
+import picturemouse.backend.CinemaTicket;
+import picturemouse.backend.Screening;
 import java.util.ArrayList;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
