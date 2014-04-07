@@ -17,13 +17,10 @@ public class DistributeNewsletter
     
 	public void doIt(String content)
 	{
-<<<<<<< HEAD
-=======
             /**
              * database storing all the data.
              */
             Database database = Database.getInstance();
->>>>>>> 384886c88c989c0b2874d29c0b4e87a3c8bf5766
             
             // Code to get content Admin entered in GUI and subsequently
             // intialise variable.

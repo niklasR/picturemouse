@@ -18,28 +18,6 @@ import java.text.SimpleDateFormat;
 
 public class PrintTicket implements Printable
 {
-<<<<<<< HEAD
-    Database db = Database.getInstance();
-
-    public void doIt(int seat, int screeningId)
-	{
-            
-            CinemaTicket ticket = new CinemaTicket(seat, screeningId);
-            ticket.print();
-            //Get cinema tickets from account  
-            
-            //Check which haven't already expired
-            
-            //Give a choice of tickets
-            
-            //Display ticket contents on screen
-            
-            //Print tickets
-            
-	
-	}
-}
-=======
     
     //toPrint will store contents of the ticket to be printed
     private String toPrint;
@@ -111,4 +89,3 @@ public class PrintTicket implements Printable
     }
         
 }
->>>>>>> 384886c88c989c0b2874d29c0b4e87a3c8bf5766

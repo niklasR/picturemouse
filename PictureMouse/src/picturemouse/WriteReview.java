@@ -9,14 +9,6 @@ package picturemouse;
 public class WriteReview
 {
     
-<<<<<<< HEAD
-        Database db = Database.getInstance();
-    
-	public void doIt(short stars, String text, String username, int filmId)
-	{
-            // generate this ourselves.
-            int reviewID = db.getReviews().size();
-=======
 	public void doIt(short stars, String text, String username, int filmId)
 	{
             
@@ -24,17 +16,12 @@ public class WriteReview
             
             // Generate the reviewId
             int reviewId = database.getReviews().size();
->>>>>>> 384886c88c989c0b2874d29c0b4e87a3c8bf5766
                        
             //Create new review object
             Review review = new Review();
             
             //Write review
-<<<<<<< HEAD
-            review.modify(stars, reviewID, text, username, filmId);
-=======
             review.modify(stars, reviewId, text, username, filmId);
->>>>>>> 384886c88c989c0b2874d29c0b4e87a3c8bf5766
             
             database.save(review);
 	

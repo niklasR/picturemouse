@@ -8,17 +8,6 @@ package picturemouse;
  */
 public class BookTicket
 {
-<<<<<<< HEAD
-	public void doIt(int screeningId, int seat, Account account)
-	{
-            CinemaTicket ticket = new CinemaTicket(seat, screeningId);
-            //If the seat in screening is availible then book
-            if(screening.available(ticket.getSeatNumber())) {
-                account.addTicket(ticket);
-                screening.book(ticket.getSeatNumber(), account.getUsername());
-            }
-	}
-=======
     /**
      * Method for when a ticket needs to be booked. This method will be called
      * from the front-end of the system, where the film, screening, seat and
@@ -47,5 +36,4 @@ public class BookTicket
             screening.book(seat, username);
         }
     }
->>>>>>> 384886c88c989c0b2874d29c0b4e87a3c8bf5766
 }
