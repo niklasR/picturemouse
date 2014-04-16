@@ -38,8 +38,8 @@ public class NewUser extends javax.swing.JFrame {
         tbxFirstName = new javax.swing.JTextField();
         tbxCredit = new javax.swing.JTextField();
         tbxUsername = new javax.swing.JTextField();
-        tbxPassword = new javax.swing.JTextField();
-        tbxPasswordConfirm = new javax.swing.JTextField();
+        tbxPassword = new javax.swing.JPasswordField();
+        tbxPasswordConfirm = new javax.swing.JPasswordField();
         bottomPanel = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
 
@@ -113,6 +113,12 @@ public class NewUser extends javax.swing.JFrame {
         lblPasswordConfirm.setForeground(new java.awt.Color(255, 255, 255));
         lblPasswordConfirm.setText("Confirm Password:");
 
+        tbxPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbxPasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
         centrePanelLayout.setHorizontalGroup(
@@ -127,11 +133,11 @@ public class NewUser extends javax.swing.JFrame {
                     .addComponent(lblUsername))
                 .addGap(23, 23, 23)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tbxPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                     .addComponent(tbxUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                     .addComponent(tbxFirstName)
                     .addComponent(tbxCredit)
-                    .addComponent(tbxPasswordConfirm))
+                    .addComponent(tbxPasswordConfirm)
+                    .addComponent(tbxPassword))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
@@ -151,12 +157,12 @@ public class NewUser extends javax.swing.JFrame {
                     .addComponent(lblUsername))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbxPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPassword))
+                    .addComponent(lblPassword)
+                    .addComponent(tbxPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbxPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPasswordConfirm))
+                    .addComponent(lblPasswordConfirm)
+                    .addComponent(tbxPasswordConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -198,6 +204,10 @@ public class NewUser extends javax.swing.JFrame {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void tbxPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbxPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,8 +256,8 @@ public class NewUser extends javax.swing.JFrame {
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextField tbxCredit;
     private javax.swing.JTextField tbxFirstName;
-    private javax.swing.JTextField tbxPassword;
-    private javax.swing.JTextField tbxPasswordConfirm;
+    private javax.swing.JPasswordField tbxPassword;
+    private javax.swing.JPasswordField tbxPasswordConfirm;
     private javax.swing.JTextField tbxUsername;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables

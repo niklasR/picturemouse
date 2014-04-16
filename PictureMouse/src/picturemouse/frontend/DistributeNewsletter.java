@@ -8,13 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class SignOn extends javax.swing.JFrame {
-    
-    String username;
+public class DistributeNewsletter extends javax.swing.JFrame {
+
     /**
      * Creates new form SignOn
      */
-    public SignOn() {
+    public DistributeNewsletter() {
         initComponents();
     }
 
@@ -29,15 +28,13 @@ public class SignOn extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblSignOn = new javax.swing.JLabel();
+        lblDistributeNewsletter = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
-        lblUsername = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
-        tbxUsername = new javax.swing.JTextField();
-        tbxPassword = new javax.swing.JPasswordField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbxNewsletterText = new javax.swing.JTextPane();
         bottomPanel = new javax.swing.JPanel();
-        btnSignOn = new javax.swing.JButton();
-        btnCreateAccount = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        btnDistribute = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -48,38 +45,39 @@ public class SignOn extends javax.swing.JFrame {
 
         topPanel.setBackground(new java.awt.Color(51, 102, 255));
         topPanel.setName("topPanel"); // NOI18N
+        topPanel.setPreferredSize(new java.awt.Dimension(421, 50));
 
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Welcome to the PictureMouse Cinema Self Service!");
+        lblWelcome.setText("Hello Administrator!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblSignOn.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblSignOn.setForeground(new java.awt.Color(255, 255, 255));
-        lblSignOn.setText("Please sign on or create an account. ");
+        lblDistributeNewsletter.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblDistributeNewsletter.setForeground(new java.awt.Color(255, 255, 255));
+        lblDistributeNewsletter.setText("Please modify the newsletter.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(128, Short.MAX_VALUE)
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                        .addComponent(lblWelcome)
-                        .addGap(36, 36, 36))
+                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(135, 135, 135))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                        .addComponent(lblSignOn)
-                        .addGap(109, 109, 109))))
+                        .addComponent(lblDistributeNewsletter)
+                        .addGap(126, 126, 126))))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblWelcome)
-                .addGap(18, 18, 18)
-                .addComponent(lblSignOn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDistributeNewsletter)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -87,41 +85,25 @@ public class SignOn extends javax.swing.JFrame {
         topPanel.getAccessibleContext().setAccessibleName("topPanel");
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
+        centrePanel.setPreferredSize(new java.awt.Dimension(421, 200));
+        centrePanel.setRequestFocusEnabled(false);
 
-        lblUsername.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("Username:");
-
-        lblPassword.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Password:");
+        jScrollPane2.setViewportView(tbxNewsletterText);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
         centrePanelLayout.setHorizontalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centrePanelLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsername)
-                    .addComponent(lblPassword))
-                .addGap(18, 18, 18)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tbxUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                    .addComponent(tbxPassword))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centrePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsername)
-                    .addComponent(tbxUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(tbxPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -129,21 +111,21 @@ public class SignOn extends javax.swing.JFrame {
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
 
-        btnSignOn.setBackground(new java.awt.Color(255, 255, 255));
-        btnSignOn.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnSignOn.setText("Sign On");
-        btnSignOn.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignOnActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
-        btnCreateAccount.setBackground(new java.awt.Color(255, 255, 255));
-        btnCreateAccount.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnCreateAccount.setText("Create Account");
-        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+        btnDistribute.setBackground(new java.awt.Color(255, 255, 255));
+        btnDistribute.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnDistribute.setText("Distribute");
+        btnDistribute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAccountActionPerformed(evt);
+                btnDistributeActionPerformed(evt);
             }
         });
 
@@ -152,20 +134,20 @@ public class SignOn extends javax.swing.JFrame {
         bottomPanelLayout.setHorizontalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCreateAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                    .addComponent(btnSignOn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btnDistribute, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSignOn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDistribute, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         getContentPane().add(bottomPanel);
@@ -173,15 +155,13 @@ public class SignOn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOnActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        // Put this after calling doIt() SignOn in backend.
-        username = tbxUsername.getText(); 
-    }//GEN-LAST:event_btnSignOnActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+    private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateAccountActionPerformed
+    }//GEN-LAST:event_btnDistributeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,34 +180,32 @@ public class SignOn extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignOn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignOn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignOn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignOn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignOn().setVisible(true);
+                new DistributeNewsletter().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
-    private javax.swing.JButton btnCreateAccount;
-    private javax.swing.JButton btnSignOn;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDistribute;
     private javax.swing.JPanel centrePanel;
-    private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblSignOn;
-    private javax.swing.JLabel lblUsername;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblDistributeNewsletter;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JPasswordField tbxPassword;
-    private javax.swing.JTextField tbxUsername;
+    private javax.swing.JTextPane tbxNewsletterText;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -122,11 +122,11 @@
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="tbxPassword" pref="228" max="32767" attributes="0"/>
                       <Component id="tbxUsername" pref="228" max="32767" attributes="0"/>
                       <Component id="tbxFirstName" alignment="0" max="32767" attributes="0"/>
                       <Component id="tbxCredit" alignment="0" max="32767" attributes="0"/>
                       <Component id="tbxPasswordConfirm" alignment="0" max="32767" attributes="0"/>
+                      <Component id="tbxPassword" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
@@ -152,13 +152,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tbxPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tbxPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tbxPasswordConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblPasswordConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tbxPasswordConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
               </Group>
@@ -227,9 +227,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tbxUsername">
         </Component>
-        <Component class="javax.swing.JTextField" name="tbxPassword">
+        <Component class="javax.swing.JPasswordField" name="tbxPassword">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbxPasswordActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="tbxPasswordConfirm">
+        <Component class="javax.swing.JPasswordField" name="tbxPasswordConfirm">
         </Component>
       </SubComponents>
     </Container>
