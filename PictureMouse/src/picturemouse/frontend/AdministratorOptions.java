@@ -28,7 +28,7 @@ public class AdministratorOptions extends javax.swing.JFrame {
 
         upperPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblBrowseAccounts = new javax.swing.JLabel();
+        lblAdminOptions = new javax.swing.JLabel();
         lowerPanel = new javax.swing.JPanel();
         btnBrowseAccounts = new javax.swing.JButton();
         btnBrowseReviews = new javax.swing.JButton();
@@ -39,6 +39,7 @@ public class AdministratorOptions extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
+        setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         upperPanel.setBackground(new java.awt.Color(51, 102, 255));
@@ -51,29 +52,28 @@ public class AdministratorOptions extends javax.swing.JFrame {
         lblWelcome.setText("Hello Administrator!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblBrowseAccounts.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblBrowseAccounts.setForeground(new java.awt.Color(255, 255, 255));
-        lblBrowseAccounts.setText("Please choose an option. ");
+        lblAdminOptions.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblAdminOptions.setForeground(new java.awt.Color(255, 255, 255));
+        lblAdminOptions.setText("Please choose an option. ");
 
         javax.swing.GroupLayout upperPanelLayout = new javax.swing.GroupLayout(upperPanel);
         upperPanel.setLayout(upperPanelLayout);
         upperPanelLayout.setHorizontalGroup(
             upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(upperPanelLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(139, 139, 139)
                 .addGroup(upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBrowseAccounts)
+                    .addComponent(lblAdminOptions)
                     .addComponent(lblWelcome))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         upperPanelLayout.setVerticalGroup(
             upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(upperPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblBrowseAccounts)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblAdminOptions))
         );
 
         getContentPane().add(upperPanel);
@@ -121,14 +121,14 @@ public class AdministratorOptions extends javax.swing.JFrame {
         lowerPanel.setLayout(lowerPanelLayout);
         lowerPanelLayout.setHorizontalGroup(
             lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lowerPanelLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lowerPanelLayout.createSequentialGroup()
+                .addContainerGap(119, Short.MAX_VALUE)
                 .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnDistributeNewsletter, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBrowseFilms, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBrowseReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBrowseAccounts))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(117, 117, 117))
         );
         lowerPanelLayout.setVerticalGroup(
             lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +141,7 @@ public class AdministratorOptions extends javax.swing.JFrame {
                 .addComponent(btnBrowseFilms, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDistributeNewsletter, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         getContentPane().add(lowerPanel);
@@ -204,7 +204,7 @@ public class AdministratorOptions extends javax.swing.JFrame {
     private javax.swing.JButton btnBrowseFilms;
     private javax.swing.JButton btnBrowseReviews;
     private javax.swing.JButton btnDistributeNewsletter;
-    private javax.swing.JLabel lblBrowseAccounts;
+    private javax.swing.JLabel lblAdminOptions;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel lowerPanel;
     private javax.swing.JPanel upperPanel;

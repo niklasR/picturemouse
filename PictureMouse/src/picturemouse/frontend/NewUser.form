@@ -8,6 +8,7 @@
       <Color blue="99" green="0" red="0" type="rgb"/>
     </Property>
     <Property name="name" type="java.lang.String" value="signOn" noResource="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>

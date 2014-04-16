@@ -9,7 +9,8 @@ package picturemouse.frontend;
  * @author John
  */
 public class SignOn extends javax.swing.JFrame {
-
+    
+    String username;
     /**
      * Creates new form SignOn
      */
@@ -42,6 +43,7 @@ public class SignOn extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
+        setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         topPanel.setBackground(new java.awt.Color(51, 102, 255));
@@ -176,6 +178,8 @@ public class SignOn extends javax.swing.JFrame {
 
     private void btnSignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOnActionPerformed
         // TODO add your handling code here:
+        // Put this after calling doIt() SignOn in backend.
+        username = tbxUsername.getText(); 
     }//GEN-LAST:event_btnSignOnActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
