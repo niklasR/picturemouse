@@ -8,12 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class BrowseAccounts extends javax.swing.JFrame {
+public class BrowseReviews extends javax.swing.JFrame {
 
     /**
      * Creates new form SignOn
      */
-    public BrowseAccounts() {
+    public BrowseReviews() {
         initComponents();
     }
 
@@ -55,20 +55,20 @@ public class BrowseAccounts extends javax.swing.JFrame {
 
         lblBrowseFilms.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblBrowseFilms.setForeground(new java.awt.Color(255, 255, 255));
-        lblBrowseFilms.setText("Please select an account.");
+        lblBrowseFilms.setText("Please select a review.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addComponent(lblBrowseFilms)
-                .addGap(145, 145, 145))
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(129, 129, 129)
-                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblBrowseFilms))
+                    .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,20 +185,20 @@ public class BrowseAccounts extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BrowseAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseReviews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BrowseAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseReviews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BrowseAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseReviews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BrowseAccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseReviews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BrowseAccounts().setVisible(true);
+                new BrowseReviews().setVisible(true);
             }
         });
     }
