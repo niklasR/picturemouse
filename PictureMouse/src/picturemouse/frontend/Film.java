@@ -30,19 +30,20 @@ public class Film extends javax.swing.JFrame {
         lblWelcome = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbxAmmendReview = new javax.swing.JTextArea();
+        tbxFilmSynopsis = new javax.swing.JTextArea();
         lblFilmSynopsis = new javax.swing.JLabel();
         bottomPanel = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
         btnBookTicket = new javax.swing.JButton();
-        btnReadReviews = new javax.swing.JButton();
+        btnBrowseReviews = new javax.swing.JButton();
         btnWatchTrailer = new javax.swing.JButton();
+        btnWriteReview = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(421, 470));
+        setPreferredSize(new java.awt.Dimension(421, 500));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -70,7 +71,7 @@ public class Film extends javax.swing.JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblWelcome)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(topPanel);
@@ -80,10 +81,10 @@ public class Film extends javax.swing.JFrame {
         centrePanel.setPreferredSize(new java.awt.Dimension(421, 200));
         centrePanel.setRequestFocusEnabled(false);
 
-        tbxAmmendReview.setEditable(false);
-        tbxAmmendReview.setColumns(20);
-        tbxAmmendReview.setRows(5);
-        jScrollPane1.setViewportView(tbxAmmendReview);
+        tbxFilmSynopsis.setEditable(false);
+        tbxFilmSynopsis.setColumns(20);
+        tbxFilmSynopsis.setRows(5);
+        jScrollPane1.setViewportView(tbxFilmSynopsis);
 
         lblFilmSynopsis.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblFilmSynopsis.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,13 +107,13 @@ public class Film extends javax.swing.JFrame {
                 .addComponent(lblFilmSynopsis)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         getContentPane().add(centrePanel);
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
-        bottomPanel.setPreferredSize(new java.awt.Dimension(421, 200));
+        bottomPanel.setPreferredSize(new java.awt.Dimension(421, 220));
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -132,12 +133,12 @@ public class Film extends javax.swing.JFrame {
             }
         });
 
-        btnReadReviews.setBackground(new java.awt.Color(255, 255, 255));
-        btnReadReviews.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnReadReviews.setText("Read Reviews");
-        btnReadReviews.addActionListener(new java.awt.event.ActionListener() {
+        btnBrowseReviews.setBackground(new java.awt.Color(255, 255, 255));
+        btnBrowseReviews.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnBrowseReviews.setText("Browse Reviews");
+        btnBrowseReviews.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReadReviewsActionPerformed(evt);
+                btnBrowseReviewsActionPerformed(evt);
             }
         });
 
@@ -150,6 +151,15 @@ public class Film extends javax.swing.JFrame {
             }
         });
 
+        btnWriteReview.setBackground(new java.awt.Color(255, 255, 255));
+        btnWriteReview.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnWriteReview.setText("Write Review");
+        btnWriteReview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWriteReviewActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
@@ -157,24 +167,26 @@ public class Film extends javax.swing.JFrame {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnWriteReview, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBookTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReadReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBrowseReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnWatchTrailer, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnWatchTrailer, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReadReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnWriteReview, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBrowseReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBookTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
 
         getContentPane().add(bottomPanel);
@@ -194,9 +206,13 @@ public class Film extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBookTicketActionPerformed
 
-    private void btnReadReviewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadReviewsActionPerformed
+    private void btnBrowseReviewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseReviewsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnReadReviewsActionPerformed
+    }//GEN-LAST:event_btnBrowseReviewsActionPerformed
+
+    private void btnWriteReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWriteReviewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnWriteReviewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,13 +252,14 @@ public class Film extends javax.swing.JFrame {
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBookTicket;
-    private javax.swing.JButton btnReadReviews;
+    private javax.swing.JButton btnBrowseReviews;
     private javax.swing.JButton btnWatchTrailer;
+    private javax.swing.JButton btnWriteReview;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFilmSynopsis;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JTextArea tbxAmmendReview;
+    private javax.swing.JTextArea tbxFilmSynopsis;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }
