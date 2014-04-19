@@ -28,7 +28,7 @@ public class CustomerOptions extends javax.swing.JFrame {
 
         upperPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblAdminOptions = new javax.swing.JLabel();
+        lblCustomerOptions = new javax.swing.JLabel();
         lowerPanel = new javax.swing.JPanel();
         btnBrowseTickets = new javax.swing.JButton();
         btnReadNewsletter = new javax.swing.JButton();
@@ -52,9 +52,9 @@ public class CustomerOptions extends javax.swing.JFrame {
         lblWelcome.setText("Hello <<NAME>>!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblAdminOptions.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblAdminOptions.setForeground(new java.awt.Color(255, 255, 255));
-        lblAdminOptions.setText("Please choose an option. ");
+        lblCustomerOptions.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblCustomerOptions.setForeground(new java.awt.Color(255, 255, 255));
+        lblCustomerOptions.setText("Please choose an option. ");
 
         javax.swing.GroupLayout upperPanelLayout = new javax.swing.GroupLayout(upperPanel);
         upperPanel.setLayout(upperPanelLayout);
@@ -63,7 +63,7 @@ public class CustomerOptions extends javax.swing.JFrame {
             .addGroup(upperPanelLayout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addGroup(upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAdminOptions)
+                    .addComponent(lblCustomerOptions)
                     .addGroup(upperPanelLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(lblWelcome)))
@@ -75,7 +75,7 @@ public class CustomerOptions extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAdminOptions))
+                .addComponent(lblCustomerOptions))
         );
 
         getContentPane().add(upperPanel);
@@ -189,7 +189,7 @@ public class CustomerOptions extends javax.swing.JFrame {
     private javax.swing.JButton btnBrowseFilms;
     private javax.swing.JButton btnBrowseTickets;
     private javax.swing.JButton btnReadNewsletter;
-    private javax.swing.JLabel lblAdminOptions;
+    private javax.swing.JLabel lblCustomerOptions;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel lowerPanel;
     private javax.swing.JPanel upperPanel;

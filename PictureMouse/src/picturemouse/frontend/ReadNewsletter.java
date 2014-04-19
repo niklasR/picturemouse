@@ -8,12 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class DistributeNewsletter extends javax.swing.JFrame {
+public class ReadNewsletter extends javax.swing.JFrame {
 
     /**
      * Creates new form SignOn
      */
-    public DistributeNewsletter() {
+    public ReadNewsletter() {
         initComponents();
     }
 
@@ -28,13 +28,12 @@ public class DistributeNewsletter extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblDistributeNewsletter = new javax.swing.JLabel();
+        lblReadNewsletter = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbxNewsletterText = new javax.swing.JTextPane();
         bottomPanel = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
-        btnDistribute = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -50,26 +49,26 @@ public class DistributeNewsletter extends javax.swing.JFrame {
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Hello Administrator!");
+        lblWelcome.setText("Hello <<NAME>>!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblDistributeNewsletter.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblDistributeNewsletter.setForeground(new java.awt.Color(255, 255, 255));
-        lblDistributeNewsletter.setText("Please modify the newsletter.");
+        lblReadNewsletter.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblReadNewsletter.setForeground(new java.awt.Color(255, 255, 255));
+        lblReadNewsletter.setText(" Please read our current newsletter.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(135, 135, 135))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                        .addComponent(lblDistributeNewsletter)
-                        .addGap(126, 126, 126))))
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(lblReadNewsletter)))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +76,7 @@ public class DistributeNewsletter extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDistributeNewsletter)
+                .addComponent(lblReadNewsletter)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -88,6 +87,7 @@ public class DistributeNewsletter extends javax.swing.JFrame {
         centrePanel.setPreferredSize(new java.awt.Dimension(421, 220));
         centrePanel.setRequestFocusEnabled(false);
 
+        tbxNewsletterText.setEditable(false);
         jScrollPane2.setViewportView(tbxNewsletterText);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
@@ -120,34 +120,21 @@ public class DistributeNewsletter extends javax.swing.JFrame {
             }
         });
 
-        btnDistribute.setBackground(new java.awt.Color(255, 255, 255));
-        btnDistribute.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnDistribute.setText("Distribute");
-        btnDistribute.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDistributeActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(115, 115, 115)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(btnDistribute, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDistribute, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         getContentPane().add(bottomPanel);
@@ -158,10 +145,6 @@ public class DistributeNewsletter extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDistributeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,30 +163,29 @@ public class DistributeNewsletter extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DistributeNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReadNewsletter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DistributeNewsletter().setVisible(true);
+                new ReadNewsletter().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDistribute;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblDistributeNewsletter;
+    private javax.swing.JLabel lblReadNewsletter;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextPane tbxNewsletterText;
     private javax.swing.JPanel topPanel;
