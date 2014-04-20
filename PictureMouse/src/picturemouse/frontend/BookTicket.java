@@ -8,12 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class ReadReview extends javax.swing.JFrame {
+public class BookTicket extends javax.swing.JFrame {
 
     /**
      * Creates new form SignOn
      */
-    public ReadReview() {
+    public BookTicket() {
         initComponents();
     }
 
@@ -28,91 +28,110 @@ public class ReadReview extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblBrowseFilms = new javax.swing.JLabel();
+        lblCustomerOptions = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        cbxPickScreening = new javax.swing.JComboBox();
+        cbxPickSeat = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
+        btnBook = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(421, 400));
+        setPreferredSize(new java.awt.Dimension(421, 250));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         topPanel.setBackground(new java.awt.Color(51, 102, 255));
         topPanel.setName("topPanel"); // NOI18N
-        topPanel.setPreferredSize(new java.awt.Dimension(421, 60));
+        topPanel.setPreferredSize(new java.awt.Dimension(421, 40));
 
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("<FILMNAME>");
+        lblWelcome.setText("Hello <<NAME>>!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblBrowseFilms.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblBrowseFilms.setForeground(new java.awt.Color(255, 255, 255));
-        lblBrowseFilms.setText("Read Review selected.");
+        lblCustomerOptions.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblCustomerOptions.setForeground(new java.awt.Color(255, 255, 255));
+        lblCustomerOptions.setText("Please select your preferences.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(129, 129, 129)
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblBrowseFilms)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                        .addGap(147, 147, 147)
+                        .addComponent(lblWelcome))
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(lblCustomerOptions)))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblWelcome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(lblBrowseFilms))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCustomerOptions)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         getContentPane().add(topPanel);
         topPanel.getAccessibleContext().setAccessibleName("topPanel");
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
-        centrePanel.setPreferredSize(new java.awt.Dimension(421, 260));
+        centrePanel.setPreferredSize(new java.awt.Dimension(421, 60));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        cbxPickScreening.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a screening..." }));
+
+        cbxPickSeat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a seat number..." }));
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
         centrePanelLayout.setHorizontalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centrePanelLayout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(96, 96, 96)
+                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cbxPickScreening, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxPickSeat, 0, 217, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(centrePanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centrePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cbxPickScreening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cbxPickSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         getContentPane().add(centrePanel);
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
+        bottomPanel.setPreferredSize(new java.awt.Dimension(421, 50));
+
+        btnBook.setBackground(new java.awt.Color(255, 255, 255));
+        btnBook.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnBook.setText("Book");
+        btnBook.setPreferredSize(new java.awt.Dimension(59, 25));
+        btnBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBookActionPerformed(evt);
+            }
+        });
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setPreferredSize(new java.awt.Dimension(61, 25));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -123,16 +142,20 @@ public class ReadReview extends javax.swing.JFrame {
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addComponent(btnBook, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                .addContainerGap())
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE)
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -144,6 +167,10 @@ public class ReadReview extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,30 +189,31 @@ public class ReadReview extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReadReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReadReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReadReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReadReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookTicket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReadReview().setVisible(true);
+                new BookTicket().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBook;
+    private javax.swing.JComboBox cbxPickScreening;
+    private javax.swing.JComboBox cbxPickSeat;
     private javax.swing.JPanel centrePanel;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lblBrowseFilms;
+    private javax.swing.JLabel lblCustomerOptions;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
