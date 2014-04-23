@@ -33,7 +33,7 @@ public class Film extends javax.swing.JFrame {
         tbxFilmSynopsis = new javax.swing.JTextArea();
         lblFilmSynopsis = new javax.swing.JLabel();
         bottomPanel = new javax.swing.JPanel();
-        btnBack = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         btnBookTicket = new javax.swing.JButton();
         btnBrowseReviews = new javax.swing.JButton();
         btnWatchTrailer = new javax.swing.JButton();
@@ -115,12 +115,12 @@ public class Film extends javax.swing.JFrame {
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
         bottomPanel.setPreferredSize(new java.awt.Dimension(421, 220));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -168,7 +168,7 @@ public class Film extends javax.swing.JFrame {
                 .addGap(117, 117, 117)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnWriteReview, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBookTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBrowseReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnWatchTrailer, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,7 +185,7 @@ public class Film extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBookTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
@@ -194,9 +194,9 @@ public class Film extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnWatchTrailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWatchTrailerActionPerformed
         // TODO add your handling code here:
@@ -250,9 +250,9 @@ public class Film extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBookTicket;
     private javax.swing.JButton btnBrowseReviews;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnWatchTrailer;
     private javax.swing.JButton btnWriteReview;
     private javax.swing.JPanel centrePanel;
