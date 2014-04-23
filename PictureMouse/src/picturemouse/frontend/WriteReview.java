@@ -8,12 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class EditReview extends javax.swing.JFrame {
+public class WriteReview extends javax.swing.JFrame {
 
     /**
      * Creates new form SignOn
      */
-    public EditReview() {
+    public WriteReview() {
         initComponents();
     }
 
@@ -28,21 +28,20 @@ public class EditReview extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblEditReview = new javax.swing.JLabel();
+        lblWriteReview = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbxAmmendReview = new javax.swing.JTextArea();
-        lblAmmendStar = new javax.swing.JLabel();
-        cbxAmmendStar = new javax.swing.JComboBox();
+        lblStar = new javax.swing.JLabel();
+        cbxStar = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(421, 370));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -53,25 +52,26 @@ public class EditReview extends javax.swing.JFrame {
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Hello Administrator!");
+        lblWelcome.setText("Hello <<NAME>>!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblEditReview.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblEditReview.setForeground(new java.awt.Color(255, 255, 255));
-        lblEditReview.setText("Please amend the review as appropriate.");
+        lblWriteReview.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblWriteReview.setForeground(new java.awt.Color(255, 255, 255));
+        lblWriteReview.setText("Please enter your review for <<FILM>>.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
-                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135))
-            .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(lblEditReview)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(lblWriteReview))
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,7 +79,7 @@ public class EditReview extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEditReview)
+                .addComponent(lblWriteReview)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -94,16 +94,16 @@ public class EditReview extends javax.swing.JFrame {
         tbxAmmendReview.setRows(5);
         jScrollPane1.setViewportView(tbxAmmendReview);
 
-        lblAmmendStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblAmmendStar.setForeground(new java.awt.Color(255, 255, 255));
-        lblAmmendStar.setText("Star Rating:");
+        lblStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblStar.setForeground(new java.awt.Color(255, 255, 255));
+        lblStar.setText("Star Rating:");
 
-        cbxAmmendStar.setBackground(new java.awt.Color(51, 102, 255));
-        cbxAmmendStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        cbxAmmendStar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select a rating...", "1 ", "2", "3", "4", "5" }));
-        cbxAmmendStar.addActionListener(new java.awt.event.ActionListener() {
+        cbxStar.setBackground(new java.awt.Color(51, 102, 255));
+        cbxStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        cbxStar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select a rating...", "1 ", "2", "3", "4", "5" }));
+        cbxStar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxAmmendStarActionPerformed(evt);
+                cbxStarActionPerformed(evt);
             }
         });
 
@@ -115,9 +115,9 @@ public class EditReview extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centrePanelLayout.createSequentialGroup()
-                        .addComponent(lblAmmendStar)
+                        .addComponent(lblStar)
                         .addGap(18, 18, 18)
-                        .addComponent(cbxAmmendStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbxStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
@@ -128,8 +128,8 @@ public class EditReview extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAmmendStar)
-                    .addComponent(cbxAmmendStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblStar)
+                    .addComponent(cbxStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         getContentPane().add(centrePanel);
@@ -146,12 +146,12 @@ public class EditReview extends javax.swing.JFrame {
             }
         });
 
-        btnSave.setBackground(new java.awt.Color(255, 255, 255));
-        btnSave.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(255, 255, 255));
+        btnAdd.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -163,7 +163,7 @@ public class EditReview extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         bottomPanelLayout.setVerticalGroup(
@@ -172,7 +172,7 @@ public class EditReview extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -185,13 +185,13 @@ public class EditReview extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void cbxAmmendStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAmmendStarActionPerformed
+    private void cbxStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxStarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxAmmendStarActionPerformed
+    }//GEN-LAST:event_cbxStarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,33 +210,33 @@ public class EditReview extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WriteReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WriteReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WriteReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WriteReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditReview().setVisible(true);
+                new WriteReview().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JComboBox cbxAmmendStar;
+    private javax.swing.JComboBox cbxStar;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAmmendStar;
-    private javax.swing.JLabel lblEditReview;
+    private javax.swing.JLabel lblStar;
     private javax.swing.JLabel lblWelcome;
+    private javax.swing.JLabel lblWriteReview;
     private javax.swing.JTextArea tbxAmmendReview;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
