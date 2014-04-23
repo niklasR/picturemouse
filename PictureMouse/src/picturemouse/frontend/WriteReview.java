@@ -31,7 +31,7 @@ public class WriteReview extends javax.swing.JFrame {
         lblWriteReview = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbxAmmendReview = new javax.swing.JTextArea();
+        tbxWriteReview = new javax.swing.JTextArea();
         lblStar = new javax.swing.JLabel();
         cbxStar = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
@@ -90,9 +90,9 @@ public class WriteReview extends javax.swing.JFrame {
         centrePanel.setPreferredSize(new java.awt.Dimension(421, 210));
         centrePanel.setRequestFocusEnabled(false);
 
-        tbxAmmendReview.setColumns(20);
-        tbxAmmendReview.setRows(5);
-        jScrollPane1.setViewportView(tbxAmmendReview);
+        tbxWriteReview.setColumns(20);
+        tbxWriteReview.setRows(5);
+        jScrollPane1.setViewportView(tbxWriteReview);
 
         lblStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblStar.setForeground(new java.awt.Color(255, 255, 255));
@@ -237,7 +237,7 @@ public class WriteReview extends javax.swing.JFrame {
     private javax.swing.JLabel lblStar;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lblWriteReview;
-    private javax.swing.JTextArea tbxAmmendReview;
+    private javax.swing.JTextArea tbxWriteReview;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,12 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class BrowseFilms extends javax.swing.JFrame {
+public class BrowseTickets extends javax.swing.JFrame {
 
     /**
      * Creates new form SignOn
      */
-    public BrowseFilms() {
+    public BrowseTickets() {
         initComponents();
     }
 
@@ -28,12 +28,12 @@ public class BrowseFilms extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblBrowseFilms = new javax.swing.JLabel();
+        lblBrowseTickets = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        lbxFilms = new javax.swing.JList();
+        lbxTickets = new javax.swing.JList();
         bottomPanel = new javax.swing.JPanel();
-        btnBack = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         btnSelect = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,33 +50,33 @@ public class BrowseFilms extends javax.swing.JFrame {
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Hello (username)!");
+        lblWelcome.setText("Hello <<NAME>>!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblBrowseFilms.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblBrowseFilms.setForeground(new java.awt.Color(255, 255, 255));
-        lblBrowseFilms.setText("Please select a film.");
+        lblBrowseTickets.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblBrowseTickets.setForeground(new java.awt.Color(255, 255, 255));
+        lblBrowseTickets.setText("Your purchased tickets are listed below.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(topPanelLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                .addContainerGap(146, Short.MAX_VALUE)
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblBrowseFilms))
-                    .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(145, 145, 145))
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addComponent(lblBrowseTickets)
+                .addGap(95, 95, 95))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lblWelcome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblBrowseFilms))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblBrowseTickets))
         );
 
         getContentPane().add(topPanel);
@@ -84,13 +84,13 @@ public class BrowseFilms extends javax.swing.JFrame {
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
 
-        lbxFilms.setModel(new javax.swing.AbstractListModel() {
+        lbxTickets.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        lbxFilms.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(lbxFilms);
+        lbxTickets.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(lbxTickets);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -117,18 +117,18 @@ public class BrowseFilms extends javax.swing.JFrame {
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
         btnSelect.setBackground(new java.awt.Color(255, 255, 255));
         btnSelect.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnSelect.setText("Select");
+        btnSelect.setText("Select to Print");
         btnSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectActionPerformed(evt);
@@ -141,7 +141,7 @@ public class BrowseFilms extends javax.swing.JFrame {
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -151,7 +151,7 @@ public class BrowseFilms extends javax.swing.JFrame {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -161,9 +161,9 @@ public class BrowseFilms extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         // TODO add your handling code here:
@@ -186,32 +186,32 @@ public class BrowseFilms extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BrowseFilms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BrowseFilms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BrowseFilms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BrowseFilms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BrowseTickets.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BrowseFilms().setVisible(true);
+                new BrowseTickets().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSelect;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblBrowseFilms;
+    private javax.swing.JLabel lblBrowseTickets;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JList lbxFilms;
+    private javax.swing.JList lbxTickets;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }
