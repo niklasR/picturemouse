@@ -57,7 +57,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                  <Component id="lblEditReview" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblModifyReview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -68,7 +68,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblWelcome" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblEditReview" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblModifyReview" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -88,7 +88,7 @@
             <Property name="alignmentX" type="float" value="0.5"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblEditReview">
+        <Component class="javax.swing.JLabel" name="lblModifyReview">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="14" style="0"/>
@@ -96,7 +96,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Please amend the review as appropriate."/>
+            <Property name="text" type="java.lang.String" value="Please modify the review as appropriate."/>
           </Properties>
         </Component>
       </SubComponents>
@@ -119,9 +119,9 @@
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblAmmendStar" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblModifyStar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="cbxAmmendStar" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbxModifyStar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" min="-2" pref="286" max="-2" attributes="0"/>
                   </Group>
@@ -136,8 +136,8 @@
                   <Component id="jScrollPane1" min="-2" pref="169" max="-2" attributes="0"/>
                   <EmptySpace pref="8" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblAmmendStar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbxAmmendStar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblModifyStar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxModifyStar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -159,7 +159,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="lblAmmendStar">
+        <Component class="javax.swing.JLabel" name="lblModifyStar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="14" style="0"/>
@@ -170,7 +170,7 @@
             <Property name="text" type="java.lang.String" value="Star Rating:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxAmmendStar">
+        <Component class="javax.swing.JComboBox" name="cbxModifyStar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
@@ -190,7 +190,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxAmmendStarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxModifyStarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

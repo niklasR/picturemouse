@@ -8,12 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class EditReview extends javax.swing.JFrame {
+public class ModifyReview extends javax.swing.JFrame {
 
     /**
      * Creates new form SignOn
      */
-    public EditReview() {
+    public ModifyReview() {
         initComponents();
     }
 
@@ -28,12 +28,12 @@ public class EditReview extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblEditReview = new javax.swing.JLabel();
+        lblModifyReview = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbxAmmendReview = new javax.swing.JTextArea();
-        lblAmmendStar = new javax.swing.JLabel();
-        cbxAmmendStar = new javax.swing.JComboBox();
+        lblModifyStar = new javax.swing.JLabel();
+        cbxModifyStar = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
@@ -56,9 +56,9 @@ public class EditReview extends javax.swing.JFrame {
         lblWelcome.setText("Hello Administrator!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblEditReview.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblEditReview.setForeground(new java.awt.Color(255, 255, 255));
-        lblEditReview.setText("Please amend the review as appropriate.");
+        lblModifyReview.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblModifyReview.setForeground(new java.awt.Color(255, 255, 255));
+        lblModifyReview.setText("Please modify the review as appropriate.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -70,7 +70,7 @@ public class EditReview extends javax.swing.JFrame {
                 .addGap(135, 135, 135))
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(94, 94, 94)
-                .addComponent(lblEditReview)
+                .addComponent(lblModifyReview)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
@@ -79,7 +79,7 @@ public class EditReview extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEditReview)
+                .addComponent(lblModifyReview)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -94,16 +94,16 @@ public class EditReview extends javax.swing.JFrame {
         tbxAmmendReview.setRows(5);
         jScrollPane1.setViewportView(tbxAmmendReview);
 
-        lblAmmendStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblAmmendStar.setForeground(new java.awt.Color(255, 255, 255));
-        lblAmmendStar.setText("Star Rating:");
+        lblModifyStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblModifyStar.setForeground(new java.awt.Color(255, 255, 255));
+        lblModifyStar.setText("Star Rating:");
 
-        cbxAmmendStar.setBackground(new java.awt.Color(51, 102, 255));
-        cbxAmmendStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        cbxAmmendStar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select a rating...", "1 ", "2", "3", "4", "5" }));
-        cbxAmmendStar.addActionListener(new java.awt.event.ActionListener() {
+        cbxModifyStar.setBackground(new java.awt.Color(51, 102, 255));
+        cbxModifyStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        cbxModifyStar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select a rating...", "1 ", "2", "3", "4", "5" }));
+        cbxModifyStar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxAmmendStarActionPerformed(evt);
+                cbxModifyStarActionPerformed(evt);
             }
         });
 
@@ -115,9 +115,9 @@ public class EditReview extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centrePanelLayout.createSequentialGroup()
-                        .addComponent(lblAmmendStar)
+                        .addComponent(lblModifyStar)
                         .addGap(18, 18, 18)
-                        .addComponent(cbxAmmendStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbxModifyStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
@@ -128,8 +128,8 @@ public class EditReview extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAmmendStar)
-                    .addComponent(cbxAmmendStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblModifyStar)
+                    .addComponent(cbxModifyStar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         getContentPane().add(centrePanel);
@@ -189,9 +189,9 @@ public class EditReview extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void cbxAmmendStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAmmendStarActionPerformed
+    private void cbxModifyStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxModifyStarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxAmmendStarActionPerformed
+    }//GEN-LAST:event_cbxModifyStarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,20 +210,20 @@ public class EditReview extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyReview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditReview().setVisible(true);
+                new ModifyReview().setVisible(true);
             }
         });
     }
@@ -231,11 +231,11 @@ public class EditReview extends javax.swing.JFrame {
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
-    private javax.swing.JComboBox cbxAmmendStar;
+    private javax.swing.JComboBox cbxModifyStar;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAmmendStar;
-    private javax.swing.JLabel lblEditReview;
+    private javax.swing.JLabel lblModifyReview;
+    private javax.swing.JLabel lblModifyStar;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTextArea tbxAmmendReview;
     private javax.swing.JPanel topPanel;
