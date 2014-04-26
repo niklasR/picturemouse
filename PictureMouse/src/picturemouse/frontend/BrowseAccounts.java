@@ -11,7 +11,7 @@ package picturemouse.frontend;
 public class BrowseAccounts extends javax.swing.JFrame {
 
     /**
-     * Creates new form SignOn
+     * Creates new form BrowseAccounts
      */
     public BrowseAccounts() {
         initComponents();

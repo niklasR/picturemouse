@@ -11,7 +11,7 @@ package picturemouse.frontend;
 public class AdministratorOptions extends javax.swing.JFrame {
 
     /**
-     * Creates new form SignOn
+     * Creates new form AdministratorOptions
      */
     public AdministratorOptions() {
         initComponents();
@@ -151,20 +151,26 @@ public class AdministratorOptions extends javax.swing.JFrame {
 
     private void btnBrowseAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseAccountsActionPerformed
         // TODO add your handling code here:
-        BrowseAccounts browseAccounts = new BrowseAccounts();
-        setVisible(false);
+        this.setVisible(false);
+        new BrowseAccounts().setVisible(true);
     }//GEN-LAST:event_btnBrowseAccountsActionPerformed
 
     private void btnBrowseReviewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseReviewsActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new BrowseReviews().setVisible(true);
     }//GEN-LAST:event_btnBrowseReviewsActionPerformed
 
     private void btnBrowseFilmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseFilmsActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new BrowseFilms().setVisible(true);
     }//GEN-LAST:event_btnBrowseFilmsActionPerformed
 
     private void btnDistributeNewsletterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeNewsletterActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new DistributeNewsletter().setVisible(true);
     }//GEN-LAST:event_btnDistributeNewsletterActionPerformed
 
     /**
