@@ -8,12 +8,12 @@ package picturemouse.frontend;
  *
  * @author John
  */
-public class ModifyAccount extends javax.swing.JFrame {
+public class ModifyScreening extends javax.swing.JFrame {
 
     /**
      * Creates new form SignOn
      */
-    public ModifyAccount() {
+    public ModifyScreening() {
         initComponents();
     }
 
@@ -30,17 +30,19 @@ public class ModifyAccount extends javax.swing.JFrame {
         lblWelcome = new javax.swing.JLabel();
         lblModifyAccount = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
-        lblFirstName = new javax.swing.JLabel();
-        lblCredit = new javax.swing.JLabel();
-        lblUsername = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
-        tbxFirstName = new javax.swing.JTextField();
-        tbxCredit = new javax.swing.JTextField();
-        tbxUsername = new javax.swing.JTextField();
-        tbxPassword = new javax.swing.JPasswordField();
+        lblDate = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        tbxDate = new javax.swing.JTextField();
+        lblMin = new javax.swing.JLabel();
+        lblHour = new javax.swing.JLabel();
+        tbxHour = new javax.swing.JTextField();
+        tbxMinute = new javax.swing.JTextField();
+        lblDivision = new javax.swing.JLabel();
+        cbxPartOfDay = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
         btnSaveModifications = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        btnRemoveScreening = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -56,12 +58,12 @@ public class ModifyAccount extends javax.swing.JFrame {
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Hello Administrator! ");
+        lblWelcome.setText("Hello Administrator!");
         lblWelcome.setAlignmentX(0.5F);
 
         lblModifyAccount.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblModifyAccount.setForeground(new java.awt.Color(255, 255, 255));
-        lblModifyAccount.setText("You are editing <<OLD NAME>>'s account.");
+        lblModifyAccount.setText("You are editing the <<time>> screening for <<Filmname>>.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -73,105 +75,107 @@ public class ModifyAccount extends javax.swing.JFrame {
                         .addGap(140, 140, 140)
                         .addComponent(lblWelcome))
                     .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(46, 46, 46)
                         .addComponent(lblModifyAccount)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblWelcome)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblModifyAccount)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(topPanel);
         topPanel.getAccessibleContext().setAccessibleName("topPanel");
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
-        centrePanel.setPreferredSize(new java.awt.Dimension(430, 130));
+        centrePanel.setPreferredSize(new java.awt.Dimension(430, 100));
 
-        lblFirstName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblFirstName.setForeground(new java.awt.Color(255, 255, 255));
-        lblFirstName.setText("First Name:");
+        lblDate.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(255, 255, 255));
+        lblDate.setText("Date:");
 
-        lblCredit.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblCredit.setForeground(new java.awt.Color(255, 255, 255));
-        lblCredit.setText("Credit Card No:");
+        lblTime.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(255, 255, 255));
+        lblTime.setText("Time:");
 
-        lblUsername.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
-        lblUsername.setText("Username:");
-
-        lblPassword.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Password:");
-
-        tbxFirstName.setText("Currently held data for all.");
-        tbxFirstName.addActionListener(new java.awt.event.ActionListener() {
+        tbxDate.setText("Currently held data for all.");
+        tbxDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbxFirstNameActionPerformed(evt);
+                tbxDateActionPerformed(evt);
             }
         });
 
-        tbxCredit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbxCreditActionPerformed(evt);
-            }
-        });
+        lblMin.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblMin.setForeground(new java.awt.Color(255, 255, 255));
+        lblMin.setText("MM");
 
-        tbxPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbxPasswordActionPerformed(evt);
-            }
-        });
+        lblHour.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblHour.setForeground(new java.awt.Color(255, 255, 255));
+        lblHour.setText("HH");
+
+        lblDivision.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblDivision.setForeground(new java.awt.Color(255, 255, 255));
+        lblDivision.setText(":");
+
+        cbxPartOfDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AM", "PM" }));
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
         centrePanelLayout.setHorizontalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centrePanelLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(73, 73, 73)
+                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTime)
+                    .addComponent(lblDate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPassword)
-                    .addComponent(lblCredit)
-                    .addComponent(lblFirstName)
-                    .addComponent(lblUsername))
-                .addGap(41, 41, 41)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tbxUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                    .addComponent(tbxFirstName)
-                    .addComponent(tbxCredit)
-                    .addComponent(tbxPassword))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(tbxDate, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(centrePanelLayout.createSequentialGroup()
+                        .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tbxHour, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblHour))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDivision)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMin)
+                            .addGroup(centrePanelLayout.createSequentialGroup()
+                                .addComponent(tbxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbxPartOfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centrePanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbxFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFirstName))
+                    .addComponent(lblDate)
+                    .addComponent(tbxDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTime)
+                    .addComponent(tbxHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tbxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDivision)
+                    .addComponent(cbxPartOfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbxCredit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCredit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbxUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsername))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(tbxPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(lblMin)
+                    .addComponent(lblHour))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         getContentPane().add(centrePanel);
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
+        bottomPanel.setPreferredSize(new java.awt.Dimension(430, 120));
 
         btnSaveModifications.setBackground(new java.awt.Color(255, 255, 255));
         btnSaveModifications.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -191,21 +195,36 @@ public class ModifyAccount extends javax.swing.JFrame {
             }
         });
 
+        btnRemoveScreening.setBackground(new java.awt.Color(255, 255, 255));
+        btnRemoveScreening.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnRemoveScreening.setText("Remove Screening");
+        btnRemoveScreening.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveScreeningActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bottomPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnSaveModifications, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(bottomPanelLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(btnRemoveScreening, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(btnRemoveScreening, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSaveModifications, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,21 +240,17 @@ public class ModifyAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
-    private void tbxPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxPasswordActionPerformed
+    private void tbxDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbxPasswordActionPerformed
-
-    private void tbxCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxCreditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbxCreditActionPerformed
-
-    private void tbxFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxFirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbxFirstNameActionPerformed
+    }//GEN-LAST:event_tbxDateActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnRemoveScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveScreeningActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoveScreeningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,38 +269,40 @@ public class ModifyAccount extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModifyAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyScreening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModifyAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyScreening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModifyAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyScreening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModifyAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModifyScreening.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModifyAccount().setVisible(true);
+                new ModifyScreening().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnRemoveScreening;
     private javax.swing.JButton btnSaveModifications;
+    private javax.swing.JComboBox cbxPartOfDay;
     private javax.swing.JPanel centrePanel;
-    private javax.swing.JLabel lblCredit;
-    private javax.swing.JLabel lblFirstName;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDivision;
+    private javax.swing.JLabel lblHour;
+    private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblModifyAccount;
-    private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblUsername;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JTextField tbxCredit;
-    private javax.swing.JTextField tbxFirstName;
-    private javax.swing.JPasswordField tbxPassword;
-    private javax.swing.JTextField tbxUsername;
+    private javax.swing.JTextField tbxDate;
+    private javax.swing.JTextField tbxHour;
+    private javax.swing.JTextField tbxMinute;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

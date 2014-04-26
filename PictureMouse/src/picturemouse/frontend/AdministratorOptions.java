@@ -31,8 +31,8 @@ public class AdministratorOptions extends javax.swing.JFrame {
         lblAdminOptions = new javax.swing.JLabel();
         lowerPanel = new javax.swing.JPanel();
         btnBrowseAccounts = new javax.swing.JButton();
-        btnBrowseReviews = new javax.swing.JButton();
         btnBrowseFilms = new javax.swing.JButton();
+        btnBrowseReviews = new javax.swing.JButton();
         btnDistributeNewsletter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,21 +90,21 @@ public class AdministratorOptions extends javax.swing.JFrame {
             }
         });
 
-        btnBrowseReviews.setBackground(new java.awt.Color(255, 255, 255));
-        btnBrowseReviews.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnBrowseReviews.setText("Browse Film Reviews");
-        btnBrowseReviews.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBrowseReviewsActionPerformed(evt);
-            }
-        });
-
         btnBrowseFilms.setBackground(new java.awt.Color(255, 255, 255));
         btnBrowseFilms.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         btnBrowseFilms.setText("Browse Films");
         btnBrowseFilms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBrowseFilmsActionPerformed(evt);
+            }
+        });
+
+        btnBrowseReviews.setBackground(new java.awt.Color(255, 255, 255));
+        btnBrowseReviews.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnBrowseReviews.setText("Browse Film Reviews");
+        btnBrowseReviews.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseReviewsActionPerformed(evt);
             }
         });
 
