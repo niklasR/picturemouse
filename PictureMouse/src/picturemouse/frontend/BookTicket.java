@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package picturemouse.frontend;
+import picturemouse.backend.BookTicket;
 
 /**
  *
@@ -10,6 +11,15 @@ package picturemouse.frontend;
  */
 public class BookTicket extends javax.swing.JFrame {
 
+    
+    /**
+     * Variables
+     */
+    int filmId; //to be assigned when chosen in GUI
+    int screeningId; //to be assigned when chosen in GUI
+    int seat; //to be assigned when chosen in GUI
+    String username; //somehow get username of current user
+   
     /**
      * Creates new form SignOn
      */
@@ -89,6 +99,11 @@ public class BookTicket extends javax.swing.JFrame {
         centrePanel.setPreferredSize(new java.awt.Dimension(421, 60));
 
         cbxPickScreening.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a screening..." }));
+        cbxPickScreening.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxPickScreeningActionPerformed(evt);
+            }
+        });
 
         cbxPickSeat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a seat number..." }));
 
@@ -100,7 +115,7 @@ public class BookTicket extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbxPickScreening, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxPickSeat, 0, 217, Short.MAX_VALUE))
+                    .addComponent(cbxPickSeat, 0, 0, Short.MAX_VALUE))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
@@ -169,8 +184,15 @@ public class BookTicket extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
-        // TODO add your handling code here:
+        picturemouse.backend.BookTicket action = new picturemouse.backend.BookTicket();
+        action.doIt(this.filmId, this.screeningId, this.seat, this.username);
     }//GEN-LAST:event_btnBookActionPerformed
+
+    private void cbxPickScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPickScreeningActionPerformed
+        // TODO add your handling code here:
+        this.screeningId = cbxPickScreening.getSelectedIndex(); //something like that
+        //also, need to program which values the box is to fill with before!
+    }//GEN-LAST:event_cbxPickScreeningActionPerformed
 
     /**
      * @param args the command line arguments
