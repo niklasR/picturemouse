@@ -35,7 +35,7 @@ public class AdministratorOptions extends javax.swing.JFrame {
         btnBrowseReviews = new javax.swing.JButton();
         btnDistributeNewsletter = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
@@ -83,7 +83,7 @@ public class AdministratorOptions extends javax.swing.JFrame {
 
         btnBrowseAccounts.setBackground(new java.awt.Color(255, 255, 255));
         btnBrowseAccounts.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnBrowseAccounts.setText("Browse Customer Accounts");
+        btnBrowseAccounts.setText("Browse Accounts");
         btnBrowseAccounts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBrowseAccountsActionPerformed(evt);
@@ -123,11 +123,11 @@ public class AdministratorOptions extends javax.swing.JFrame {
             lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lowerPanelLayout.createSequentialGroup()
                 .addContainerGap(119, Short.MAX_VALUE)
-                .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnDistributeNewsletter, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBrowseFilms, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBrowseReviews, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBrowseAccounts))
+                .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnDistributeNewsletter, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(btnBrowseFilms, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(btnBrowseReviews, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                    .addComponent(btnBrowseAccounts, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(117, 117, 117))
         );
         lowerPanelLayout.setVerticalGroup(
@@ -151,6 +151,8 @@ public class AdministratorOptions extends javax.swing.JFrame {
 
     private void btnBrowseAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseAccountsActionPerformed
         // TODO add your handling code here:
+        BrowseAccounts browseAccounts = new BrowseAccounts();
+        setVisible(false);
     }//GEN-LAST:event_btnBrowseAccountsActionPerformed
 
     private void btnBrowseReviewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseReviewsActionPerformed

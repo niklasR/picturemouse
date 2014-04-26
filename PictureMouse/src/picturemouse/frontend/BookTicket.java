@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package picturemouse.frontend;
-import picturemouse.backend.BookTicket;
 
 /**
  *
@@ -40,8 +39,8 @@ public class BookTicket extends javax.swing.JFrame {
         lblWelcome = new javax.swing.JLabel();
         lblCustomerOptions = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
-        cbxPickScreening = new javax.swing.JComboBox();
-        cbxPickSeat = new javax.swing.JComboBox();
+        cbxChooseScreening = new javax.swing.JComboBox();
+        cbxChooseSeat = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
         btnBook = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -98,14 +97,14 @@ public class BookTicket extends javax.swing.JFrame {
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
         centrePanel.setPreferredSize(new java.awt.Dimension(421, 60));
 
-        cbxPickScreening.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a screening..." }));
-        cbxPickScreening.addActionListener(new java.awt.event.ActionListener() {
+        cbxChooseScreening.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a screening..." }));
+        cbxChooseScreening.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxPickScreeningActionPerformed(evt);
+                cbxChooseScreeningActionPerformed(evt);
             }
         });
 
-        cbxPickSeat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a seat number..." }));
+        cbxChooseSeat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a seat number..." }));
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -114,17 +113,17 @@ public class BookTicket extends javax.swing.JFrame {
             .addGroup(centrePanelLayout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbxPickScreening, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxPickSeat, 0, 0, Short.MAX_VALUE))
-                .addContainerGap(108, Short.MAX_VALUE))
+                    .addComponent(cbxChooseScreening, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxChooseSeat, 0, 0, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centrePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cbxPickScreening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxChooseScreening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(cbxPickSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxChooseSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -188,11 +187,11 @@ public class BookTicket extends javax.swing.JFrame {
         action.doIt(this.filmId, this.screeningId, this.seat, this.username);
     }//GEN-LAST:event_btnBookActionPerformed
 
-    private void cbxPickScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPickScreeningActionPerformed
+    private void cbxChooseScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChooseScreeningActionPerformed
         // TODO add your handling code here:
-        this.screeningId = cbxPickScreening.getSelectedIndex(); //something like that
+        this.screeningId = cbxChooseScreening.getSelectedIndex(); //something like that
         //also, need to program which values the box is to fill with before!
-    }//GEN-LAST:event_cbxPickScreeningActionPerformed
+    }//GEN-LAST:event_cbxChooseScreeningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,8 +231,8 @@ public class BookTicket extends javax.swing.JFrame {
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnBook;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JComboBox cbxPickScreening;
-    private javax.swing.JComboBox cbxPickSeat;
+    private javax.swing.JComboBox cbxChooseScreening;
+    private javax.swing.JComboBox cbxChooseSeat;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JLabel lblCustomerOptions;
     private javax.swing.JLabel lblWelcome;
