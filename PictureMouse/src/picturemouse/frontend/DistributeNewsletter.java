@@ -4,17 +4,29 @@
  */
 package picturemouse.frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author John
+ * @author Niklas Rahmel
  */
 public class DistributeNewsletter extends javax.swing.JFrame {
+    
+    /**
+     * Backend action Object
+     */
+    picturemouse.backend.DistributeNewsletter action = new picturemouse.backend.DistributeNewsletter();
 
     /**
      * Creates new form SignOn
      */
     public DistributeNewsletter() {
         initComponents();
+        // Load database to get newsletter text
+        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+        
+        // Get content from database and set as text in GUI
+        this.tbxNewsletterText.setText(database.getNewsletter().display());
     }
 
     /**
@@ -156,11 +168,19 @@ public class DistributeNewsletter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // Hide form and display Admininistrator options
+        this.setVisible(false);
+        new AdministratorOptions().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
-        // TODO add your handling code here:
+        // Send new content to backend to perform action
+        this.action.doIt(this.tbxNewsletterText.getText());
+        // Show confirmation to User
+        JOptionPane.showMessageDialog(this, "Newsletter distributed.");
+        // Go back to Administrator Options
+        this.setVisible(false);
+        new AdministratorOptions().setVisible(true);
     }//GEN-LAST:event_btnDistributeActionPerformed
 
     /**
