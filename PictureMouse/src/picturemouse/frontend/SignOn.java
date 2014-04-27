@@ -4,6 +4,8 @@
  */
 package picturemouse.frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author John
@@ -200,6 +202,14 @@ public class SignOn extends javax.swing.JFrame {
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitActionPerformed
         // TODO add your handling code here:
+        System.out.println("Quitting Application");
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
+                + "you want to Quit this Application?", "Quit Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnQuitActionPerformed
 
     /**

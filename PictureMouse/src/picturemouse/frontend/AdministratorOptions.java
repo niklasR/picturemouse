@@ -190,6 +190,8 @@ public class AdministratorOptions extends javax.swing.JFrame {
 
     private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new SignOn().setVisible(true);
     }//GEN-LAST:event_btnSignOutActionPerformed
 
     /**
