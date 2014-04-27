@@ -195,23 +195,33 @@ public class Film extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new BrowseFilms().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnWatchTrailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWatchTrailerActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new Trailer().setVisible(true);
     }//GEN-LAST:event_btnWatchTrailerActionPerformed
 
     private void btnBookTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookTicketActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new BookTicket().setVisible(true);
     }//GEN-LAST:event_btnBookTicketActionPerformed
 
     private void btnBrowseReviewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseReviewsActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new BrowseReviews().setVisible(true);
     }//GEN-LAST:event_btnBrowseReviewsActionPerformed
 
     private void btnWriteReviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWriteReviewActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new WriteReview().setVisible(true);
     }//GEN-LAST:event_btnWriteReviewActionPerformed
 
     /**
