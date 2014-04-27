@@ -18,26 +18,36 @@ public class BrowseFilms extends javax.swing.JFrame {
      */
     String[] filmStrings;
     DefaultListModel listModel;
-    
+    boolean isAdmin;
     
     /**
      * Creates new form SignOn
      */
     @SuppressWarnings("unchecked")
-    public BrowseFilms() {
+    public BrowseFilms(boolean isAdmin) {
         initComponents();
+        this.isAdmin = isAdmin;
         
         //Loading in the films into the JList
         picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
-        //filmStrings = action.doIt();
-        //filmStrings = new String[] {"1", "2", "3"};
+        filmStrings = action.doIt();
         listModel = new DefaultListModel<String>();
-        listModel.addElement("1");
-        listModel.addElement("2");
-        listModel.addElement("3");
-        //lbxFilms.setListData(filmStrings); //UNCHECKED or UNSAFE OPERATIONS
-        //lbxFilms = new JList(listModel);
+        for (String filmString: filmStrings){
+            listModel.addElement(filmString);
+        }
+        //listModel.addElement("1");
+        //listModel.addElement("2");
+        //listModel.addElement("3");
         lbxFilms.setModel(listModel);
+        
+        //Changing visibility of add film button according to admin setting
+        //isAdmin = true;
+        btnAddFilm.setVisible(isAdmin);
+        //isAdmin = false;
+        //if (!isAdmin){
+        //    btnAddFilm.setVisible(false);
+        //}
+        
     }
 
     /**
@@ -199,10 +209,30 @@ public class BrowseFilms extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        if (isAdmin){
+            // Making form invisible and then new form visible
+            this.setVisible(false);
+            new AdministratorOptions().setVisible(true);
+        }
+        else {
+            // Making form invisible and then new form visible
+            this.setVisible(false);
+            new CustomerOptions().setVisible(true);
+        }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         // TODO add your handling code here:
+        if (isAdmin){
+            // Making form invisible and then new form visible
+            this.setVisible(false);
+            new ModifyFilm().setVisible(true);
+        }
+        else {
+            // Making form invisible and then new form visible
+            this.setVisible(false);
+            new Film().setVisible(true);
+        }
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void btnAddFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFilmActionPerformed
@@ -239,7 +269,7 @@ public class BrowseFilms extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BrowseFilms().setVisible(true);
+                new BrowseFilms(true).setVisible(true);
             }
         });
     }
