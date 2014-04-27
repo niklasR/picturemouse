@@ -11,10 +11,18 @@ package picturemouse.frontend;
 public class Film extends javax.swing.JFrame {
 
     /**
+     * Variables
+     */
+    String[] splitSelectedFilmString;
+    
+    /**
      * Creates new form SignOn
      */
     public Film() {
         initComponents();
+        
+        //this.splitSelectedFilmString = splitSelectedFilmString;
+        //lblWelcome.setText(splitSelectedFilmString[1]);
     }
 
     /**

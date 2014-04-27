@@ -18,7 +18,7 @@ public class BookTicket extends javax.swing.JFrame {
     int screeningId; //to be assigned when chosen in GUI
     int seat; //to be assigned when chosen in GUI
     String username; //somehow get username of current user
-   
+
     /**
      * Creates new form SignOn
      */

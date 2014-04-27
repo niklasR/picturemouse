@@ -5,7 +5,6 @@
 package picturemouse.frontend;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 
 /**
  *
@@ -19,9 +18,15 @@ public class BrowseFilms extends javax.swing.JFrame {
     String[] filmStrings;
     DefaultListModel listModel;
     boolean isAdmin;
+    int selectedFilmID;
+    int selectedFilmIndex;
+    String selectedFilmString;
+    String[] splitSelectedFilmString;
+    
     
     /**
      * Creates new form SignOn
+     * @param isAdmin
      */
     @SuppressWarnings("unchecked")
     public BrowseFilms(boolean isAdmin) {
@@ -30,23 +35,21 @@ public class BrowseFilms extends javax.swing.JFrame {
         
         //Loading in the films into the JList
         picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
-        filmStrings = action.doIt();
+        //filmStrings = action.doIt();
+        filmStrings = new String[]{"123, Film name 1, Synopsis 1", "234, Film name 2, Synopsis 2",
+            "345, Film name 3, Synopsis 3"};
         listModel = new DefaultListModel<String>();
         for (String filmString: filmStrings){
-            listModel.addElement(filmString);
+            String[] splitFilmString = filmString.split(","); //spliting string up
+            listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
         }
-        //listModel.addElement("1");
-        //listModel.addElement("2");
-        //listModel.addElement("3");
+        //listModel.addElement("123, Film name 1, Synopsis 1");
+        //listModel.addElement("234, Film name 2, Synopsis 2");
+        //listModel.addElement("345, Film name 3, Synopsis 3");
         lbxFilms.setModel(listModel);
         
         //Changing visibility of add film button according to admin setting
-        //isAdmin = true;
         btnAddFilm.setVisible(isAdmin);
-        //isAdmin = false;
-        //if (!isAdmin){
-        //    btnAddFilm.setVisible(false);
-        //}
         
     }
 
@@ -125,6 +128,11 @@ public class BrowseFilms extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         lbxFilms.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lbxFilms.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lbxFilmsValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lbxFilms);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
@@ -208,7 +216,7 @@ public class BrowseFilms extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        //If the user is an admin, then the button leads to a different form
         if (isAdmin){
             // Making form invisible and then new form visible
             this.setVisible(false);
@@ -222,7 +230,7 @@ public class BrowseFilms extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
-        // TODO add your handling code here:
+        //If the user is an admin, then the button leads to a different form
         if (isAdmin){
             // Making form invisible and then new form visible
             this.setVisible(false);
@@ -238,6 +246,23 @@ public class BrowseFilms extends javax.swing.JFrame {
     private void btnAddFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFilmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddFilmActionPerformed
+
+    private void lbxFilmsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxFilmsValueChanged
+        // TODO add your handling code here:
+        System.out.println("Value has changed");
+        
+        //Finding the ID of the film selected using the index of the selected
+        //element in the JList
+        int selectedJListIndex = lbxFilms.getSelectedIndex();
+        selectedFilmIndex = selectedJListIndex;
+        String filmString = filmStrings[selectedJListIndex];
+        selectedFilmString = filmString;
+        String[] splitFilmString = filmString.split(",");
+        splitSelectedFilmString = splitFilmString;
+        selectedFilmID = Integer.parseInt(splitFilmString[0].trim());
+        System.out.println("selectedFilmID:"+ selectedFilmID);
+        
+    }//GEN-LAST:event_lbxFilmsValueChanged
 
     /**
      * @param args the command line arguments
