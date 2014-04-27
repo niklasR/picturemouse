@@ -11,10 +11,23 @@ package picturemouse.frontend;
 public class BrowseFilms extends javax.swing.JFrame {
 
     /**
+     * Variables
+     */
+    String[] filmStrings;
+    
+    
+    
+    /**
      * Creates new form SignOn
      */
     public BrowseFilms() {
         initComponents();
+        
+        //Loading in the films into the JList
+        picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
+        //filmStrings = action.doIt();
+        filmStrings = new String[] {"1", "2", "3"};
+        lbxFilms.setListData(filmStrings); //UNCHECKED or UNSAFE OPERATIONS
     }
 
     /**
