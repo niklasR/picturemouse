@@ -168,9 +168,9 @@ public class SignOn extends javax.swing.JFrame {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnQuit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(btnCreateAccount)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(btnSignOn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -193,7 +193,33 @@ public class SignOn extends javax.swing.JFrame {
     private void btnSignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOnActionPerformed
         // TODO add your handling code here:
         // Put this after calling doIt() SignOn in backend.
-        username = tbxUsername.getText(); 
+        String username = tbxUsername.getText(); 
+        char[] charPassword = tbxPassword.getPassword();
+        String password = "";
+        for(int i = 0; i < charPassword.length; i++)
+        {
+            password += charPassword[i];
+            charPassword[i] = 0;
+        }
+        picturemouse.backend.SignOn signOnInstance = new picturemouse.backend.SignOn();
+        if (signOnInstance.doIt(username, password))
+        {
+            if(username.equals("Administrator"))
+            {
+                this.setVisible(false);
+                new AdministratorOptions().setVisible(true);
+            }
+            else
+            {
+                this.setVisible(false);
+                new CustomerOptions().setVisible(true);
+            }
+        }
+        else
+        {
+            this.setVisible(false);
+            new RefuseSignOn().setVisible(true);
+        }
     }//GEN-LAST:event_btnSignOnActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed

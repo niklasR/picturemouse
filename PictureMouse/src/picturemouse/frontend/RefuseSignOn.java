@@ -4,13 +4,14 @@
  */
 package picturemouse.frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author John
  */
 public class RefuseSignOn extends javax.swing.JFrame {
     
-    String username;
     /**
      * Creates new form SignOn
      */
@@ -193,15 +194,52 @@ public class RefuseSignOn extends javax.swing.JFrame {
     private void btnSignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOnActionPerformed
         // TODO add your handling code here:
         // Put this after calling doIt() SignOn in backend.
-        username = tbxUsername.getText(); 
+        String username = tbxUsername.getText(); 
+        char[] charPassword = tbxPassword.getPassword();
+        String password = "";
+        for(int i = 0; i < charPassword.length; i++)
+        {
+            password += charPassword[i];
+            charPassword[i] = 0;
+        }
+        picturemouse.backend.SignOn signOnInstance = new picturemouse.backend.SignOn();
+        if (signOnInstance.doIt(username, password))
+        {
+            if(username.equals("Administrator"))
+            {
+                this.setVisible(false);
+                new AdministratorOptions().setVisible(true);
+            }
+            else
+            {
+                this.setVisible(false);
+                new CustomerOptions().setVisible(true);
+            }
+        }
+        else
+        {
+            this.setVisible(false);
+            new RefuseSignOn().setVisible(true);
+        }
+        
     }//GEN-LAST:event_btnSignOnActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new NewUser().setVisible(true);
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitActionPerformed
         // TODO add your handling code here:
+        System.out.println("Quitting Application");
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
+                + "you want to Quit this Application?", "Quit Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnQuitActionPerformed
 
     /**

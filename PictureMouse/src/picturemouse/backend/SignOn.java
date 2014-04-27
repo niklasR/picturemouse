@@ -23,10 +23,11 @@ public class SignOn
             
             Database database = Database.getInstance();
             
-            //Check signed in
+            //Check signed on
             Account account = database.lookupAccount(u, false);
             
-            if (!account.checkSignedOn()){
+            if (!account.checkSignedOn())
+            {
                 
                 if (p.equals(account.getPassword())){
                     account.signOn();
@@ -36,7 +37,8 @@ public class SignOn
             }
             
             //This means they are signed in, so return true
-            else {
+            else 
+            {
                 return true;
             }
             	

@@ -128,7 +128,8 @@ public class Account implements Serializable
     }
     
     /**
-     * Method to check whether the account is signed in
+     * Method to check whether the account is signed on.
+     * 
      * @return boolean to tell whether the account is currently logged on
      */
     public boolean checkSignedOn(){
