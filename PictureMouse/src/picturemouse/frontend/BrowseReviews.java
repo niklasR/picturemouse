@@ -28,15 +28,15 @@ public class BrowseReviews extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
-        lblBrowseFilms = new javax.swing.JLabel();
+        lblBrowseReviews = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        lbxFilms = new javax.swing.JList();
+        lbxReviews = new javax.swing.JList();
         bottomPanel = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         btnSelect = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
@@ -50,33 +50,33 @@ public class BrowseReviews extends javax.swing.JFrame {
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Hello Administrator/ Customer!");
+        lblWelcome.setText("Hello Administrator!");
         lblWelcome.setAlignmentX(0.5F);
 
-        lblBrowseFilms.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblBrowseFilms.setForeground(new java.awt.Color(255, 255, 255));
-        lblBrowseFilms.setText("Please select a review.");
+        lblBrowseReviews.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblBrowseReviews.setForeground(new java.awt.Color(255, 255, 255));
+        lblBrowseReviews.setText("Please select a review.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(lblBrowseFilms)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
-                .addComponent(lblWelcome)
-                .addGap(99, 99, 99))
+                .addGap(136, 136, 136)
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWelcome)
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblBrowseReviews)))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lblWelcome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblBrowseFilms))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblBrowseReviews))
         );
 
         getContentPane().add(topPanel);
@@ -84,13 +84,13 @@ public class BrowseReviews extends javax.swing.JFrame {
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
 
-        lbxFilms.setModel(new javax.swing.AbstractListModel() {
+        lbxReviews.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        lbxFilms.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(lbxFilms);
+        lbxReviews.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(lbxReviews);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -213,9 +213,9 @@ public class BrowseReviews extends javax.swing.JFrame {
     private javax.swing.JButton btnSelect;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblBrowseFilms;
+    private javax.swing.JLabel lblBrowseReviews;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JList lbxFilms;
+    private javax.swing.JList lbxReviews;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

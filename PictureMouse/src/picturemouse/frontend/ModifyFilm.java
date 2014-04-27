@@ -43,7 +43,7 @@ public class ModifyFilm extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         btnRemoveFilm = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
