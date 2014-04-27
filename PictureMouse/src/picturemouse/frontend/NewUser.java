@@ -89,7 +89,7 @@ public class NewUser extends javax.swing.JFrame {
 
         lblProblems.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblProblems.setForeground(new java.awt.Color(255, 255, 255));
-        lblProblems.setText("You have enter invalid fields. These have been coloured black.");
+        lblProblems.setText("You have entered invalid fields. These have been coloured black.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -104,9 +104,9 @@ public class NewUser extends javax.swing.JFrame {
                         .addGap(83, 83, 83)
                         .addComponent(lblCreateAccount))
                     .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(33, 33, 33)
                         .addComponent(lblProblems)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
