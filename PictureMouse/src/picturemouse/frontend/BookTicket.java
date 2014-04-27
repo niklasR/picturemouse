@@ -179,7 +179,9 @@ public class BookTicket extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new Film().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed

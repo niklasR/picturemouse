@@ -77,7 +77,7 @@ public class ReadReview extends javax.swing.JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblWelcome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(lblReadReview))
         );
 
@@ -165,7 +165,9 @@ public class ReadReview extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new BrowseReviews().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
