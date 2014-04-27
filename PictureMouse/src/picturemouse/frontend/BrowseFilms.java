@@ -4,6 +4,9 @@
  */
 package picturemouse.frontend;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+
 /**
  *
  * @author John
@@ -14,7 +17,7 @@ public class BrowseFilms extends javax.swing.JFrame {
      * Variables
      */
     String[] filmStrings;
-    
+    DefaultListModel listModel;
     
     
     /**
@@ -26,8 +29,14 @@ public class BrowseFilms extends javax.swing.JFrame {
         //Loading in the films into the JList
         picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
         //filmStrings = action.doIt();
-        filmStrings = new String[] {"1", "2", "3"};
-        lbxFilms.setListData(filmStrings); //UNCHECKED or UNSAFE OPERATIONS
+        //filmStrings = new String[] {"1", "2", "3"};
+        listModel = new DefaultListModel<String>();
+        listModel.addElement("1");
+        listModel.addElement("2");
+        listModel.addElement("3");
+        //lbxFilms.setListData(filmStrings); //UNCHECKED or UNSAFE OPERATIONS
+        //lbxFilms = new JList(listModel);
+        lbxFilms.setModel(listModel);
     }
 
     /**
@@ -44,7 +53,7 @@ public class BrowseFilms extends javax.swing.JFrame {
         lblBrowseFilms = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        lbxFilms = new javax.swing.JList();
+        lbxFilms = new javax.swing.JList<String>();
         bottomPanel = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         btnSelect = new javax.swing.JButton();
@@ -242,7 +251,7 @@ public class BrowseFilms extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBrowseFilms;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JList lbxFilms;
+    private javax.swing.JList<String> lbxFilms;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }
