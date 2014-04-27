@@ -4,12 +4,17 @@
  */
 package picturemouse.frontend;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import picturemouse.backend.Database;
+
 /**
  *
  * @author John
  */
 public class CustomerOptions extends javax.swing.JFrame {
-
+    Database d1 = Database.getInstance();
     /**
      * Creates new form SignOn
      */
@@ -174,6 +179,11 @@ public class CustomerOptions extends javax.swing.JFrame {
     private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        try {
+            d1.saveToFile();
+        } catch (IOException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
         new SignOn().setVisible(true);
     }//GEN-LAST:event_btnSignOutActionPerformed
 

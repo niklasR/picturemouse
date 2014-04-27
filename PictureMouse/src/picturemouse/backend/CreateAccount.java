@@ -24,15 +24,20 @@ public class CreateAccount
      * @param isAdmin New administration setting
      * @param firstName New first name
      */
-    public void doIt(String username, String password, boolean isAdmin, String firstName, long creditCardNo)
+    public boolean doIt(String username, String password, boolean isAdmin, String firstName, long creditCardNo)
     {
         //Creating Account with new ArrayList for ticketsPuchased as they would 
         //have no tickets
         Account newAccount = new Account(username, password, isAdmin, new ArrayList<CinemaTicket>(), firstName, creditCardNo);
         Database database = Database.getInstance();
         //Checking if the username already exists
-        if(database.lookupAccount(username, false)==null){
+        if(database.lookupAccount(username, false) == null){
             database.save(newAccount);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

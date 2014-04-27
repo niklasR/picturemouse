@@ -4,7 +4,11 @@
  */
 package picturemouse.frontend;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import picturemouse.backend.Database;
 
 /**
  *
@@ -12,12 +16,17 @@ import javax.swing.JOptionPane;
  */
 public class SignOn extends javax.swing.JFrame {
     
-    String username;
+    Database d1 = Database.getInstance();
     /**
      * Creates new form SignOn
      */
-    public SignOn() {
-        initComponents();
+    public SignOn(){
+        try {
+            d1.loadFromFile();
+            initComponents();
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(SignOn.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -191,39 +200,41 @@ public class SignOn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOnActionPerformed
-        // TODO add your handling code here:
-        // Put this after calling doIt() SignOn in backend.
-        String username = tbxUsername.getText(); 
-        char[] charPassword = tbxPassword.getPassword();
-        String password = "";
-        for(int i = 0; i < charPassword.length; i++)
-        {
-            password += charPassword[i];
-            charPassword[i] = 0;
-        }
-        picturemouse.backend.SignOn signOnInstance = new picturemouse.backend.SignOn();
-        if (signOnInstance.doIt(username, password))
-        {
-            if(username.equals("Administrator"))
+            // TODO add your handling code here:
+            String username = tbxUsername.getText(); 
+            char[] charPassword = tbxPassword.getPassword();
+            String password = "";
+            for(int i = 0; i < charPassword.length; i++)
             {
-                this.setVisible(false);
-                new AdministratorOptions().setVisible(true);
+                password += charPassword[i];
+                charPassword[i] = 0;
+            }
+            picturemouse.backend.SignOn signOnInstance = new picturemouse.backend.SignOn();
+            if (signOnInstance.doIt(username, password))
+            {
+                if(username.equals("Administrator"))
+                {
+                    this.setVisible(false);
+                    new AdministratorOptions().setVisible(true);
+                }
+                else
+                {
+                    this.setVisible(false);
+                    new CustomerOptions().setVisible(true);
+                }
             }
             else
             {
                 this.setVisible(false);
-                new CustomerOptions().setVisible(true);
+                new RefuseSignOn().setVisible(true);
             }
-        }
-        else
-        {
-            this.setVisible(false);
-            new RefuseSignOn().setVisible(true);
-        }
+        
     }//GEN-LAST:event_btnSignOnActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new NewUser().setVisible(true);
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitActionPerformed
