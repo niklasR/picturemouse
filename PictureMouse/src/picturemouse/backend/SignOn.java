@@ -23,7 +23,7 @@ public class SignOn
             
             Database database = Database.getInstance();
             
-            //Check whether the username exists
+            //Check whether the username exists in the databse
             if (database.lookupAccount(u, false) != null)
             {
             
