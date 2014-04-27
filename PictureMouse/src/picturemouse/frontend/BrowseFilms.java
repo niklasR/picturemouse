@@ -23,6 +23,7 @@ public class BrowseFilms extends javax.swing.JFrame {
     /**
      * Creates new form SignOn
      */
+    @SuppressWarnings("unchecked")
     public BrowseFilms() {
         initComponents();
         
