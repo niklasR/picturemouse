@@ -23,24 +23,31 @@ public class SignOn
             
             Database database = Database.getInstance();
             
-            //Check signed on
-            Account account = database.lookupAccount(u, false);
-            
-            if (!account.checkSignedOn())
+            //Check whether the username exists
+            if (database.lookupAccount(u, false) != null)
             {
+            
+                //If the username exists, check if the user is signed on
                 
-                if (p.equals(account.getPassword())){
-                    account.signOn();
+                Account account = database.lookupAccount(u, false);
+                if (!account.checkSignedOn())
+                {
+
+                    if (p.equals(account.getPassword())){
+                        account.signOn();
+                    }
+
+                    return false;
                 }
+
+                //This means they are signed in, so return true
+                else 
+                {
+                    return true;
+                }
+            }
                 
-                return false;
-            }
-            
-            //This means they are signed in, so return true
-            else 
-            {
-                return true;
-            }
-            	
+            return false;
 	}
+    
 }
