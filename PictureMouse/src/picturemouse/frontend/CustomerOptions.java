@@ -140,15 +140,21 @@ public class CustomerOptions extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBrowseTicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseTicketsActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new BrowseTickets().setVisible(true);
     }//GEN-LAST:event_btnBrowseTicketsActionPerformed
 
     private void btnReadNewsletterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadNewsletterActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new ReadNewsletter().setVisible(true);
     }//GEN-LAST:event_btnReadNewsletterActionPerformed
 
     private void btnBrowseFilmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseFilmsActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new BrowseFilms().setVisible(true);
     }//GEN-LAST:event_btnBrowseFilmsActionPerformed
 
     /**
