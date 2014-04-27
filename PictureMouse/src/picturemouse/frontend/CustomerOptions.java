@@ -33,12 +33,13 @@ public class CustomerOptions extends javax.swing.JFrame {
         btnBrowseTickets = new javax.swing.JButton();
         btnReadNewsletter = new javax.swing.JButton();
         btnBrowseFilms = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(421, 230));
+        setPreferredSize(new java.awt.Dimension(421, 280));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -82,6 +83,7 @@ public class CustomerOptions extends javax.swing.JFrame {
         upperPanel.getAccessibleContext().setAccessibleName("topPanel");
 
         lowerPanel.setBackground(new java.awt.Color(51, 102, 255));
+        lowerPanel.setPreferredSize(new java.awt.Dimension(421, 200));
 
         btnBrowseTickets.setBackground(new java.awt.Color(255, 255, 255));
         btnBrowseTickets.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -110,6 +112,15 @@ public class CustomerOptions extends javax.swing.JFrame {
             }
         });
 
+        btnSignOut.setBackground(new java.awt.Color(255, 255, 255));
+        btnSignOut.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnSignOut.setText("Sign Out");
+        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout lowerPanelLayout = new javax.swing.GroupLayout(lowerPanel);
         lowerPanel.setLayout(lowerPanelLayout);
         lowerPanelLayout.setHorizontalGroup(
@@ -119,7 +130,8 @@ public class CustomerOptions extends javax.swing.JFrame {
                 .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnBrowseFilms, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                     .addComponent(btnReadNewsletter, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(btnBrowseTickets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBrowseTickets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSignOut, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
                 .addGap(117, 117, 117))
         );
         lowerPanelLayout.setVerticalGroup(
@@ -131,7 +143,9 @@ public class CustomerOptions extends javax.swing.JFrame {
                 .addComponent(btnReadNewsletter, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBrowseFilms, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         getContentPane().add(lowerPanel);
@@ -156,6 +170,10 @@ public class CustomerOptions extends javax.swing.JFrame {
         this.setVisible(false);
         new BrowseFilms().setVisible(true);
     }//GEN-LAST:event_btnBrowseFilmsActionPerformed
+
+    private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSignOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +213,7 @@ public class CustomerOptions extends javax.swing.JFrame {
     private javax.swing.JButton btnBrowseFilms;
     private javax.swing.JButton btnBrowseTickets;
     private javax.swing.JButton btnReadNewsletter;
+    private javax.swing.JButton btnSignOut;
     private javax.swing.JLabel lblCustomerOptions;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel lowerPanel;
