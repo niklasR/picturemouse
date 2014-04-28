@@ -25,9 +25,14 @@ public class ModifyReview extends javax.swing.JFrame {
     public ModifyReview(picturemouse.backend.Review review) {
         initComponents();
         this.review = review;
+        //Debug code
+        System.out.println("Text:" + this.review.getText());
+        System.out.println("Stars:" + String.valueOf(this.review.getStars()));
         
+        // Set GUI content
         this.tbxAmmendReview.setText(this.review.getText());
         this.cbxModifyStar.setSelectedIndex(this.review.getStars() - 1);
+        // or this.cbxModifyStar.setSelectedItem(String.valueOf(this.review.getStars()));
     }
     
     /**
