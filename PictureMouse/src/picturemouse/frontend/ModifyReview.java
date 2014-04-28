@@ -4,17 +4,38 @@
  */
 package picturemouse.frontend;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import picturemouse.backend.Review;
+
 /**
  *
- * @author John
+ * @author Niklas Rahmel
  */
-public class ModifyReview extends javax.swing.JFrame {
 
+
+public class ModifyReview extends javax.swing.JFrame {
+    
+    picturemouse.backend.ModifyReview action = new picturemouse.backend.ModifyReview();
+    picturemouse.backend.Review review;
+    
     /**
-     * Creates new form SignOn
+     * Constructor taking a review to be modified
+     */
+    public ModifyReview(picturemouse.backend.Review review) {
+        initComponents();
+        this.review = review;
+        
+        this.tbxAmmendReview.setText(this.review.getText());
+        this.cbxModifyStar.setSelectedIndex(this.review.getStars() - 1);
+    }
+    
+    /**
+     * Default Constructor 
      */
     public ModifyReview() {
         initComponents();
+
     }
 
     /**
@@ -182,11 +203,18 @@ public class ModifyReview extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // Close windows and go back to BrowseReviews
+        this.setVisible(false);
+        new BrowseReviews().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
+        action.doIt(review.getReviewId(), review.getReviewId(), (short) (this.cbxModifyStar.getSelectedIndex() + 1), this.tbxAmmendReview.getText(), review.getUsername(), review.getFilmId());
+        // Show confirmation to Administrator
+        JOptionPane.showMessageDialog(this, "Review Modified.");
+        // Close windows and go back to BrowseReviews
+        this.setVisible(false);
+        new BrowseReviews().setVisible(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void cbxModifyStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxModifyStarActionPerformed
