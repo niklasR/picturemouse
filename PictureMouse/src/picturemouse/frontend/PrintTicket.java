@@ -10,13 +10,20 @@ package picturemouse.frontend;
  * @author Oliver Coleshill
  */
 public class PrintTicket extends javax.swing.JFrame {
-
+    
+    int seatId;
+    int filmId;
+    int screeningId;
+    
     /**
      * Creates new form SignOn
      */
     public PrintTicket() {
         initComponents();
-        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+
+        this.seatId = BrowseTickets.selectedScreeningSeat;
+        this.screeningId = BrowseTickets.selectedScreeningId;
+        
         
         String content = "sdf";
         
@@ -179,7 +186,6 @@ public class PrintTicket extends javax.swing.JFrame {
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
         
-        PrintTicket();
     }//GEN-LAST:event_btnPrintActionPerformed
 
     /**

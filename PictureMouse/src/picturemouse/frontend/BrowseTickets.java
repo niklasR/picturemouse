@@ -14,7 +14,7 @@ import javax.swing.DefaultListModel;
 public class BrowseTickets extends javax.swing.JFrame {
     
     DefaultListModel listModel;
-    public static int selectedScreeningID;
+    public static int selectedScreeningId;
     public static int selectedScreeningSeat;
 
     /**
@@ -182,7 +182,7 @@ public class BrowseTickets extends javax.swing.JFrame {
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        //new PrintTicket().setVisible(true);
+        new PrintTicket().setVisible(true);
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void lbxTicketsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxTicketsValueChanged
