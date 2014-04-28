@@ -4,7 +4,8 @@
  */
 package picturemouse.frontend;
 
-import javax.swing.DefaultListModel;
+import java.util.ArrayList;
+import picturemouse.backend.Database;
 
 /**
  *
@@ -13,7 +14,6 @@ import javax.swing.DefaultListModel;
  */
 public class BrowseTickets extends javax.swing.JFrame {
     
-    DefaultListModel listModel;
     public static int selectedScreeningId;
     public static int selectedScreeningSeat;
 
@@ -22,6 +22,17 @@ public class BrowseTickets extends javax.swing.JFrame {
      */
     public BrowseTickets() {
         initComponents();
+        
+        Database database = Database.getInstance();
+        
+        picturemouse.backend.Account account = database.lookupAccount(SignOn.username, false);
+        
+        ArrayList<picturemouse.backend.CinemaTicket> tickets = account.getTicketsPurchased();
+        
+        //Want to display: Film name, time, date, seat number
+        
+        ArrayList<String> displayedList = new ArrayList<>();
+              
     }
 
     /**
@@ -190,6 +201,7 @@ public class BrowseTickets extends javax.swing.JFrame {
         
         int selectedJListIndex = lbxTickets.getSelectedIndex();
         System.out.println(selectedJListIndex);
+        
         
         
     }//GEN-LAST:event_lbxTicketsValueChanged

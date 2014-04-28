@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 public class WriteReview extends javax.swing.JFrame {
         
     picturemouse.backend.WriteReview action = new picturemouse.backend.WriteReview();
-    picturemouse.backend.Review review;
 
     /**
      * Creates new form SignOn

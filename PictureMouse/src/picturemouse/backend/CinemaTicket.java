@@ -11,10 +11,12 @@ public class CinemaTicket implements Serializable
 {
     private int seat;
     private int screeningId;
+    private int filmId;
 
-    public CinemaTicket(int seat, int screeningId) {
+    public CinemaTicket(int seat, int screeningId, int filmId) {
         this.seat = seat;
         this.screeningId = screeningId;
+        this.filmId = filmId;
     }
 
     /**
