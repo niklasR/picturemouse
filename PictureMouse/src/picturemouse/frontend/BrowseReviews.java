@@ -16,13 +16,15 @@ public class BrowseReviews extends javax.swing.JFrame {
     
     boolean isAdmin;
     Database d1 = Database.getInstance();
+    ArrayList<picturemouse.backend.Review> reviews = new ArrayList<>(); //to look up review Object for indices
+    
     /**
      * Creates new form SignOn
      */
     public BrowseReviews() {
         initComponents();
         
-        if (SignOn.username.equals("Administrator"))
+        if (SignOn.username.equals("Administrator")) // If not signed out through SignOn, this will give a NullPointerException
         {
             this.isAdmin = true;
         }
@@ -31,9 +33,16 @@ public class BrowseReviews extends javax.swing.JFrame {
             this.isAdmin = false;
         }
         
-        ArrayList<Review> reviews = d1.getReviews();
-
-        this.lbxReviews.setListData((Review[])reviews.toArray());
+        reviews = d1.getReviews();
+        
+        ArrayList<String> reviewData = new ArrayList<>();
+        
+        for (int i=0; i < reviews.size(); i++){
+            System.out.println("Review added:" + reviews.get(i).getUsername() + ": " + String.valueOf(reviews.get(i).getStars()));
+            reviewData.add(reviews.get(i).getUsername() + ": " + String.valueOf(reviews.get(i).getStars()));
+        }
+        
+        this.lbxReviews.setListData(reviewData.toArray());
     }
 
     /**
@@ -109,6 +118,11 @@ public class BrowseReviews extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         lbxReviews.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lbxReviews.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lbxReviewsValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lbxReviews);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
@@ -188,9 +202,14 @@ public class BrowseReviews extends javax.swing.JFrame {
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
 
-       
+       // Get selected review to hand over
+        
+        System.out.println("Selected Index: " + this.lbxReviews.getSelectedIndex());
+        
+        picturemouse.backend.Review review = reviews.get(this.lbxReviews.getSelectedIndex());
+        
         // Making form invisible and then new form visible
-        Review review = (Review)this.lbxReviews.getSelectedValue();
+
         this.setVisible(false);
         
         if (this.isAdmin)
@@ -202,6 +221,9 @@ public class BrowseReviews extends javax.swing.JFrame {
             new ReadReview(review.getText()).setVisible(true); //pass in reviewId
         }
     }//GEN-LAST:event_btnSelectActionPerformed
+
+    private void lbxReviewsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxReviewsValueChanged
+    }//GEN-LAST:event_lbxReviewsValueChanged
 
     /**
      * @param args the command line arguments
