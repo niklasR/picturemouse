@@ -4,6 +4,8 @@
  */
 package picturemouse.frontend;
 
+import picturemouse.backend.Database;
+
 /**
  *
  * @author John
@@ -11,7 +13,10 @@ package picturemouse.frontend;
  */
 public class PrintTicket extends javax.swing.JFrame {
     
-    int seatId;
+    
+    //picturemouse.backend.PrintTicket action = new picturemouse.backend.PrintTicket(String);
+    
+    int seat;
     int filmId;
     int screeningId;
     
@@ -20,14 +25,11 @@ public class PrintTicket extends javax.swing.JFrame {
      */
     public PrintTicket() {
         initComponents();
-
-        this.seatId = BrowseTickets.selectedScreeningSeat;
+        
+        this.seat = BrowseTickets.selectedScreeningSeat;
         this.screeningId = BrowseTickets.selectedScreeningId;
-        
-        
-        String content = "sdf";
-        
-        this.tbxNewsletterText.setText(content);
+                        
+        this.tbxNewsletterText.setText("You are in seat " + seat + " screening " + screeningId);
     }
 
     /**
@@ -185,6 +187,13 @@ public class PrintTicket extends javax.swing.JFrame {
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
+        String toPrint = "";
+        picturemouse.backend.PrintTicket action = new picturemouse.backend.PrintTicket(toPrint);
+        
+        this.seat = BrowseTickets.selectedScreeningSeat;
+        this.screeningId = BrowseTickets.selectedScreeningId;
+        
+        action.doIt(seat, screeningId, filmId);
         
     }//GEN-LAST:event_btnPrintActionPerformed
 
