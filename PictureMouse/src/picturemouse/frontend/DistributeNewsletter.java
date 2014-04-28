@@ -176,7 +176,7 @@ public class DistributeNewsletter extends javax.swing.JFrame {
     private void btnDistributeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeActionPerformed
         // Send new content to backend to perform action
         this.action.doIt(this.tbxNewsletterText.getText());
-        // Show confirmation to User
+        // Show confirmation to Administrator
         JOptionPane.showMessageDialog(this, "Newsletter distributed.");
         // Go back to Administrator Options
         this.setVisible(false);
