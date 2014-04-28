@@ -184,7 +184,7 @@ public class AdministratorOptions extends javax.swing.JFrame {
     private void btnBrowseFilmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseFilmsActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new BrowseFilms(true).setVisible(true);
+        new BrowseFilms().setVisible(true);
     }//GEN-LAST:event_btnBrowseFilmsActionPerformed
 
     private void btnDistributeNewsletterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributeNewsletterActionPerformed

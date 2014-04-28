@@ -202,7 +202,7 @@ public class WriteReview extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Create the review in the database
-        action.doIt((short) (this.cbxStar.getSelectedIndex()), this.tbxWriteReview.getText(), SignOn.username, BrowseFilms.selectedFilmID);
+        action.doIt((short) (this.cbxStar.getSelectedIndex()), this.tbxWriteReview.getText(), SignOn.username, BrowseFilms.selectedFilmId);
         
         //Confirm to user that the review has been added
         JOptionPane.showMessageDialog(this, "Thank you for your review.");

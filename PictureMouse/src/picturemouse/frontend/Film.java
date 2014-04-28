@@ -19,7 +19,7 @@ public class Film extends javax.swing.JFrame {
     /**
      * Creates new form SignOn
      */
-    public Film() {
+    public Film(int filmId) {
         initComponents();
         
         //Loading in the variables from selection form
@@ -31,6 +31,10 @@ public class Film extends javax.swing.JFrame {
         //Changing text in text area
         tbxFilmSynopsis.setText(filmSynopsis);
         
+    }
+    
+    public Film(){
+        initComponents();
     }
 
     /**
@@ -213,7 +217,7 @@ public class Film extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // Making form invisible and then new form visible
         this.setVisible(false);
-        new BrowseFilms(false).setVisible(true);
+        new BrowseFilms().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnWatchTrailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWatchTrailerActionPerformed
