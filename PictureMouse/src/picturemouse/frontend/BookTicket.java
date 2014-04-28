@@ -4,6 +4,8 @@
  */
 package picturemouse.frontend;
 
+import javax.swing.ComboBoxModel;
+
 /**
  *
  * @author John
@@ -18,12 +20,29 @@ public class BookTicket extends javax.swing.JFrame {
     int screeningId; //to be assigned when chosen in GUI
     int seat; //to be assigned when chosen in GUI
     String username; //somehow get username of current user
+    String[] screenings;
+    int filmID;
+    
 
     /**
      * Creates new form SignOn
      */
     public BookTicket() {
         initComponents();
+        this.filmID = BrowseFilms.selectedFilmID;
+        //Creating instance of the backend BookTicket class
+        picturemouse.backend.BookTicket action = new picturemouse.backend.BookTicket();
+        screenings = action.findScreenings(filmID);
+        
+        ComboBoxModel cbModel;
+        listModel = new DefaultListModel<String>();
+        for (String filmString: filmStrings){
+            String[] splitFilmString = filmString.split(","); //spliting string up
+            listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
+        }
+        lbxFilms.setModel(listModel);
+        
+        cbxChooseScreening.setModel(null);
     }
 
     /**
