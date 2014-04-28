@@ -17,6 +17,8 @@ import picturemouse.backend.Database;
 public class SignOn extends javax.swing.JFrame {
     
     Database d1 = Database.getInstance();
+    
+    public static String username;
     /**
      * Creates new form SignOn
      */
@@ -222,6 +224,7 @@ public class SignOn extends javax.swing.JFrame {
                     this.setVisible(false);
                     new CustomerOptions().setVisible(true);
                 }
+                this.username = username;
             }
             else
             {
