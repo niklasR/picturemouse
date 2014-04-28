@@ -211,7 +211,7 @@ public class SignOn extends javax.swing.JFrame {
                 password += charPassword[i];
                 charPassword[i] = 0;
             }
-            
+                        
             if(d1.lookupAccount(this.tbxUsername.getText(), false) != null)
             {
             
@@ -228,7 +228,6 @@ public class SignOn extends javax.swing.JFrame {
                         this.setVisible(false);
                         new CustomerOptions().setVisible(true);
                     }
-                    this.username = username;
                 }
                 else
                 {
