@@ -10,16 +10,18 @@ package picturemouse.frontend;
  * @author Oliver Coleshill
  */
 public class WriteReview extends javax.swing.JFrame {
-    
-    
+        
     picturemouse.backend.WriteReview action = new picturemouse.backend.WriteReview();
+    picturemouse.backend.Review review;
 
     /**
      * Creates new form SignOn
      */
     public WriteReview() {
         initComponents();
-        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+        
+        this.tbxWriteReview.setText("Write your review here...");
+       
     }
 
     /**
@@ -194,15 +196,21 @@ public class WriteReview extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+                
+        action.doIt((short) (this.cbxStar.getSelectedIndex()), this.tbxWriteReview.getText(), SignOn.username, BrowseFilms.selectedFilmID);
         
+        //review.modify(star, BrowseFilms.selectedFilmID, text, SignOn.username, filmId);
         
+        this.setVisible(false);
+        new Film().setVisible(true);
         
-        //reviewObject.modify(short stars, int reviewId, String text, String username, int filmId)
         
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void cbxStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxStarActionPerformed
         // TODO add your handling code here:
+        
+        System.out.println();
     }//GEN-LAST:event_cbxStarActionPerformed
 
     /**
