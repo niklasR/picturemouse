@@ -16,7 +16,6 @@ import picturemouse.backend.Database;
 public class CustomerOptions extends javax.swing.JFrame {
     Database d1 = Database.getInstance();
     
-    String username;
     /**
      * Creates new form SignOn
      */
@@ -24,9 +23,8 @@ public class CustomerOptions extends javax.swing.JFrame {
     public CustomerOptions() {
         initComponents();
         
-        this.username = SignOn.username;
-        //Changing title
-        lblWelcome.setText("Hello "+username);
+        
+        lblWelcome.setText("Hello " + d1.lookupAccount(SignOn.username, false).getFirstName());
     }
 
     /**
