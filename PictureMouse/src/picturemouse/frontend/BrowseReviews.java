@@ -4,6 +4,10 @@
  */
 package picturemouse.frontend;
 
+import java.util.ArrayList;
+import picturemouse.backend.Database;
+import picturemouse.backend.Review;
+
 /**
  *
  * @author John & Niklas Rahmel
@@ -11,17 +15,25 @@ package picturemouse.frontend;
 public class BrowseReviews extends javax.swing.JFrame {
     
     boolean isAdmin;
+    Database d1 = Database.getInstance();
     /**
      * Creates new form SignOn
      */
     public BrowseReviews() {
         initComponents();
-        if (SignOn.username == "Administrator"){
+        
+        if (SignOn.username.equals("Administrator"))
+        {
             this.isAdmin = true;
         }
-        else {
+        else 
+        {
             this.isAdmin = false;
         }
+        
+        ArrayList<Review> reviews = d1.getReviews();
+
+        this.lbxReviews.setListData((Review[])reviews.toArray());
     }
 
     /**
@@ -178,12 +190,16 @@ public class BrowseReviews extends javax.swing.JFrame {
 
        
         // Making form invisible and then new form visible
+        Review review = (Review)this.lbxReviews.getSelectedValue();
         this.setVisible(false);
-        if (this.isAdmin){
-        new ModifyReview().setVisible(true); //pass in filmId & reviewId
+        
+        if (this.isAdmin)
+        {
+            new ModifyReview(review).setVisible(true); //pass in reviewId
         }
-        else {
-        new ReadReview().setVisible(true); //pass in filmId & reviewId
+        else 
+        {
+            new ReadReview(review.getText()).setVisible(true); //pass in reviewId
         }
     }//GEN-LAST:event_btnSelectActionPerformed
 

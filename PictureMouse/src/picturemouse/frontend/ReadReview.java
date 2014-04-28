@@ -13,8 +13,9 @@ public class ReadReview extends javax.swing.JFrame {
     /**
      * Creates new form SignOn
      */
-    public ReadReview() {
+    public ReadReview(String reviewText) {
         initComponents();
+        this.tbxReview.setText(reviewText);
     }
 
     /**
@@ -199,8 +200,8 @@ public class ReadReview extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new ReadReview().setVisible(true);
             }
         });
     }
