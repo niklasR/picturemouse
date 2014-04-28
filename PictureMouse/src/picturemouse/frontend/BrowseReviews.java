@@ -38,7 +38,6 @@ public class BrowseReviews extends javax.swing.JFrame {
         ArrayList<String> reviewData = new ArrayList<>();
         
         for (int i=0; i < reviews.size(); i++){
-            System.out.println("Review added:" + reviews.get(i).getUsername() + ": " + String.valueOf(reviews.get(i).getStars()));
             reviewData.add(reviews.get(i).getUsername() + ": " + String.valueOf(reviews.get(i).getStars()));
         }
         
@@ -203,9 +202,7 @@ public class BrowseReviews extends javax.swing.JFrame {
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
 
        // Get selected review to hand over
-        
-        System.out.println("Selected Index: " + this.lbxReviews.getSelectedIndex());
-        
+
         picturemouse.backend.Review review = reviews.get(this.lbxReviews.getSelectedIndex());
         
         // Making form invisible and then new form visible
