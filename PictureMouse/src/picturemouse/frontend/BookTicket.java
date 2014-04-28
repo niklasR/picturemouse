@@ -17,12 +17,14 @@ public class BookTicket extends javax.swing.JFrame {
      * Variables
      */
     int filmId; //to be assigned when chosen in GUI
-    int screeningId; //to be assigned when chosen in GUI
+    int screeningID; //to be assigned when chosen in GUI
     int seat; //to be assigned when chosen in GUI
     String username; //somehow get username of current user
     String[] screenings;
+    String[] availableSeats;
     int filmID;
-    DefaultComboBoxModel cbModel;
+    DefaultComboBoxModel screeningCBXModel;
+    DefaultComboBoxModel seatsCBXModel;
 
     /**
      * Creates new form SignOn
@@ -30,7 +32,11 @@ public class BookTicket extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     public BookTicket() {
         initComponents();
+        //Loading in previously defined variables
         this.filmID = BrowseFilms.selectedFilmID;
+        this.username = SignOn.username;
+        
+        //Displaying all screenings for the film in the combo box
         //Creating instance of the backend BookTicket class
         picturemouse.backend.BookTicket action = new picturemouse.backend.BookTicket();
         screenings = action.findScreenings(filmID);
@@ -41,13 +47,12 @@ public class BookTicket extends javax.swing.JFrame {
         //    "32, 2014-06-05, 3:00"}; //This is sample data
         
         //Creating new model with new elements
-        cbModel = new DefaultComboBoxModel();
+        screeningCBXModel = new DefaultComboBoxModel();
         for (String screening: screenings){
-            cbModel.addElement(screening);
-            System.out.println(screening);
+            screeningCBXModel.addElement(screening);
+            System.out.println(screening); //Testing
         }
-        cbxChooseScreening.setModel(cbModel); //Setting model
-        
+        cbxChooseScreening.setModel(screeningCBXModel); //Setting model
         
     }
 
@@ -130,6 +135,11 @@ public class BookTicket extends javax.swing.JFrame {
         });
 
         cbxChooseSeat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a seat number..." }));
+        cbxChooseSeat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxChooseSeatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -211,14 +221,52 @@ public class BookTicket extends javax.swing.JFrame {
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
         picturemouse.backend.BookTicket action = new picturemouse.backend.BookTicket();
-        action.doIt(this.filmId, this.screeningId, this.seat, this.username);
+        action.doIt(this.filmId, this.screeningID, this.seat, this.username);
     }//GEN-LAST:event_btnBookActionPerformed
 
+    /**
+     * Method for when an element is selected in the screening combo box.
+     * This them changes the seat combo box.
+     * @param evt 
+     */
     private void cbxChooseScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChooseScreeningActionPerformed
         // TODO add your handling code here:
-        this.screeningId = cbxChooseScreening.getSelectedIndex(); //something like that
+        //this.screeningId = cbxChooseScreening.getSelectedIndex(); //something like that
         //also, need to program which values the box is to fill with before!
+        
+        //Set contents of the seat number combo box
+        
+        //Find screening
+        int selectedScreeningIndex = cbxChooseScreening.getSelectedIndex();
+        String selectedScreeningString = screenings[selectedScreeningIndex];
+        //spliting string to seperate the ScreeningId
+        String[] splitSelectedScreening = selectedScreeningString.split(",");
+        int selectedScreeningID = Integer.parseInt(splitSelectedScreening[0].trim());
+        screeningID = selectedScreeningID;
+        
+        //Getting availible seats
+        //Creating instance of the backend BookTicket class
+        picturemouse.backend.BookTicket action = new picturemouse.backend.BookTicket();
+        availableSeats = action.findSeats(filmID, selectedScreeningID);
+        
+        //Creating new combobox model
+        seatsCBXModel = new DefaultComboBoxModel();
+        for (String seatElement: availableSeats){
+            seatsCBXModel.addElement(seatElement);
+            System.out.println(seatElement); //Testing
+        }
+        cbxChooseSeat.setModel(seatsCBXModel); //Setting model
+        
     }//GEN-LAST:event_cbxChooseScreeningActionPerformed
+
+    private void cbxChooseSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChooseSeatActionPerformed
+        // TODO add your handling code here:
+        //Finding seat number
+        int selectedSeatIndex = cbxChooseSeat.getSelectedIndex();
+        String selectedSeatString = availableSeats[selectedSeatIndex];
+        
+        seat = Integer.parseInt(selectedSeatString);
+    }//GEN-LAST:event_cbxChooseSeatActionPerformed
 
     /**
      * @param args the command line arguments
