@@ -36,4 +36,13 @@ public class BookTicket
             screening.book(seat, username);
         }
     }
+    
+    public String[] findScreenings(int filmId){
+        
+        return new String[] {};
+    }
+    
+    public String[] findSeats(int filmID, int screeningID){
+        return new String[] {};
+    }
 }
