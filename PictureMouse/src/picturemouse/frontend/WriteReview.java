@@ -4,6 +4,8 @@
  */
 package picturemouse.frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author John
@@ -196,11 +198,14 @@ public class WriteReview extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-                
+        
+        //Create the review in the database
         action.doIt((short) (this.cbxStar.getSelectedIndex()), this.tbxWriteReview.getText(), SignOn.username, BrowseFilms.selectedFilmID);
         
-        //review.modify(star, BrowseFilms.selectedFilmID, text, SignOn.username, filmId);
+        //Confirm to user that the review has been added
+        JOptionPane.showMessageDialog(this, "Thank you for your review.");
         
+        //Return to film screen
         this.setVisible(false);
         new Film().setVisible(true);
         
@@ -210,7 +215,6 @@ public class WriteReview extends javax.swing.JFrame {
     private void cbxStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxStarActionPerformed
         // TODO add your handling code here:
         
-        System.out.println();
     }//GEN-LAST:event_cbxStarActionPerformed
 
     /**
