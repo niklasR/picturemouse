@@ -197,7 +197,7 @@ public class WriteReview extends javax.swing.JFrame {
         
         
         
-        reviewObject.modify(short stars, int reviewId, String text, String username, int filmId)
+        //reviewObject.modify(short stars, int reviewId, String text, String username, int filmId)
         
     }//GEN-LAST:event_btnAddActionPerformed
 
