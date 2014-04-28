@@ -211,25 +211,33 @@ public class SignOn extends javax.swing.JFrame {
                 password += charPassword[i];
                 charPassword[i] = 0;
             }
-            picturemouse.backend.SignOn signOnInstance = new picturemouse.backend.SignOn();
-            if (signOnInstance.doIt(username, password))
+            
+            if(d1.lookupAccount(this.tbxUsername.getText(), false) != null)
             {
-                if(username.equals("Administrator"))
+            
+                picturemouse.backend.SignOn signOnInstance = new picturemouse.backend.SignOn();
+                if (signOnInstance.doIt(username, password))
                 {
-                    this.setVisible(false);
-                    new AdministratorOptions().setVisible(true);
+                    if(username.equals("Administrator"))
+                    {
+                        this.setVisible(false);
+                        new AdministratorOptions().setVisible(true);
+                    }
+                    else
+                    {
+                        this.setVisible(false);
+                        new CustomerOptions().setVisible(true);
+                    }
+                    this.username = username;
                 }
                 else
                 {
                     this.setVisible(false);
-                    new CustomerOptions().setVisible(true);
+                    new RefuseSignOn().setVisible(true);
                 }
-                this.username = username;
-            }
-            else
-            {
-                this.setVisible(false);
-                new RefuseSignOn().setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(this, "This username does not exist");
             }
         
     }//GEN-LAST:event_btnSignOnActionPerformed
