@@ -37,7 +37,7 @@ public class BookTicketTest {
         //Creating database
         database = Database.getInstance();
         //Creating Screening
-        screening = new Screening(1, new Time(15, 0, 0), new Date(2014, 3, 10), 1, new HashMap<Integer, String>());
+        screening = new Screening(1, new Time(15, 0, 0), new Date(114, 3, 10, 15, 0, 0), 1, new HashMap<Integer, String>());
         ArrayList<Screening> screenings = new ArrayList<>();
         screenings.add(screening);
         //Creating Film
@@ -69,6 +69,7 @@ public class BookTicketTest {
         System.out.println(testDate.toString());
         System.out.println(testDate.toGMTString());
         String[] args = null;
+        //BookTicket.main(args);
         new BookTicket().setVisible(true);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
