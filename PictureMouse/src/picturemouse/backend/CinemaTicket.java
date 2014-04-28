@@ -36,4 +36,8 @@ public class CinemaTicket implements Serializable
     public int getScreeningId(){
         return screeningId;
     }
+    
+    public int getFilmId(){
+        return filmId;
+    }
 }

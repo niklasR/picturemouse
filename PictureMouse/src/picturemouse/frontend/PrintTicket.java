@@ -16,20 +16,13 @@ public class PrintTicket extends javax.swing.JFrame {
     
     //picturemouse.backend.PrintTicket action = new picturemouse.backend.PrintTicket(String);
     
-    int seat;
-    int filmId;
-    int screeningId;
-    
     /**
      * Creates new form SignOn
      */
     public PrintTicket() {
         initComponents();
-        
-        this.seat = BrowseTickets.selectedScreeningSeat;
-        this.screeningId = BrowseTickets.selectedScreeningId;
                         
-        this.tbxNewsletterText.setText("You are in seat " + seat + " screening " + screeningId);
+        this.tbxNewsletterText.setText("You are in seat " + BrowseTickets.seat + " screening " + BrowseTickets.screeningId);
     }
 
     /**
@@ -190,10 +183,7 @@ public class PrintTicket extends javax.swing.JFrame {
         String toPrint = "";
         picturemouse.backend.PrintTicket action = new picturemouse.backend.PrintTicket(toPrint);
         
-        this.seat = BrowseTickets.selectedScreeningSeat;
-        this.screeningId = BrowseTickets.selectedScreeningId;
-        
-        action.doIt(seat, screeningId, filmId);
+        action.doIt(BrowseTickets.seat, BrowseTickets.screeningId, BrowseTickets.filmId);
         
     }//GEN-LAST:event_btnPrintActionPerformed
 

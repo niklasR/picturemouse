@@ -14,24 +14,37 @@ import picturemouse.backend.Database;
  */
 public class BrowseTickets extends javax.swing.JFrame {
     
-    public static int selectedScreeningId;
-    public static int selectedScreeningSeat;
+    public static int screeningId;
+    public static int seat;
+    public static int filmId;
+    
+    Database database = Database.getInstance();
+        
+    picturemouse.backend.Account account = database.lookupAccount(SignOn.username, false);
+    
+    ArrayList<picturemouse.backend.CinemaTicket> tickets = account.getTicketsPurchased();
 
     /**
      * Creates new form SignOn
      */
     public BrowseTickets() {
         initComponents();
-        
-        Database database = Database.getInstance();
-        
-        picturemouse.backend.Account account = database.lookupAccount(SignOn.username, false);
-        
-        ArrayList<picturemouse.backend.CinemaTicket> tickets = account.getTicketsPurchased();
+
+        ArrayList<String> displayList = new ArrayList<>();
         
         //Want to display: Film name, time, date, seat number
+        for (int i=0; i < tickets.size(); i++){
+            picturemouse.backend.Film film = database.lookupFilm(tickets.get(i).getFilmId(), false);
+            picturemouse.backend.Screening screening = film.lookupScreening(tickets.get(i).getScreeningId());
+            String date = screening.getDate().toString();
+            String time = screening.getTime().toString();
+            System.out.println("Film: " + film.getFilmName() + " on: " + date + "at: " + time + ". Seat number: " + tickets.get(i).getSeatNumber());
+            
+            displayList.add("Film: " + film.getFilmName() + " on: " + date + "at: " + time + ". Seat number: " + tickets.get(i).getSeatNumber());
+            
+        }
         
-        ArrayList<String> displayedList = new ArrayList<>();
+        this.lbxTickets.setListData(displayList.toArray());
               
     }
 
@@ -201,6 +214,11 @@ public class BrowseTickets extends javax.swing.JFrame {
         
         int selectedJListIndex = lbxTickets.getSelectedIndex();
         System.out.println(selectedJListIndex);
+        
+        //Set static variables
+        screeningId = tickets.get(selectedJListIndex).getScreeningId();
+        seat = tickets.get(selectedJListIndex).getSeatNumber();
+        filmId = tickets.get(selectedJListIndex).getFilmId();
         
         
         
