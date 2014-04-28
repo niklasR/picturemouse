@@ -18,10 +18,12 @@ public class BrowseFilms extends javax.swing.JFrame {
     String[] filmStrings;
     DefaultListModel listModel;
     boolean isAdmin;
-    int selectedFilmID;
+    public static int selectedFilmID;
+    public static String selectedFilmName;
+    public static String selectedFilmSynopsis;
     int selectedFilmIndex;
     String selectedFilmString;
-    String[] splitSelectedFilmString;
+    public static String[] splitSelectedFilmString;
     
     
     /**
@@ -255,12 +257,17 @@ public class BrowseFilms extends javax.swing.JFrame {
         //element in the JList
         int selectedJListIndex = lbxFilms.getSelectedIndex();
         selectedFilmIndex = selectedJListIndex;
-        String filmString = filmStrings[selectedJListIndex];
-        selectedFilmString = filmString;
+        String filmString = filmStrings[selectedJListIndex]; //Finding string
+        selectedFilmString = filmString; //Saving string
         String[] splitFilmString = filmString.split(",");
-        splitSelectedFilmString = splitFilmString;
+        splitSelectedFilmString = splitFilmString; //Saving split string
+        //Saving attributes as static variables
         selectedFilmID = Integer.parseInt(splitFilmString[0].trim());
+        selectedFilmName = splitFilmString[1].trim();
+        selectedFilmSynopsis = splitFilmString[2].trim();
         System.out.println("selectedFilmID:"+ selectedFilmID);
+        System.out.println("selectedFilmName:"+ selectedFilmName);
+        System.out.println("selectedFilmSynopsis:"+ selectedFilmSynopsis);
         
     }//GEN-LAST:event_lbxFilmsValueChanged
 
@@ -294,7 +301,7 @@ public class BrowseFilms extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BrowseFilms(true).setVisible(true);
+                new BrowseFilms(false).setVisible(true);
             }
         });
     }

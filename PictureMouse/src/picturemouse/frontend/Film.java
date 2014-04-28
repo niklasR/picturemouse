@@ -13,7 +13,8 @@ public class Film extends javax.swing.JFrame {
     /**
      * Variables
      */
-    String[] splitSelectedFilmString;
+    String filmName;
+    String filmSynopsis;
     
     /**
      * Creates new form SignOn
@@ -21,8 +22,15 @@ public class Film extends javax.swing.JFrame {
     public Film() {
         initComponents();
         
-        //this.splitSelectedFilmString = splitSelectedFilmString;
-        //lblWelcome.setText(splitSelectedFilmString[1]);
+        //Loading in the variables from selection form
+        this.filmName = BrowseFilms.selectedFilmName;
+        this.filmSynopsis = BrowseFilms.selectedFilmSynopsis;
+        
+        //Changing text in title
+        lblWelcome.setText(filmName);
+        //Changing text in text area
+        tbxFilmSynopsis.setText(filmSynopsis);
+        
     }
 
     /**
