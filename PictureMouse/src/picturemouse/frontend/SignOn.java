@@ -203,7 +203,7 @@ public class SignOn extends javax.swing.JFrame {
 
     private void btnSignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOnActionPerformed
             // TODO add your handling code here:
-            String username = tbxUsername.getText(); 
+            username = tbxUsername.getText(); 
             char[] charPassword = tbxPassword.getPassword();
             String password = "";
             for(int i = 0; i < charPassword.length; i++)
