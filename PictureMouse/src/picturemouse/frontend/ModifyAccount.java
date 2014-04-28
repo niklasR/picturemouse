@@ -4,6 +4,10 @@
  */
 package picturemouse.frontend;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import picturemouse.backend.CinemaTicket;
+
 /**
  *
  * @author John
@@ -13,6 +17,11 @@ public class ModifyAccount extends javax.swing.JFrame {
     /**
      * Creates new form SignOn
      */
+    public ModifyAccount(String username) {
+        initComponents();
+        
+    }
+    
     public ModifyAccount() {
         initComponents();
     }
@@ -218,12 +227,14 @@ public class ModifyAccount extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveModificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveModificationsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveModificationsActionPerformed
+        // Close windows and go back to BrowseReviews
+        this.setVisible(false);
+        new BrowseAccounts().setVisible(true);    }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
     private void tbxPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbxPasswordActionPerformed
+        JOptionPane.showMessageDialog(this, "Review Modified.");
+        this.setVisible(false);
+        new BrowseAccounts().setVisible(true);    }//GEN-LAST:event_tbxPasswordActionPerformed
 
     private void tbxCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxCreditActionPerformed
         // TODO add your handling code here:

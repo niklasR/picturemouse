@@ -4,17 +4,33 @@
  */
 package picturemouse.frontend;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author John
+ * @author Niklas Rahmel
  */
 public class BrowseAccounts extends javax.swing.JFrame {
 
+    
+    ArrayList<picturemouse.backend.Account> accounts = new ArrayList<>();
+    
     /**
      * Creates new form BrowseAccounts
      */
     public BrowseAccounts() {
         initComponents();
+        
+        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+        accounts = database.getAccounts();
+        
+        ArrayList<String> accountData = new ArrayList<>();
+        
+        for (int i=0; i < accounts.size(); i++){
+            accountData.add(accounts.get(i).getUsername());
+        }
+        
+        this.lbxAccounts.setListData(accountData.toArray());
     }
 
     /**
@@ -31,7 +47,7 @@ public class BrowseAccounts extends javax.swing.JFrame {
         lblBrowseFilms = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        lbxFilms = new javax.swing.JList();
+        lbxAccounts = new javax.swing.JList();
         bottomPanel = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         btnSelect = new javax.swing.JButton();
@@ -84,13 +100,13 @@ public class BrowseAccounts extends javax.swing.JFrame {
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
 
-        lbxFilms.setModel(new javax.swing.AbstractListModel() {
+        lbxAccounts.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        lbxFilms.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(lbxFilms);
+        lbxAccounts.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(lbxAccounts);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -162,11 +178,19 @@ public class BrowseAccounts extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new AdministratorOptions().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
-        // TODO add your handling code here:
+        
+        // Get selected account
+        String username = accounts.get(this.lbxAccounts.getSelectedIndex()).getUsername();
+
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new ModifyAccount(username).setVisible(true);
     }//GEN-LAST:event_btnSelectActionPerformed
 
     /**
@@ -211,7 +235,7 @@ public class BrowseAccounts extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBrowseFilms;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JList lbxFilms;
+    private javax.swing.JList lbxAccounts;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }
