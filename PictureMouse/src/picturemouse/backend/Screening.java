@@ -92,4 +92,41 @@ public class Screening implements Serializable
     public Date getDate(){
         return date;
     }
+    
+    /**
+     * Method to return the time of the screening.
+     * 
+     * @return Date of Screening
+     */
+    public Time getTime(){
+        return time;
+    }
+    
+    /**
+     * Method to return an array of available seats.
+     * 
+     * @return Array of int's representing seat numbers
+     */
+    public int[] getAvailibleSeats(){
+        //Calculating number of available seats
+        int numberOfAvailableSeats = 0;
+        for(int i=0; i<50; i++){
+            if (!seatingPlan.containsKey(i)){
+                numberOfAvailableSeats++;
+            }
+        }
+        
+        //Putting the availible seats into an array
+        int[] availableSeats = new int[numberOfAvailableSeats];
+        int index = 0; //index to keep track of element in availableSeats array
+        
+        for(int i=0; i<50; i++){ //Iterate through full seating plan again
+            if (!seatingPlan.containsKey(i)){
+                availableSeats[index] = i;
+                index++;
+            }
+        }
+        
+        return availableSeats;
+    }
 }

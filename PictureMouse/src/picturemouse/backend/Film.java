@@ -85,6 +85,11 @@ public class Film implements Serializable
         return synopsis;
     }
     
+    public ArrayList<Screening> getScreenings()
+    {
+        return screenings;
+    }
+    
     public void removeScreening(Screening screening){
         this.screenings.remove(screening);
     }
