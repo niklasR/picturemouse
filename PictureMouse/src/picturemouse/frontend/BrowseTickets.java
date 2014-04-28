@@ -29,6 +29,8 @@ public class BrowseTickets extends javax.swing.JFrame {
      */
     public BrowseTickets() {
         initComponents();
+        
+        lblWelcome.setText("Hello " + database.lookupAccount(SignOn.username, false).getFirstName());
 
         ArrayList<String> displayList = new ArrayList<>();
         

@@ -21,6 +21,9 @@ public class PrintTicket extends javax.swing.JFrame {
      */
     public PrintTicket() {
         initComponents();
+        
+        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+        lblFilmName.setText(database.lookupFilm(BrowseTickets.filmId, false).getFilmName());
                         
         this.tbxNewsletterText.setText("You are in seat " + BrowseTickets.seat + " screening " + BrowseTickets.screeningId);
     }

@@ -21,6 +21,9 @@ public class WriteReview extends javax.swing.JFrame {
     public WriteReview() {
         initComponents();
         
+        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+        lblWelcome.setText("Hello " + database.lookupAccount(SignOn.username, false).getFirstName());
+        
         this.tbxWriteReview.setText("Write your review here...");
        
     }

@@ -20,6 +20,8 @@ public class ReadNewsletter extends javax.swing.JFrame {
         //Load database
         picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
         
+        lblWelcome.setText("Hello " + database.lookupAccount(SignOn.username, false).getFirstName());
+        
   
         //Set default for when there is no newsletter
         String content = "There is currently no newsletter to display";
