@@ -4,7 +4,7 @@
  */
 package picturemouse.frontend;
 
-import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -22,11 +22,12 @@ public class BookTicket extends javax.swing.JFrame {
     String username; //somehow get username of current user
     String[] screenings;
     int filmID;
-    
+    DefaultComboBoxModel cbModel;
 
     /**
      * Creates new form SignOn
      */
+    @SuppressWarnings("unchecked")
     public BookTicket() {
         initComponents();
         this.filmID = BrowseFilms.selectedFilmID;
@@ -34,15 +35,20 @@ public class BookTicket extends javax.swing.JFrame {
         picturemouse.backend.BookTicket action = new picturemouse.backend.BookTicket();
         screenings = action.findScreenings(filmID);
         
-        ComboBoxModel cbModel;
-        listModel = new DefaultListModel<String>();
-        for (String filmString: filmStrings){
-            String[] splitFilmString = filmString.split(","); //spliting string up
-            listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
-        }
-        lbxFilms.setModel(listModel);
+        //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
         
-        cbxChooseScreening.setModel(null);
+        //screenings = new String[]{"12, 2014-06-04, 2:00", "45, 2014-06-04, 6:00",
+        //    "32, 2014-06-05, 3:00"}; //This is sample data
+        
+        //Creating new model with new elements
+        cbModel = new DefaultComboBoxModel();
+        for (String screening: screenings){
+            cbModel.addElement(screening);
+            System.out.println(screening);
+        }
+        cbxChooseScreening.setModel(cbModel); //Setting model
+        
+        
     }
 
     /**

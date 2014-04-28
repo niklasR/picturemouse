@@ -1,6 +1,8 @@
 package picturemouse.backend;
 
 import java.sql.Time;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -56,10 +58,14 @@ public class BookTicket
         
         //Finds film
         Film film = database.lookupFilm(filmID, false);
+        System.out.println(film.getScreenings());
         ArrayList<Screening> screenings = film.getScreenings();
         
         //Returned arrray where length = number of screenings
         String[] screeningStrings = new String[screenings.size()];
+        
+        //Creating a data formatter
+        Format formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         
         //Iterate through the screenings
         for(int i=0; i<screenings.size(); i++){
@@ -67,7 +73,8 @@ public class BookTicket
             int screeningID = screening.getScreeningId();
             Date screeningDate = screening.getDate();
             Time screeningTime = screening.getTime();
-            screeningStrings[i] = screeningID+", "+screeningDate.toString()+", "+screeningTime.toString();
+            String formattedDate = formatter.format(screeningDate);
+            screeningStrings[i] = screeningID+", "+formattedDate+", "+screeningTime.toString();
         }
         
         return screeningStrings;
