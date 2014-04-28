@@ -6,15 +6,22 @@ package picturemouse.frontend;
 
 /**
  *
- * @author John
+ * @author John & Niklas Rahmel
  */
 public class BrowseReviews extends javax.swing.JFrame {
-
+    
+    boolean isAdmin;
     /**
      * Creates new form SignOn
      */
     public BrowseReviews() {
         initComponents();
+        if (SignOn.username == "Administrator"){
+            this.isAdmin = true;
+        }
+        else {
+            this.isAdmin = false;
+        }
     }
 
     /**
@@ -168,9 +175,16 @@ public class BrowseReviews extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
+
+       
         // Making form invisible and then new form visible
         this.setVisible(false);
-        new ReadReview().setVisible(true);
+        if (this.isAdmin){
+        new ModifyReview().setVisible(true); //pass in filmId & reviewId
+        }
+        else {
+        new ReadReview().setVisible(true); //pass in filmId & reviewId
+        }
     }//GEN-LAST:event_btnSelectActionPerformed
 
     /**
