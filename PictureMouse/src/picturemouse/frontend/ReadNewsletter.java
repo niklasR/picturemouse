@@ -7,6 +7,7 @@ package picturemouse.frontend;
 /**
  *
  * @author John
+ * @author Oliver Coleshill
  */
 public class ReadNewsletter extends javax.swing.JFrame {
 
@@ -15,6 +16,22 @@ public class ReadNewsletter extends javax.swing.JFrame {
      */
     public ReadNewsletter() {
         initComponents();
+        
+        //Load database
+        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+        
+  
+        //Set default for when there is no newsletter
+        String content = "There is currently no newsletter to display";
+        
+        //Load the current newsletter if there is one
+        if(database.getNewsletter().display() != null && !database.getNewsletter().display().isEmpty()){
+            content = database.getNewsletter().display();
+        }
+
+        //Display the newsletter or the default
+        this.tbxNewsletterText.setText(content);
+        
     }
 
     /**
@@ -33,7 +50,7 @@ public class ReadNewsletter extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbxNewsletterText = new javax.swing.JTextPane();
         bottomPanel = new javax.swing.JPanel();
-        btnCancel = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -111,12 +128,13 @@ public class ReadNewsletter extends javax.swing.JFrame {
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
 
-        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnCancel.setText("Cancel");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.setActionCommand("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -126,25 +144,35 @@ public class ReadNewsletter extends javax.swing.JFrame {
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(115, 115, 115)
-                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
+
+        btnBack.getAccessibleContext().setAccessibleName("Back");
+        btnBack.getAccessibleContext().setAccessibleDescription("");
 
         getContentPane().add(bottomPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelActionPerformed
+        
+        //Hide newsletter
+        this.setVisible(false);
+        
+        //Show options again
+        new CustomerOptions().setVisible(true);
+        
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,7 +210,7 @@ public class ReadNewsletter extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnBack;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblReadNewsletter;
