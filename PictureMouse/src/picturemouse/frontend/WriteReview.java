@@ -7,14 +7,19 @@ package picturemouse.frontend;
 /**
  *
  * @author John
+ * @author Oliver Coleshill
  */
 public class WriteReview extends javax.swing.JFrame {
+    
+    
+    picturemouse.backend.WriteReview action = new picturemouse.backend.WriteReview();
 
     /**
      * Creates new form SignOn
      */
     public WriteReview() {
         initComponents();
+        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
     }
 
     /**
@@ -189,6 +194,11 @@ public class WriteReview extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        
+        
+        
+        reviewObject.modify(short stars, int reviewId, String text, String username, int filmId)
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void cbxStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxStarActionPerformed

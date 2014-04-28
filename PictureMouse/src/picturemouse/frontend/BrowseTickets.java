@@ -4,11 +4,18 @@
  */
 package picturemouse.frontend;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author John
+ * @author Oliver Coleshill
  */
 public class BrowseTickets extends javax.swing.JFrame {
+    
+    DefaultListModel listModel;
+    public static int selectedScreeningID;
+    public static int selectedScreeningSeat;
 
     /**
      * Creates new form SignOn
@@ -90,6 +97,11 @@ public class BrowseTickets extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         lbxTickets.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lbxTickets.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lbxTicketsValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lbxTickets);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
@@ -163,11 +175,24 @@ public class BrowseTickets extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new CustomerOptions().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        //new PrintTicket().setVisible(true);
     }//GEN-LAST:event_btnSelectActionPerformed
+
+    private void lbxTicketsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxTicketsValueChanged
+        // TODO add your handling code here:
+        
+        int selectedJListIndex = lbxTickets.getSelectedIndex();
+        System.out.println(selectedJListIndex);
+        
+        
+    }//GEN-LAST:event_lbxTicketsValueChanged
 
     /**
      * @param args the command line arguments
