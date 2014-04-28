@@ -7,6 +7,7 @@ package picturemouse.frontend;
 /**
  *
  * @author John
+ * @author Oliver Coleshill
  */
 public class PrintTicket extends javax.swing.JFrame {
 
@@ -15,6 +16,11 @@ public class PrintTicket extends javax.swing.JFrame {
      */
     public PrintTicket() {
         initComponents();
+        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
+        
+        String content = "sdf";
+        
+        this.tbxNewsletterText.setText(content);
     }
 
     /**
@@ -166,10 +172,14 @@ public class PrintTicket extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new BrowseTickets().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         // TODO add your handling code here:
+        
+        PrintTicket();
     }//GEN-LAST:event_btnPrintActionPerformed
 
     /**
