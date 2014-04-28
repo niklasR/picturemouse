@@ -36,6 +36,9 @@ public class BookTicket extends javax.swing.JFrame {
         this.filmID = BrowseFilms.selectedFilmID;
         this.username = SignOn.username;
         
+        //Changing title
+        lblWelcome.setText("Hello "+username+"!");
+        
         //Displaying all screenings for the film in the combo box
         //Creating instance of the backend BookTicket class
         picturemouse.backend.BookTicket action = new picturemouse.backend.BookTicket();
@@ -229,6 +232,7 @@ public class BookTicket extends javax.swing.JFrame {
      * This them changes the seat combo box.
      * @param evt 
      */
+    @SuppressWarnings("unchecked")
     private void cbxChooseScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChooseScreeningActionPerformed
         // TODO add your handling code here:
         //this.screeningId = cbxChooseScreening.getSelectedIndex(); //something like that

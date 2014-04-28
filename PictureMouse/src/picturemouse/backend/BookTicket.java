@@ -58,6 +58,12 @@ public class BookTicket
         
         //Finds film
         Film film = database.lookupFilm(filmID, false);
+        if (film == null){
+            return new String[0];
+        }
+        if (film.getScreenings() == null){
+            System.out.println("null");
+        }
         System.out.println(film.getScreenings());
         ArrayList<Screening> screenings = film.getScreenings();
         

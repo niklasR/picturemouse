@@ -15,11 +15,18 @@ import picturemouse.backend.Database;
  */
 public class CustomerOptions extends javax.swing.JFrame {
     Database d1 = Database.getInstance();
+    
+    String username;
     /**
      * Creates new form SignOn
      */
+    @SuppressWarnings("unchecked")
     public CustomerOptions() {
         initComponents();
+        
+        this.username = SignOn.username;
+        //Changing title
+        lblWelcome.setText("Hello "+username);
     }
 
     /**
