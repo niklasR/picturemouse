@@ -21,8 +21,6 @@ public class BrowseFilms extends javax.swing.JFrame {
     public static int selectedFilmID;
     public static String selectedFilmName;
     public static String selectedFilmSynopsis;
-    int selectedFilmIndex;
-    String selectedFilmString;
     public static String[] splitSelectedFilmString;
     
     
@@ -38,16 +36,16 @@ public class BrowseFilms extends javax.swing.JFrame {
         //Loading in the films into the JList
         picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
         //filmStrings = action.doIt();
+        
+        //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
+        
         filmStrings = new String[]{"123, Film name 1, Synopsis 1", "234, Film name 2, Synopsis 2",
-            "345, Film name 3, Synopsis 3"};
+            "345, Film name 3, Synopsis 3"}; //This is sample data
         listModel = new DefaultListModel<String>();
         for (String filmString: filmStrings){
             String[] splitFilmString = filmString.split(","); //spliting string up
             listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
         }
-        //listModel.addElement("123, Film name 1, Synopsis 1");
-        //listModel.addElement("234, Film name 2, Synopsis 2");
-        //listModel.addElement("345, Film name 3, Synopsis 3");
         lbxFilms.setModel(listModel);
         
         //Changing visibility of add film button according to admin setting
@@ -250,21 +248,22 @@ public class BrowseFilms extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddFilmActionPerformed
 
     private void lbxFilmsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxFilmsValueChanged
-        // TODO add your handling code here:
-        System.out.println("Value has changed");
+
+        System.out.println("Value has changed"); //TEST
         
         //Finding the ID of the film selected using the index of the selected
         //element in the JList
         int selectedJListIndex = lbxFilms.getSelectedIndex();
-        selectedFilmIndex = selectedJListIndex;
         String filmString = filmStrings[selectedJListIndex]; //Finding string
-        selectedFilmString = filmString; //Saving string
         String[] splitFilmString = filmString.split(",");
         splitSelectedFilmString = splitFilmString; //Saving split string
+        
         //Saving attributes as static variables
         selectedFilmID = Integer.parseInt(splitFilmString[0].trim());
         selectedFilmName = splitFilmString[1].trim();
         selectedFilmSynopsis = splitFilmString[2].trim();
+        
+        //TESTING:
         System.out.println("selectedFilmID:"+ selectedFilmID);
         System.out.println("selectedFilmName:"+ selectedFilmName);
         System.out.println("selectedFilmSynopsis:"+ selectedFilmSynopsis);
