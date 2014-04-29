@@ -35,13 +35,13 @@ public class BrowseReviews extends javax.swing.JFrame {
         
         reviews = d1.getReviews();
         
-        ArrayList<String> reviewData = new ArrayList<>();
+        String[] reviewData = new String[reviews.size()];
         
         for (int i=0; i < reviews.size(); i++){
-            reviewData.add(reviews.get(i).getUsername() + ": " + String.valueOf(reviews.get(i).getStars()));
+            reviewData[i] = reviews.get(i).getUsername() + ": " + String.valueOf(reviews.get(i).getStars());
         }
         
-        this.lbxReviews.setListData(reviewData.toArray());
+        this.lbxReviews.setListData(reviewData);
     }
 
     /**
