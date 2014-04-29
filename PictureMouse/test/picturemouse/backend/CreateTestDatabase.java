@@ -6,13 +6,11 @@
 
 package picturemouse.backend;
 
-import java.io.File;
 import java.io.IOException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import org.junit.Test;
 
 /**
  *
@@ -21,11 +19,6 @@ import org.junit.Test;
 public class CreateTestDatabase {
     
     BEDatabase database;
-    
-    @Test
-    public void testDatabase(){
-        
-    }
     
     public CreateTestDatabase() throws IOException{
         
@@ -46,7 +39,7 @@ public class CreateTestDatabase {
         BEScreening testScreening1 = new BEScreening(1, new Time(9, 30, 0), new Date(114, 5, 1), 1, testSeatingPlan);
         testScreenings.add(testScreening1);
 
-        BEFilm testFilm1 = new BEFilm(1, "Test Film 1", "https://www.youtube.com/watch?v=LulTOKxAdM0", "Test Synopsis 1", testScreenings);
+        BEFilm testFilm1 = new BEFilm(1, "Test Film 1", "", "Test Synopsis 1", testScreenings);
         database.save(testFilm1);
 
 

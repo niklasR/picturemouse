@@ -41,7 +41,7 @@ public class BookTicketTest {
         ArrayList<BEScreening> screenings = new ArrayList<>();
         screenings.add(screening);
         //Creating Film
-        film = new BEFilm(1, "film", new File(""), "synopsis", screenings);
+        film = new BEFilm(1, "film", "", "synopsis", screenings);
         //Creating Account
         account = new BEAccount("username1", "password1", true, new ArrayList<BECinemaTicket>(), "Jake", 1234567890123456L);
         FEBrowseFilms.selectedFilmID = 1;
