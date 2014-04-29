@@ -230,7 +230,6 @@ public class FEModifyAccount extends javax.swing.JFrame {
         new BrowseAccounts().setVisible(true);    }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
     private void tbxPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxPasswordActionPerformed
-        JOptionPane.showMessageDialog(this, "Review Modified.");
         this.setVisible(false);
         new BrowseAccounts().setVisible(true);    }//GEN-LAST:event_tbxPasswordActionPerformed
 

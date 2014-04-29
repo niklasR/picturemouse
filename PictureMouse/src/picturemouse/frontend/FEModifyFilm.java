@@ -4,7 +4,8 @@
  */
 package picturemouse.frontend;
 
-import picturemouse.backend.BEFilm;
+import javax.swing.JOptionPane;
+import picturemouse.backend.BEDatabase;
 import picturemouse.backend.BEModifyFilmDetails;
 /**
  *
@@ -13,20 +14,23 @@ import picturemouse.backend.BEModifyFilmDetails;
 public class FEModifyFilm extends javax.swing.JFrame {
 
     BEModifyFilmDetails action = new BEModifyFilmDetails();
-    BEFilm film;
-    /**
-     * Creates new form SignOn
-     */
-    public FEModifyFilm(String filmName, String filmSynopsis) {
+    BEDatabase d1 = BEDatabase.getInstance();
+    String filmName;
+    String filmSynopsis;
+    int filmId;
+    
+    public FEModifyFilm(int filmId, String filmName, String filmSynopsis) {
         initComponents();
-        this.film = film;
+        this.filmId = filmId;
+        this.filmName = filmName;
+        this.filmSynopsis = filmSynopsis;
         //Debug code
-        System.out.println("Name:" + this.film.getFilmName());
-        System.out.println("Synopsis:" + String.valueOf(this.film.getSynopsis()));
+        System.out.println("Name:" + this.filmName);
+        System.out.println("Synopsis:" + String.valueOf(this.filmSynopsis));
         
         // Set GUI content
-        this.tbxModifyFilm.setText(this.review.getText());
-        this.cbxModifyStar.setSelectedIndex(this.review.getStars() - 1);
+        this.tbxModifyFilmName.setText(this.filmName);
+        this.tbxModifySynopsis.setText(this.filmSynopsis);
         // or this.cbxModifyStar.setSelectedItem(String.valueOf(this.review.getStars()));
     }
 
@@ -266,6 +270,23 @@ public class FEModifyFilm extends javax.swing.JFrame {
 
     private void btnRemoveFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFilmActionPerformed
         // TODO add your handling code here:
+        System.out.println("Removing Film");
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
+                + "you want to remove the film selected?", "Remove Film Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            if (d1.lookupFilm(this.filmId, true) == null)
+            {
+                JOptionPane.showMessageDialog(this, "There was a problem and the film has not been deleted");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "The film has been successfully deleted.");
+            }
+            new FEBrowseFilms(true).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnRemoveFilmActionPerformed
 
     /**
@@ -297,8 +318,10 @@ public class FEModifyFilm extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new FEModifyFilm().setVisible(true);
+                // For testing purposes.
+                new FEModifyFilm(1, "Batman", "Film is awesome").setVisible(true);
             }
         });
     }
