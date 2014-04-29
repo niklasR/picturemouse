@@ -178,7 +178,7 @@ public class CustomerOptions extends javax.swing.JFrame {
     private void btnBrowseFilmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseFilmsActionPerformed
         // Making form invisible and then new form visible
         this.setVisible(false);
-        new BrowseFilms().setVisible(true);
+        new BrowseFilms(false).setVisible(true);
     }//GEN-LAST:event_btnBrowseFilmsActionPerformed
 
     private void btnSignOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOutActionPerformed

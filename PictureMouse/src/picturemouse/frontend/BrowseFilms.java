@@ -4,47 +4,56 @@
  */
 package picturemouse.frontend;
 
-import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 /**
  *
- * @author John & Niklas Rahmel
+ * @author John
  */
 public class BrowseFilms extends javax.swing.JFrame {
 
     /**
      * Variables
      */
+    String[] filmStrings;
+    DefaultListModel listModel;
     boolean isAdmin;
-    public static int selectedFilmId;
+    public static int selectedFilmID;
     public static String selectedFilmName;
     public static String selectedFilmSynopsis;
-
+    public static String[] splitSelectedFilmString;
     
-    ArrayList<picturemouse.backend.Film> films = new ArrayList<>();
-
+    
     /**
      * Creates new form SignOn
      * @param isAdmin
      */
     @SuppressWarnings("unchecked")
-    public BrowseFilms() {
+    public BrowseFilms(boolean isAdmin) {
         initComponents();
-        
-        if(SignOn.username == "Administrator"){
-            this.isAdmin = true;
-        }
-        else{
-            this.isAdmin = false;
-        }
+        this.isAdmin = isAdmin;
         
         //Loading in the films into the JList
         picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
         String[] filmsData = action.doIt();
         
+<<<<<<< HEAD
         this.lbxFilms.setListData(filmsData);
         
+=======
+        //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
+        
+        filmStrings = new String[]{"123, Film name 1, Synopsis 1", "234, Film name 2, Synopsis 2",
+            "345, Film name 3, Synopsis 3"}; //This is sample data
+        listModel = new DefaultListModel<String>();
+        for (String filmString: filmStrings){
+            String[] splitFilmString = filmString.split(","); //spliting string up
+            listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
+        }
+        lbxFilms.setModel(listModel);
+        
+        //Changing visibility of add film button according to admin setting
+>>>>>>> parent of d3ab740... Code for BrowseFilms (all reversible if NA). Issues:
         btnAddFilm.setVisible(isAdmin);
         
     }
@@ -226,16 +235,10 @@ public class BrowseFilms extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
-        // get filmId of selected film
-        this.selectedFilmId = this.films.get(lbxFilms.getSelectedIndex()).getFilmId();
-        this.selectedFilmName = this.films.get(lbxFilms.getSelectedIndex()).getFilmName();
-        this.selectedFilmSynopsis = this.films.get(lbxFilms.getSelectedIndex()).getSynopsis();
-
         //If the user is an admin, then the button leads to a different form
         if (isAdmin){
             // Making form invisible and then new form visible
             this.setVisible(false);
-            
             new ModifyFilm().setVisible(true);
         }
         else {
@@ -250,6 +253,25 @@ public class BrowseFilms extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddFilmActionPerformed
 
     private void lbxFilmsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxFilmsValueChanged
+
+        System.out.println("Value has changed"); //TEST
+        
+        //Finding the ID of the film selected using the index of the selected
+        //element in the JList
+        int selectedJListIndex = lbxFilms.getSelectedIndex();
+        String filmString = filmStrings[selectedJListIndex]; //Finding string
+        String[] splitFilmString = filmString.split(",");
+        splitSelectedFilmString = splitFilmString; //Saving split string
+        
+        //Saving attributes as static variables
+        selectedFilmID = Integer.parseInt(splitFilmString[0].trim());
+        selectedFilmName = splitFilmString[1].trim();
+        selectedFilmSynopsis = splitFilmString[2].trim();
+        
+        //TESTING:
+        System.out.println("selectedFilmID:"+ selectedFilmID);
+        System.out.println("selectedFilmName:"+ selectedFilmName);
+        System.out.println("selectedFilmSynopsis:"+ selectedFilmSynopsis);
         
     }//GEN-LAST:event_lbxFilmsValueChanged
 
@@ -283,7 +305,7 @@ public class BrowseFilms extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BrowseFilms().setVisible(true);
+                new BrowseFilms(true).setVisible(true);
             }
         });
     }

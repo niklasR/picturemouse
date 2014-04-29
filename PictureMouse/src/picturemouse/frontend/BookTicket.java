@@ -33,7 +33,7 @@ public class BookTicket extends javax.swing.JFrame {
     public BookTicket() {
         initComponents();
         //Loading in previously defined variables
-        this.filmID = BrowseFilms.selectedFilmId;
+        this.filmID = BrowseFilms.selectedFilmID;
         this.username = SignOn.username;
         
         //Changing title
