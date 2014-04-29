@@ -39,7 +39,7 @@ public class BEBookTicket
             System.out.println("film "+(i+1)+" id: /"+films.get(i).getFilmId()+"/ name: "+films.get(i).getFilmName());
         }
         System.out.println("ScreeningId: /" + screeningId+"/");//Testing
-        System.out.println("filmId: /" + screeningId+"/");//Testing
+        System.out.println("filmId: /" + filmId+"/");//Testing
         BEAccount account = database.lookupAccount(username, false);
         BEFilm film = database.lookupFilm(filmId, false);
         System.out.println("film name: " + film.getFilmName());//Testing
