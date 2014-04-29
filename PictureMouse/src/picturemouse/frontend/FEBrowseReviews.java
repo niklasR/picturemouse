@@ -16,7 +16,9 @@ public class FEBrowseReviews extends javax.swing.JFrame {
     
     boolean isAdmin;
     BEDatabase d1 = BEDatabase.getInstance();
-    ArrayList<picturemouse.backend.BEReview> reviews = new ArrayList<>(); //to look up review Object for indices
+
+    ArrayList<BEReview> filmReviews = new ArrayList<>();
+
     
     /**
      * Creates new form SignOn
@@ -33,12 +35,21 @@ public class FEBrowseReviews extends javax.swing.JFrame {
             this.isAdmin = false;
         }
         
-        reviews = d1.getReviews();
+        ArrayList<picturemouse.backend.BEReview> allReviews = d1.getReviews();
         
-        String[] reviewData = new String[reviews.size()];
         
-        for (int i=0; i < reviews.size(); i++){
-            reviewData[i] = reviews.get(i).getUsername() + ": " + String.valueOf(reviews.get(i).getStars());
+        // get reviews of selected Film only
+
+        for (int i=0; i < allReviews.size(); i++){
+            if (allReviews.get(i).getFilmId() == FEBrowseFilms.selectedFilmID){
+                filmReviews.add(allReviews.get(i));
+            }
+        }
+        
+        // store review Data of relevant reviews for display
+        String[] reviewData = new String[filmReviews.size()];
+        for (int i=0; i < filmReviews.size(); i++){
+            reviewData[i] = filmReviews.get(i).getUsername() + ": "+ String.valueOf(filmReviews.get(i).getStars());
         }
         
         this.lbxReviews.setListData(reviewData);
@@ -210,7 +221,7 @@ public class FEBrowseReviews extends javax.swing.JFrame {
 
        // Get selected review to hand over
 
-        picturemouse.backend.BEReview review = reviews.get(this.lbxReviews.getSelectedIndex());
+        picturemouse.backend.BEReview review = filmReviews.get(lbxReviews.getSelectedIndex());
         
         // Making form invisible and then new form visible
 
