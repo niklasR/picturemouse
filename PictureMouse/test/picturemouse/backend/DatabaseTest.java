@@ -37,7 +37,7 @@ public class DatabaseTest {
         plan.put(1,"jevery21");
         BEScreening s1 = new BEScreening(1, t, date, 1, plan);
         screenings.add(s1);
-        f.modify(1, "Batman", new File(""), "About a young man who beats people up!", screenings);
+        f.modify(1, "Batman", "", "About a young man who beats people up!", screenings);
         database.save(f);
         assertEquals(1, database.getFilms().get(0).getFilmId());
         

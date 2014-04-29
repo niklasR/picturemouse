@@ -7,7 +7,6 @@ package picturemouse.frontend;
 import javax.swing.JOptionPane;
 import picturemouse.backend.BEDatabase;
 import picturemouse.backend.BEModifyFilmDetails;
-import picturemouse.backend.BEFilm;
 /**
  *
  * @author John
@@ -261,7 +260,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         // filmId the same.
         action.doIt(this.filmId, this.filmName, this.trailerURL, this.filmSynopsis, null);
         // Show confirmation to Administrator
-        JOptionPane.showMessageDialog(this, "Film Modified.");
+        JOptionPane.showMessageDialog(this, "Film has been Modified.");
         // Hide windows and go back to BrowseFilms.
         this.setVisible(false);
         new FEBrowseReviews().setVisible(true);

@@ -4,18 +4,25 @@
  */
 package picturemouse.frontend;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 /**
  *
  * @author John
  */
-public class FETrailer extends javax.swing.JFrame {
+public class FETrailer extends javax.swing.JFrame{
 
     /**
-     * Creates new form Trailer
+     * Creates new form FETrailer
      */
     public FETrailer() {
         initComponents();
+        
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,26 +33,122 @@ public class FETrailer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        upperPanel = new javax.swing.JPanel();
+        lblTrailer = new javax.swing.JLabel();
+        lblInfo = new javax.swing.JLabel();
+        lowerPanel = new javax.swing.JPanel();
+        btnCancel = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(421, 298));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+
+        upperPanel.setBackground(new java.awt.Color(51, 102, 255));
+
+        lblTrailer.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
+        lblTrailer.setForeground(new java.awt.Color(255, 255, 255));
+        lblTrailer.setText("A web browser should have appeared!");
+
+        lblInfo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblInfo.setForeground(new java.awt.Color(255, 255, 255));
+        lblInfo.setText("Close the web browser and then press cancel when you have finished.");
+
+        javax.swing.GroupLayout upperPanelLayout = new javax.swing.GroupLayout(upperPanel);
+        upperPanel.setLayout(upperPanelLayout);
+        upperPanelLayout.setHorizontalGroup(
+            upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(upperPanelLayout.createSequentialGroup()
+                .addGroup(upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(upperPanelLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(lblTrailer))
+                    .addGroup(upperPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblInfo)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        upperPanelLayout.setVerticalGroup(
+            upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(upperPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTrailer)
+                .addGap(69, 69, 69)
+                .addComponent(lblInfo)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
+
+        getContentPane().add(upperPanel);
+
+        lowerPanel.setBackground(new java.awt.Color(51, 102, 255));
+        lowerPanel.setPreferredSize(new java.awt.Dimension(400, 60));
+
+        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout lowerPanelLayout = new javax.swing.GroupLayout(lowerPanel);
+        lowerPanel.setLayout(lowerPanelLayout);
+        lowerPanelLayout.setHorizontalGroup(
+            lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lowerPanelLayout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(171, Short.MAX_VALUE))
+        );
+        lowerPanelLayout.setVerticalGroup(
+            lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lowerPanelLayout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(lowerPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // Making form invisible and then new form visible
+        this.setVisible(false);
+        new FEBrowseFilms(false).setVisible(true);
+    }//GEN-LAST:event_btnCancelActionPerformed
+    
+    /**
+     * Mostly Taken from http://stackoverflow.com/questions/20440484/embed-a-youtube-video-to-jframe.
+     * 
+     * This method is used to open the URI argument input and display it in 
+     * the desktop's web browser, if supported.
+     * 
+     * @param uri   Contains URL of trailer on Youtube or any other website.
+     */
+    private static void open(URI uri) 
+    {
+        if (Desktop.isDesktopSupported()) 
+        {
+            try 
+            {
+                Desktop.getDesktop().browse(uri);
+            }
+            catch (IOException e) 
+            { 
+                System.out.println("Something bad happened.");
+            }
+            }
+        else
+        { 
+            System.out.println("This desktop is not supported by this feature.");
+        }
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws URISyntaxException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -68,14 +171,24 @@ public class FETrailer extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FETrailer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        // Taken from http://stackoverflow.com/questions/20440484/embed-a-youtube-video-to-jframe.
+        final URI uri = new URI(FEBrowseFilms.selectedFilmTrailerURL);
+            open(uri);
+  
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FETrailer().setVisible(true);
             }
         });
-    }
+        
+        
+}   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JLabel lblInfo;
+    private javax.swing.JLabel lblTrailer;
+    private javax.swing.JPanel lowerPanel;
+    private javax.swing.JPanel upperPanel;
     // End of variables declaration//GEN-END:variables
 }
