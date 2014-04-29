@@ -34,7 +34,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         
         //Loading in the films into the JList
         picturemouse.backend.BEBrowseFilms action = new picturemouse.backend.BEBrowseFilms();
-        String[] filmsData = action.doIt();
+        filmStrings = action.doIt();
 
         //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
         
