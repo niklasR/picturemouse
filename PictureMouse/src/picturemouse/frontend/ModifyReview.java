@@ -29,7 +29,7 @@ public class ModifyReview extends javax.swing.JFrame {
         System.out.println("Stars:" + String.valueOf(this.review.getStars()));
         
         // Set GUI content
-        this.tbxAmmendReview.setText(this.review.getText());
+        this.tbxModifyReview.setText(this.review.getText());
         this.cbxModifyStar.setSelectedIndex(this.review.getStars() - 1);
         // or this.cbxModifyStar.setSelectedItem(String.valueOf(this.review.getStars()));
     }
@@ -56,7 +56,7 @@ public class ModifyReview extends javax.swing.JFrame {
         lblModifyReview = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbxAmmendReview = new javax.swing.JTextArea();
+        tbxModifyReview = new javax.swing.JTextArea();
         lblModifyStar = new javax.swing.JLabel();
         cbxModifyStar = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
@@ -115,9 +115,9 @@ public class ModifyReview extends javax.swing.JFrame {
         centrePanel.setPreferredSize(new java.awt.Dimension(421, 210));
         centrePanel.setRequestFocusEnabled(false);
 
-        tbxAmmendReview.setColumns(20);
-        tbxAmmendReview.setRows(5);
-        jScrollPane1.setViewportView(tbxAmmendReview);
+        tbxModifyReview.setColumns(20);
+        tbxModifyReview.setRows(5);
+        jScrollPane1.setViewportView(tbxModifyReview);
 
         lblModifyStar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblModifyStar.setForeground(new java.awt.Color(255, 255, 255));
@@ -213,7 +213,7 @@ public class ModifyReview extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        action.doIt(review.getReviewId(), review.getReviewId(), (short) (this.cbxModifyStar.getSelectedIndex() + 1), this.tbxAmmendReview.getText(), review.getUsername(), review.getFilmId());
+        action.doIt(review.getReviewId(), review.getReviewId(), (short) (this.cbxModifyStar.getSelectedIndex() + 1), this.tbxModifyReview.getText(), review.getUsername(), review.getFilmId());
         // Show confirmation to Administrator
         JOptionPane.showMessageDialog(this, "Review Modified.");
         // Close windows and go back to BrowseReviews
@@ -269,7 +269,7 @@ public class ModifyReview extends javax.swing.JFrame {
     private javax.swing.JLabel lblModifyReview;
     private javax.swing.JLabel lblModifyStar;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JTextArea tbxAmmendReview;
+    private javax.swing.JTextArea tbxModifyReview;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

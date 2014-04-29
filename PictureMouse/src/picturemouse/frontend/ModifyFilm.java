@@ -4,17 +4,30 @@
  */
 package picturemouse.frontend;
 
+import picturemouse.backend.Film;
+import picturemouse.backend.ModifyFilmDetails;
 /**
  *
  * @author John
  */
 public class ModifyFilm extends javax.swing.JFrame {
 
+    ModifyFilmDetails action = new ModifyFilmDetails();
+    Film film;
     /**
      * Creates new form SignOn
      */
-    public ModifyFilm() {
+    public ModifyFilm(Film film) {
         initComponents();
+        this.film = film;
+        //Debug code
+        System.out.println("Name:" + this.film.getFilmName());
+        System.out.println("Synopsis:" + String.valueOf(this.film.getSynopsis()));
+        
+        // Set GUI content
+        this.tbxModifyFilm.setText(this.review.getText());
+        this.cbxModifyStar.setSelectedIndex(this.review.getStars() - 1);
+        // or this.cbxModifyStar.setSelectedItem(String.valueOf(this.review.getStars()));
     }
 
     /**
@@ -30,13 +43,13 @@ public class ModifyFilm extends javax.swing.JFrame {
         lblWelcome = new javax.swing.JLabel();
         lblModifyFilm = new javax.swing.JLabel();
         centrePanel = new javax.swing.JPanel();
-        lblFirstName = new javax.swing.JLabel();
-        lblCredit = new javax.swing.JLabel();
-        lblTrailerURL = new javax.swing.JLabel();
-        tbxFirstName = new javax.swing.JTextField();
-        tbxUsername = new javax.swing.JTextField();
+        lblModifyFilmName = new javax.swing.JLabel();
+        lblModifySynopsis = new javax.swing.JLabel();
+        lblModifyTrailerURL = new javax.swing.JLabel();
+        tbxModifyFilmName = new javax.swing.JTextField();
+        tbxModifyTrailerURL = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbxFilmSynopsis = new javax.swing.JTextArea();
+        tbxModifySynopsis = new javax.swing.JTextArea();
         btnBrowseScreenings = new javax.swing.JButton();
         bottomPanel = new javax.swing.JPanel();
         btnSaveModifications = new javax.swing.JButton();
@@ -94,28 +107,28 @@ public class ModifyFilm extends javax.swing.JFrame {
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
         centrePanel.setPreferredSize(new java.awt.Dimension(430, 300));
 
-        lblFirstName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblFirstName.setForeground(new java.awt.Color(255, 255, 255));
-        lblFirstName.setText("Name:");
+        lblModifyFilmName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblModifyFilmName.setForeground(new java.awt.Color(255, 255, 255));
+        lblModifyFilmName.setText("Name:");
 
-        lblCredit.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblCredit.setForeground(new java.awt.Color(255, 255, 255));
-        lblCredit.setText("Synopsis:");
+        lblModifySynopsis.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblModifySynopsis.setForeground(new java.awt.Color(255, 255, 255));
+        lblModifySynopsis.setText("Synopsis:");
 
-        lblTrailerURL.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        lblTrailerURL.setForeground(new java.awt.Color(255, 255, 255));
-        lblTrailerURL.setText("Trailer URL:");
+        lblModifyTrailerURL.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lblModifyTrailerURL.setForeground(new java.awt.Color(255, 255, 255));
+        lblModifyTrailerURL.setText("Trailer URL:");
 
-        tbxFirstName.setText("Currently held data for all.");
-        tbxFirstName.addActionListener(new java.awt.event.ActionListener() {
+        tbxModifyFilmName.setText("Currently held data for all.");
+        tbxModifyFilmName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbxFirstNameActionPerformed(evt);
+                tbxModifyFilmNameActionPerformed(evt);
             }
         });
 
-        tbxFilmSynopsis.setColumns(20);
-        tbxFilmSynopsis.setRows(5);
-        jScrollPane1.setViewportView(tbxFilmSynopsis);
+        tbxModifySynopsis.setColumns(20);
+        tbxModifySynopsis.setRows(5);
+        jScrollPane1.setViewportView(tbxModifySynopsis);
 
         btnBrowseScreenings.setBackground(new java.awt.Color(255, 255, 255));
         btnBrowseScreenings.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -134,16 +147,16 @@ public class ModifyFilm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centrePanelLayout.createSequentialGroup()
-                        .addComponent(lblFirstName)
+                        .addComponent(lblModifyFilmName)
                         .addGap(63, 63, 63)
-                        .addComponent(tbxFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tbxModifyFilmName, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(centrePanelLayout.createSequentialGroup()
                         .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCredit)
-                            .addComponent(lblTrailerURL))
+                            .addComponent(lblModifySynopsis)
+                            .addComponent(lblModifyTrailerURL))
                         .addGap(34, 34, 34)
                         .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tbxUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tbxModifyTrailerURL, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(centrePanelLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -155,18 +168,18 @@ public class ModifyFilm extends javax.swing.JFrame {
             .addGroup(centrePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFirstName)
-                    .addComponent(tbxFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblModifyFilmName)
+                    .addComponent(tbxModifyFilmName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centrePanelLayout.createSequentialGroup()
-                        .addComponent(lblCredit)
+                        .addComponent(lblModifySynopsis)
                         .addGap(152, 152, 152))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tbxUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTrailerURL))
+                    .addComponent(tbxModifyTrailerURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModifyTrailerURL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btnBrowseScreenings, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -239,9 +252,9 @@ public class ModifyFilm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
-    private void tbxFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxFirstNameActionPerformed
+    private void tbxModifyFilmNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxModifyFilmNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbxFirstNameActionPerformed
+    }//GEN-LAST:event_tbxModifyFilmNameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
@@ -297,14 +310,14 @@ public class ModifyFilm extends javax.swing.JFrame {
     private javax.swing.JButton btnSaveModifications;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCredit;
-    private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblModifyFilm;
-    private javax.swing.JLabel lblTrailerURL;
+    private javax.swing.JLabel lblModifyFilmName;
+    private javax.swing.JLabel lblModifySynopsis;
+    private javax.swing.JLabel lblModifyTrailerURL;
     private javax.swing.JLabel lblWelcome;
-    private javax.swing.JTextArea tbxFilmSynopsis;
-    private javax.swing.JTextField tbxFirstName;
-    private javax.swing.JTextField tbxUsername;
+    private javax.swing.JTextField tbxModifyFilmName;
+    private javax.swing.JTextArea tbxModifySynopsis;
+    private javax.swing.JTextField tbxModifyTrailerURL;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

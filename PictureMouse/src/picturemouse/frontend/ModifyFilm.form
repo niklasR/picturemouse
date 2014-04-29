@@ -118,18 +118,18 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblFirstName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblModifyFilmName" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="tbxFirstName" min="-2" pref="228" max="-2" attributes="0"/>
+                          <Component id="tbxModifyFilmName" min="-2" pref="228" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblCredit" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTrailerURL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblModifySynopsis" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblModifyTrailerURL" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tbxUsername" min="-2" pref="228" max="-2" attributes="0"/>
+                              <Component id="tbxModifyTrailerURL" min="-2" pref="228" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="286" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -147,21 +147,21 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tbxFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblModifyFilmName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tbxModifyFilmName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblCredit" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblModifySynopsis" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" alignment="1" min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tbxUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTrailerURL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tbxModifyTrailerURL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblModifyTrailerURL" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="10" max="32767" attributes="0"/>
                   <Component id="btnBrowseScreenings" min="-2" pref="38" max="-2" attributes="0"/>
@@ -170,7 +170,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblFirstName">
+        <Component class="javax.swing.JLabel" name="lblModifyFilmName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="14" style="0"/>
@@ -181,7 +181,7 @@
             <Property name="text" type="java.lang.String" value="Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCredit">
+        <Component class="javax.swing.JLabel" name="lblModifySynopsis">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="14" style="0"/>
@@ -192,7 +192,7 @@
             <Property name="text" type="java.lang.String" value="Synopsis:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTrailerURL">
+        <Component class="javax.swing.JLabel" name="lblModifyTrailerURL">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Calibri" size="14" style="0"/>
@@ -203,15 +203,15 @@
             <Property name="text" type="java.lang.String" value="Trailer URL:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tbxFirstName">
+        <Component class="javax.swing.JTextField" name="tbxModifyFilmName">
           <Properties>
             <Property name="text" type="java.lang.String" value="Currently held data for all."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbxFirstNameActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbxModifyFilmNameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="tbxUsername">
+        <Component class="javax.swing.JTextField" name="tbxModifyTrailerURL">
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -220,7 +220,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="tbxFilmSynopsis">
+            <Component class="javax.swing.JTextArea" name="tbxModifySynopsis">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
