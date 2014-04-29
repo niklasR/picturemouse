@@ -26,7 +26,7 @@ public class BEFilm implements Serializable
     /**
      * File to hold the video trailer.
      */
-    private File trailer;
+    private String trailerURL;
     /**
      * String to store synopsis for film.
      */
@@ -38,10 +38,10 @@ public class BEFilm implements Serializable
     
     public BEFilm(){}
     
-    public BEFilm(int filmId, String name, File trailer, String synopsis, ArrayList<BEScreening> screenings) {
+    public BEFilm(int filmId, String name, String trailerURL, String synopsis, ArrayList<BEScreening> screenings) {
         this.filmId = filmId;
         this.name = name;
-        this.trailer = trailer;
+        this.trailerURL = trailerURL;
         this.synopsis = synopsis;
         this.screenings = screenings;
     }
@@ -52,15 +52,15 @@ public class BEFilm implements Serializable
      * 
      * @param filmId
      * @param name
-     * @param trailer
+     * @param trailerURL
      * @param synopsis
      * @param screenings 
      */
-    public void modify(int filmId, String name, File trailer, String synopsis, ArrayList<BEScreening> screenings)
+    public void modify(int filmId, String name, String trailerURL, String synopsis, ArrayList<BEScreening> screenings)
     {
         this.filmId = filmId;
         this.name = name;
-        this.trailer = trailer;
+        this.trailerURL = trailerURL;
         this.synopsis = synopsis;
         this.screenings = screenings;
     }
@@ -83,6 +83,11 @@ public class BEFilm implements Serializable
     public String getSynopsis()
     {
         return synopsis;
+    }
+    
+    public String getTrailerURL()
+    {
+        return trailerURL;
     }
     
     public ArrayList<BEScreening> getScreenings()

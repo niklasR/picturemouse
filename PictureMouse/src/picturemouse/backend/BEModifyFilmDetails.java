@@ -32,7 +32,7 @@ public class BEModifyFilmDetails
      *                      inserted, adapted or removed in front-end).
      */
     public void doIt(int oldfilmId, int newFilmId, String newName, 
-            File newTrailer, String newSynopsis, 
+            String newTrailer, String newSynopsis, 
             ArrayList<BEScreening> newScreenings)
     {
         BEDatabase database = BEDatabase.getInstance();
