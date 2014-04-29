@@ -186,11 +186,11 @@ public class FEBrowseAccounts extends javax.swing.JFrame {
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         
         // Get selected account
-        String username = accounts.get(this.lbxAccounts.getSelectedIndex()).getUsername();
+        picturemouse.backend.BEAccount selectedAccount = accounts.get(this.lbxAccounts.getSelectedIndex());
 
         // Making form invisible and then new form visible
         this.setVisible(false);
-        new FEModifyAccount(username).setVisible(true);
+        new FEModifyAccount(selectedAccount).setVisible(true);
     }//GEN-LAST:event_btnSelectActionPerformed
 
     /**

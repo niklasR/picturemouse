@@ -4,20 +4,34 @@
  */
 package picturemouse.frontend;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import picturemouse.backend.BECinemaTicket;
 
 /**
  *
  * @author John
  */
 public class FEModifyAccount extends javax.swing.JFrame {
-
+    
+    picturemouse.backend.BEModifyCustomerDetails action = new picturemouse.backend.BEModifyCustomerDetails();
+    String oldUsername;
+    ArrayList<BECinemaTicket> ticketsPurchased;
+    boolean isAdmin;
+    
     /**
      * Creates new form SignOn
      */
-    public FEModifyAccount(String username) {
+    public FEModifyAccount(picturemouse.backend.BEAccount account) {
         initComponents();
+        this.oldUsername = account.getUsername();
         
+        this.tbxUsername.setText(account.getUsername());
+        this.tbxCredit.setText(String.valueOf(account.getCreditCardNo()));
+        this.tbxPassword.setText(account.getPassword());
+        this.tbxFirstName.setText(account.getFirstName());
+        this.ticketsPurchased = account.getTicketsPurchased();
+        this.isAdmin = account.getAdminSetting();
     }
     
     public FEModifyAccount() {
@@ -233,7 +247,8 @@ public class FEModifyAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_tbxFirstNameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        new FEBrowseAccounts().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void tbxPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxPasswordActionPerformed
@@ -241,7 +256,11 @@ public class FEModifyAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_tbxPasswordActionPerformed
 
     private void btnSaveModificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveModificationsActionPerformed
-        // TODO add your handling code here:
+
+        // Call Backend function to save new data
+        action.doIt(this.oldUsername, this.tbxUsername.getText(), String.valueOf(this.tbxPassword.getPassword()), this.isAdmin, this.ticketsPurchased, this.tbxFirstName.getText(), Long.parseLong(this.tbxCredit.getText()));
+        
+    // Go back to BrowseAccounts
         this.setVisible(false);
         new FEBrowseAccounts().setVisible(true);
     }//GEN-LAST:event_btnSaveModificationsActionPerformed
