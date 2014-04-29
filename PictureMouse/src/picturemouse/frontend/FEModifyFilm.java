@@ -7,6 +7,7 @@ package picturemouse.frontend;
 import javax.swing.JOptionPane;
 import picturemouse.backend.BEDatabase;
 import picturemouse.backend.BEModifyFilmDetails;
+import picturemouse.backend.BEFilm;
 /**
  *
  * @author John
@@ -253,6 +254,17 @@ public class FEModifyFilm extends javax.swing.JFrame {
 
     private void btnSaveModificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveModificationsActionPerformed
         // TODO add your handling code here:
+        this.filmName = this.tbxModifyFilmName.getText();
+        this.filmSynopsis = this.tbxModifySynopsis.getText();
+        this.trailerURL = this.tbxModifyTrailerURL.getText();
+        // Modify fields of old film in database as defined by user but keep 
+        // filmId the same.
+        action.doIt(this.filmId, this.filmName, this.trailerURL, this.filmSynopsis, null);
+        // Show confirmation to Administrator
+        JOptionPane.showMessageDialog(this, "Film Modified.");
+        // Hide windows and go back to BrowseFilms.
+        this.setVisible(false);
+        new FEBrowseReviews().setVisible(true);
     }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

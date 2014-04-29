@@ -31,13 +31,13 @@ public class BEModifyFilmDetails
      * @param newScreenings New screenings field(elements are 
      *                      inserted, adapted or removed in front-end).
      */
-    public void doIt(int oldfilmId, int newFilmId, String newName, 
+    public void doIt(int filmId, String newName, 
             String newTrailer, String newSynopsis, 
             ArrayList<BEScreening> newScreenings)
     {
         BEDatabase database = BEDatabase.getInstance();
-        BEFilm film = database.lookupFilm(oldfilmId, true);
-        film.modify(newFilmId, newName, newTrailer, newSynopsis, 
+        BEFilm film = database.lookupFilm(filmId, true);
+        film.modify(filmId, newName, newTrailer, newSynopsis, 
                                                 newScreenings);
         database.save(film);
     }
