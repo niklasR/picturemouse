@@ -19,11 +19,12 @@ public class FEModifyFilm extends javax.swing.JFrame {
     String filmSynopsis;
     int filmId;
     
-    public FEModifyFilm(int filmId, String filmName, String filmSynopsis) {
+    @SuppressWarnings("empty-statement")
+    public FEModifyFilm() {
         initComponents();
-        this.filmId = filmId;
-        this.filmName = filmName;
-        this.filmSynopsis = filmSynopsis;
+        this.filmId = FEBrowseFilms.selectedFilmID;
+        this.filmName = FEBrowseFilms.selectedFilmName;;
+        this.filmSynopsis = FEBrowseFilms.selectedFilmSynopsis;
         //Debug code
         System.out.println("Name:" + this.filmName);
         System.out.println("Synopsis:" + String.valueOf(this.filmSynopsis));
@@ -231,7 +232,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
                 .addComponent(btnSaveModifications, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
+                .addGap(120, 120, 120)
                 .addComponent(btnRemoveFilm, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -321,7 +322,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
             @Override
             public void run() {
                 // For testing purposes.
-                new FEModifyFilm(1, "Batman", "Film is awesome").setVisible(true);
+                new FEModifyFilm().setVisible(true);
             }
         });
     }
