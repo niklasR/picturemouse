@@ -5,7 +5,9 @@
 package picturemouse.frontend;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import picturemouse.backend.BEDatabase;
+import picturemouse.backend.BEModifyFilmDetails;
 
 /**
  *
@@ -27,6 +29,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     BEDatabase database = BEDatabase.getInstance();
     boolean filmSelected;
     
+    
     /**
      * Creates new form BrowseFilms
      * @param isAdmin
@@ -40,7 +43,11 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         
         lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
         
-        //Loading in the films into the JList
+        fillingListBox();
+        
+    }
+    private void fillingListBox()
+    {
         picturemouse.backend.BEBrowseFilms action = new picturemouse.backend.BEBrowseFilms();
         filmStrings = action.doIt();
 
@@ -53,9 +60,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         
         //Changing visibility of add film button according to admin setting
         btnAddFilm.setVisible(isAdmin);
-        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -253,6 +258,17 @@ public class FEBrowseFilms extends javax.swing.JFrame {
 
     private void btnAddFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFilmActionPerformed
         // TODO add your handling code here:
+        System.out.println("Adding Film");
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
+                + "you want to add a default film?", "Add Film Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            new BEModifyFilmDetails().addFilm();
+            this.fillingListBox();
+            JOptionPane.showMessageDialog(this, "Film has been added.");
+        }
+        
     }//GEN-LAST:event_btnAddFilmActionPerformed
 
     private void lbxFilmsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxFilmsValueChanged

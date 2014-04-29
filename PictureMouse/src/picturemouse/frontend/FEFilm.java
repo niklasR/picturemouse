@@ -4,6 +4,10 @@
  */
 package picturemouse.frontend;
 
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jake Carr
@@ -218,7 +222,11 @@ public class FEFilm extends javax.swing.JFrame {
     private void btnWatchTrailerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWatchTrailerActionPerformed
         // Making form invisible and then new form visible
         this.setVisible(false);
-        new FETrailer().setVisible(true);
+        try {
+            new FETrailer().setVisible(true);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(FEFilm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnWatchTrailerActionPerformed
 
     private void btnBookTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookTicketActionPerformed

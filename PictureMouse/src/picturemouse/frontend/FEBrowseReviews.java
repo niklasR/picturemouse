@@ -13,46 +13,52 @@ import picturemouse.backend.BEReview;
  * @author John & Niklas Rahmel
  */
 public class FEBrowseReviews extends javax.swing.JFrame {
-    
+
     boolean isAdmin;
     BEDatabase d1 = BEDatabase.getInstance();
 
     ArrayList<BEReview> filmReviews = new ArrayList<>();
 
-    
     /**
      * Creates new form SignOn
      */
     public FEBrowseReviews() {
         initComponents();
-        
+
         if (FESignOn.username.equals("Administrator")) // If not signed out through SignOn, this will give a NullPointerException
         {
             this.isAdmin = true;
-        }
-        else 
-        {
+        } else {
             this.isAdmin = false;
         }
-        
-        ArrayList<picturemouse.backend.BEReview> allReviews = d1.getReviews();
-        
-        
-        // get reviews of selected Film only
 
-        for (int i=0; i < allReviews.size(); i++){
-            if (allReviews.get(i).getFilmId() == FEBrowseFilms.selectedFilmID){
+        ArrayList<picturemouse.backend.BEReview> allReviews = d1.getReviews();
+
+        // get reviews of selected Film only, unless isAdmin
+        if (isAdmin) {
+            for (int i = 0; i < allReviews.size(); i++) {
                 filmReviews.add(allReviews.get(i));
             }
+        } else {
+            for (int i = 0; i < allReviews.size(); i++) {
+                if (allReviews.get(i).getFilmId() == FEBrowseFilms.selectedFilmID) {
+                    filmReviews.add(allReviews.get(i));
+                }
+            }
         }
-        
+
         // store review Data of relevant reviews for display
         String[] reviewData = new String[filmReviews.size()];
-        for (int i=0; i < filmReviews.size(); i++){
-            reviewData[i] = filmReviews.get(i).getUsername() + ": "+ String.valueOf(filmReviews.get(i).getStars())+" star";
+        for (int i = 0; i < filmReviews.size(); i++) {
+            if (isAdmin){
+                reviewData[i] = filmReviews.get(i).getFilmId() + " | " + filmReviews.get(i).getUsername() + ": " + String.valueOf(filmReviews.get(i).getStars()) + " star";
+            } else {
+                reviewData[i] = filmReviews.get(i).getUsername() + ": " + String.valueOf(filmReviews.get(i).getStars()) + " star";
+            }
         }
-        
+
         this.lbxReviews.setListData(reviewData);
+        
     }
 
     /**
@@ -207,32 +213,25 @@ public class FEBrowseReviews extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // Making form invisible and then new form visible
         this.setVisible(false);
-        if (this.isAdmin)
-        {
+        if (this.isAdmin) {
             new FEAdministratorOptions().setVisible(true);
-        }
-        else 
-        {
+        } else {
             new FEFilm().setVisible(true);
         }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
 
-       // Get selected review to hand over
+        // Get selected review to hand over
 
-        picturemouse.backend.BEReview review = filmReviews.get(lbxReviews.getSelectedIndex());
-        
+            picturemouse.backend.BEReview review = filmReviews.get(lbxReviews.getSelectedIndex());
+
         // Making form invisible and then new form visible
-
         this.setVisible(false);
-        
-        if (this.isAdmin)
-        {
+
+        if (this.isAdmin) {
             new FEModifyReview(review).setVisible(true); //pass in reviewId
-        }
-        else 
-        {
+        } else {
             new FEReadReview(review.getText(), review.getStars()).setVisible(true); //pass in reviewId
         }
     }//GEN-LAST:event_btnSelectActionPerformed
