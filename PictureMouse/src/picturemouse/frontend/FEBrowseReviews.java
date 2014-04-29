@@ -196,7 +196,14 @@ public class FEBrowseReviews extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // Making form invisible and then new form visible
         this.setVisible(false);
-        new FEFilm().setVisible(true);
+        if (this.isAdmin)
+        {
+            new FEAdministratorOptions().setVisible(true);
+        }
+        else 
+        {
+            new FEFilm().setVisible(true);
+        }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
