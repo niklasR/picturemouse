@@ -207,9 +207,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Currently held data for all."/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbxModifyFilmNameActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tbxModifyTrailerURL">
         </Component>

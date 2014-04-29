@@ -18,6 +18,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
     String filmName;
     String filmSynopsis;
     int filmId;
+    String trailerURL;
     
     @SuppressWarnings("empty-statement")
     public FEModifyFilm() {
@@ -25,14 +26,16 @@ public class FEModifyFilm extends javax.swing.JFrame {
         this.filmId = FEBrowseFilms.selectedFilmID;
         this.filmName = FEBrowseFilms.selectedFilmName;;
         this.filmSynopsis = FEBrowseFilms.selectedFilmSynopsis;
+        this.trailerURL = FEBrowseFilms.selectedFilmTrailerURL;
         //Debug code
         System.out.println("Name:" + this.filmName);
-        System.out.println("Synopsis:" + String.valueOf(this.filmSynopsis));
+        System.out.println("Synopsis:" + this.filmSynopsis);
+        System.out.println("TrailerURl:" + this.trailerURL);
         
-        // Set GUI content
         this.tbxModifyFilmName.setText(this.filmName);
         this.tbxModifySynopsis.setText(this.filmSynopsis);
-        // or this.cbxModifyStar.setSelectedItem(String.valueOf(this.review.getStars()));
+        this.tbxModifyTrailerURL.setText(this.trailerURL);
+        
     }
 
     /**
@@ -125,11 +128,6 @@ public class FEModifyFilm extends javax.swing.JFrame {
         lblModifyTrailerURL.setText("Trailer URL:");
 
         tbxModifyFilmName.setText("Currently held data for all.");
-        tbxModifyFilmName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbxModifyFilmNameActionPerformed(evt);
-            }
-        });
 
         tbxModifySynopsis.setColumns(20);
         tbxModifySynopsis.setRows(5);
@@ -257,16 +255,23 @@ public class FEModifyFilm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
-    private void tbxModifyFilmNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxModifyFilmNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbxModifyFilmNameActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        System.out.println("Removing Film");
+        int result = JOptionPane.showConfirmDialog(this, " All changes will "
+                + "be lost, are you sure that you want to cancel?", "Cancel "
+                + "modification of film Confirmation", JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            new FEBrowseFilms(true).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnBrowseScreeningsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseScreeningsActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new FEBrowseScreenings().setVisible(true);
     }//GEN-LAST:event_btnBrowseScreeningsActionPerformed
 
     private void btnRemoveFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFilmActionPerformed
