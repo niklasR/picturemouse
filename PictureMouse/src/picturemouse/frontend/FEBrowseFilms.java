@@ -39,9 +39,9 @@ public class FEBrowseFilms extends javax.swing.JFrame {
 
         //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
         
-        filmStrings = new String[]{"123\f Film name 1\f Synopsis 1\f https://www.youtube.com/watch?v=AYaTCPbYGdk", 
-            "234\f Film name 2\f Synopsis 2\f https://www.youtube.com/watch?v=U1fu_sA7XhE",
-            "345\f Film name 3\f Synopsis 3\f https://www.youtube.com/watch?v=DSx8Jobx-Gs"}; //This is sample data
+        //filmStrings = new String[]{"123\f Film name 1\f Synopsis 1\f https://www.youtube.com/watch?v=AYaTCPbYGdk", 
+        //    "234\f Film name 2\f Synopsis 2\f https://www.youtube.com/watch?v=U1fu_sA7XhE",
+        //    "345\f Film name 3\f Synopsis 3\f https://www.youtube.com/watch?v=DSx8Jobx-Gs"}; //This is sample data
         listModel = new DefaultListModel<String>();
         for (String filmString: filmStrings){
             String[] splitFilmString = filmString.split("\f"); //spliting string up

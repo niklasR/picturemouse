@@ -30,16 +30,16 @@ public class CreateTestDatabase {
 
         database.save(testNewsletter1);
 
-        // Create Film
+        // Create Films
         // Create Screening
-        ArrayList<BEScreening> testScreenings = new ArrayList<>();
+        ArrayList<BEScreening> testScreenings1 = new ArrayList<>();
         HashMap<Integer, String> testSeatingPlan = new HashMap<>();
         testSeatingPlan.put(1, "testUser1");
         testSeatingPlan.put(2, "Administrator");
         BEScreening testScreening1 = new BEScreening(1, new Time(9, 30, 0), new Date(114, 5, 1), 1, testSeatingPlan);
-        testScreenings.add(testScreening1);
+        testScreenings1.add(testScreening1);
 
-        BEFilm testFilm1 = new BEFilm(1, "Test Film 1", "", "Test Synopsis 1", testScreenings);
+        BEFilm testFilm1 = new BEFilm(1, "Test Film 1", "", "Test Synopsis 1", testScreenings1);
         database.save(testFilm1);
 
 
