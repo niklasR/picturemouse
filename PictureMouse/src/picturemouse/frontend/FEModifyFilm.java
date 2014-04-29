@@ -263,7 +263,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Film has been Modified.");
         // Hide windows and go back to BrowseFilms.
         this.setVisible(false);
-        new FEBrowseReviews().setVisible(true);
+        new FEBrowseFilms(true).setVisible(true);
     }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

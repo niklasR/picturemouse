@@ -3,10 +3,12 @@
  * and open the template in the editor.
  */
 package picturemouse.frontend;
-import javax.swing.DefaultListModel;
-import picturemouse.backend.BEModifyFilmDetails;
 import java.sql.Time;
 import java.util.Date;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import picturemouse.backend.BEDatabase;
+import picturemouse.backend.BEModifyFilmDetails;
 
 /**
  *
@@ -17,13 +19,23 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
     DefaultListModel listModel;
     public static Time selectedTime;
     public static Date selectedDate;
+    private BEModifyFilmDetails action = new BEModifyFilmDetails();
+    BEDatabase database = BEDatabase.getInstance();
+    boolean filmSelected;
+    public static String[] splitSelectedFilmScreeningString;
     
     /**
      * Creates new form BrowseScreening.
      */
     public FEBrowseScreenings() {
         initComponents();
-        BEModifyFilmDetails action = new BEModifyFilmDetails();
+        lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
+        System.out.println("Fills listbox.");
+        fillListBox();
+    }
+
+    private void fillListBox()
+    {
         filmScreeningStrings = action.browseScreenings(FEBrowseFilms.selectedFilmID);
         listModel = new DefaultListModel<>();
         for (String filmScreeningString: filmScreeningStrings){
@@ -32,7 +44,6 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
         }
         lbxScreenings.setModel(listModel);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,6 +120,11 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         lbxScreenings.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lbxScreenings.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lbxScreeningsValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lbxScreenings);
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
@@ -203,7 +219,44 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
 
     private void btnAddScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddScreeningActionPerformed
         // TODO add your handling code here:
+        System.out.println("Adding Screening");
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
+                + "you want to add a default film?", "Add Film Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            action.addScreening(FEBrowseFilms.selectedFilmID);
+            fillListBox();
+            JOptionPane.showMessageDialog(this, "Screening has been added.");
+        }
+        
     }//GEN-LAST:event_btnAddScreeningActionPerformed
+
+    private void lbxScreeningsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxScreeningsValueChanged
+        // TODO add your handling code here:
+                //Setting Flag
+        filmSelected = true;
+        
+        //Finding the ID of the film selected using the index of the selected
+        //element in the JList
+        int selectedJListIndex = this.lbxScreenings.getSelectedIndex();
+        String filmScreeningString = filmScreeningStrings[selectedJListIndex]; //Finding string
+        String[] splitFilmScreeningString = filmScreeningString.split("\f");
+        splitSelectedFilmScreeningString = splitFilmScreeningString; //Saving split string
+        
+        //Saving attributes as static variables
+        String[] timeStrings = splitFilmScreeningString[0].trim().split(":");
+        int hour = Integer.valueOf(timeStrings[0]);
+        int min = Integer.valueOf(timeStrings[1]);
+        int sec = Integer.valueOf(timeStrings[2]);
+        
+        String[] dateStrings = splitFilmScreeningString[1].trim().split("-");
+        int year = Integer.valueOf(dateStrings[0]);
+        int month = Integer.valueOf(dateStrings[1]);
+        int day = Integer.valueOf(dateStrings[2]);
+        selectedTime = new Time(hour, min, sec);
+        selectedDate = new Date(year, month, day);
+    }//GEN-LAST:event_lbxScreeningsValueChanged
 
     /**
      * @param args the command line arguments

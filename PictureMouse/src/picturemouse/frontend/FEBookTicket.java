@@ -4,6 +4,7 @@
  */
 package picturemouse.frontend;
 
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import picturemouse.frontend.FESignOn;
@@ -48,9 +49,6 @@ public class FEBookTicket extends javax.swing.JFrame {
         
         //Changing title
         lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
-        //Changing labels
-        lblSelectScreening.setVisible(false);
-        lblSelectSeat.setVisible(false);
         
         //Displaying all screenings for the film in the combo box
         //Creating instance of the backend BookTicket class
@@ -59,6 +57,7 @@ public class FEBookTicket extends javax.swing.JFrame {
         
         //Creating new model with new elements
         screeningCBXModel = new DefaultComboBoxModel();
+        screeningCBXModel.addElement("Please select a screening...");
         for (String screening: screenings){
             screeningCBXModel.addElement(screening);
         }
@@ -83,8 +82,6 @@ public class FEBookTicket extends javax.swing.JFrame {
         cbxChooseSeat = new javax.swing.JComboBox();
         lblScreening = new javax.swing.JLabel();
         lblSeat = new javax.swing.JLabel();
-        lblSelectScreening = new javax.swing.JLabel();
-        lblSelectSeat = new javax.swing.JLabel();
         bottomPanel = new javax.swing.JPanel();
         btnBook = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -154,15 +151,11 @@ public class FEBookTicket extends javax.swing.JFrame {
             }
         });
 
+        lblScreening.setForeground(new java.awt.Color(255, 255, 255));
         lblScreening.setText("Screening:");
 
+        lblSeat.setForeground(new java.awt.Color(255, 255, 255));
         lblSeat.setText("Seat:");
-
-        lblSelectScreening.setForeground(new java.awt.Color(255, 255, 0));
-        lblSelectScreening.setText("Please select a screening");
-
-        lblSelectSeat.setForeground(new java.awt.Color(255, 255, 51));
-        lblSelectSeat.setText("Please select a seat");
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -174,26 +167,19 @@ public class FEBookTicket extends javax.swing.JFrame {
                     .addComponent(lblScreening)
                     .addComponent(lblSeat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSelectScreening)
-                    .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cbxChooseScreening, 0, 236, Short.MAX_VALUE)
-                        .addComponent(cbxChooseSeat, 0, 1, Short.MAX_VALUE))
-                    .addComponent(lblSelectSeat))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cbxChooseScreening, 0, 236, Short.MAX_VALUE)
+                    .addComponent(cbxChooseSeat, 0, 1, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centrePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSelectScreening, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(42, 42, 42)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxChooseScreening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblScreening, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addComponent(lblSelectSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxChooseSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -231,9 +217,9 @@ public class FEBookTicket extends javax.swing.JFrame {
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                 .addGap(31, 31, 31)
-                .addComponent(btnBook, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                .addComponent(btnBook, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                 .addContainerGap())
         );
         bottomPanelLayout.setVerticalGroup(
@@ -243,7 +229,7 @@ public class FEBookTicket extends javax.swing.JFrame {
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         getContentPane().add(bottomPanel);
@@ -259,9 +245,6 @@ public class FEBookTicket extends javax.swing.JFrame {
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
         if (screeningSelected && seatSelected){ //checking that selections are made
-            //Removing labels
-            lblSelectScreening.setVisible(false);
-            lblSelectSeat.setVisible(false);
             
             //Confirmation window:
             int result = JOptionPane.showConfirmDialog(this, "Do you wish to book this Ticket?",
@@ -277,13 +260,11 @@ public class FEBookTicket extends javax.swing.JFrame {
         }
         
         //Changing labels is the screening and seat are both not selected
-        if (!screeningSelected){
-            lblSelectScreening.setVisible(true);
-        } else {
-            lblSelectScreening.setVisible(false);
+        else if (!screeningSelected){
+            this.lblScreening.setForeground(Color.black);
         }
         if (!seatSelected){
-            lblSelectSeat.setVisible(true);
+            this.lblSeat.setForeground(Color.black);
         }
     }//GEN-LAST:event_btnBookActionPerformed
 
@@ -380,8 +361,6 @@ public class FEBookTicket extends javax.swing.JFrame {
     private javax.swing.JLabel lblCustomerOptions;
     private javax.swing.JLabel lblScreening;
     private javax.swing.JLabel lblSeat;
-    private javax.swing.JLabel lblSelectScreening;
-    private javax.swing.JLabel lblSelectSeat;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables

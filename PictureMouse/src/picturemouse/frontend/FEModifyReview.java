@@ -211,7 +211,7 @@ public class FEModifyReview extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         action.doIt(review.getReviewId(), review.getReviewId(), (short) (this.cbxModifyStar.getSelectedIndex() + 1), this.tbxModifyReview.getText(), review.getUsername(), review.getFilmId());
         // Show confirmation to Administrator
-        JOptionPane.showMessageDialog(this, "Review Modified.");
+        JOptionPane.showMessageDialog(this, "Review has been Modified.");
         // Close windows and go back to BrowseReviews
         this.setVisible(false);
         new FEBrowseReviews().setVisible(true);

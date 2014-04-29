@@ -44,7 +44,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         picturemouse.backend.BEBrowseFilms action = new picturemouse.backend.BEBrowseFilms();
         filmStrings = action.doIt();
 
-                listModel = new DefaultListModel<>();
+        listModel = new DefaultListModel<>();
         for (String filmString: filmStrings){
             String[] splitFilmString = filmString.split("\f"); //spliting string up
             listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
