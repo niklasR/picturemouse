@@ -28,7 +28,7 @@ public class FEReadNewsletter extends javax.swing.JFrame {
         
         //Load the current newsletter if there is one
         if(database.getNewsletter().display() != null && !database.getNewsletter().display().isEmpty()){
-            content = database.getNewsletter().display();
+            picturemouse.backend.BEReadNewsletter.doIt();
         }
 
         //Display the newsletter or the default

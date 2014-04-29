@@ -15,11 +15,13 @@ package picturemouse.backend;
 
 public class BEReadNewsletter{        
 
-	public void doIt()
+	public static String doIt()
 	{        
             
             BEDatabase database = BEDatabase.getInstance();
             
             String Content = database.getNewsletter().display();
+            
+            return Content;
 	}
 }
