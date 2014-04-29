@@ -5,6 +5,7 @@
 package picturemouse.frontend;
 
 import javax.swing.DefaultListModel;
+import picturemouse.backend.BEDatabase;
 
 /**
  *
@@ -23,6 +24,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public static String selectedFilmSynopsis;
     public static String selectedFilmTrailerURL;
     public static String[] splitSelectedFilmString;
+    BEDatabase database = BEDatabase.getInstance();
     
     /**
      * Creates new form BrowseFilms
@@ -32,17 +34,13 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public FEBrowseFilms(boolean isAdmin) {
         initComponents();
         this.isAdmin = isAdmin;
+        lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
         
         //Loading in the films into the JList
         picturemouse.backend.BEBrowseFilms action = new picturemouse.backend.BEBrowseFilms();
         filmStrings = action.doIt();
 
-        //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
-        
-        //filmStrings = new String[]{"123\f Film name 1\f Synopsis 1\f https://www.youtube.com/watch?v=AYaTCPbYGdk", 
-        //    "234\f Film name 2\f Synopsis 2\f https://www.youtube.com/watch?v=U1fu_sA7XhE",
-        //    "345\f Film name 3\f Synopsis 3\f https://www.youtube.com/watch?v=DSx8Jobx-Gs"}; //This is sample data
-        listModel = new DefaultListModel<>();
+                listModel = new DefaultListModel<>();
         for (String filmString: filmStrings){
             String[] splitFilmString = filmString.split("\f"); //spliting string up
             listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
@@ -248,8 +246,6 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddFilmActionPerformed
 
     private void lbxFilmsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxFilmsValueChanged
-
-        System.out.println("Value has changed"); //TEST
         
         //Finding the ID of the film selected using the index of the selected
         //element in the JList
@@ -263,11 +259,6 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         selectedFilmName = splitFilmString[1].trim();
         selectedFilmSynopsis = splitFilmString[2].trim();
         selectedFilmTrailerURL = splitFilmString[3].trim();
-        
-        //TESTING:
-        System.out.println("selectedFilmID:"+ selectedFilmID);
-        System.out.println("selectedFilmName:"+ selectedFilmName);
-        System.out.println("selectedFilmSynopsis:"+ selectedFilmSynopsis);
         
     }//GEN-LAST:event_lbxFilmsValueChanged
 

@@ -30,9 +30,12 @@ public class BEBookTicket
     public void doIt(int filmId, int screeningId, int seat, String username)
     {
         //Finding the database, account, film and screening
+        System.out.println("ScreeningId: " + screeningId);
+        System.out.println("filmId: " + screeningId);
         BEDatabase database = BEDatabase.getInstance();
         BEAccount account = database.lookupAccount(username, false);
         BEFilm film = database.lookupFilm(filmId, false);
+        System.out.println("film name: " + film.getFilmName());
         BEScreening screening = film.lookupScreening(screeningId);
         //Creating the CinemaTicket
         BECinemaTicket ticket = new BECinemaTicket(seat, screeningId, filmId);
