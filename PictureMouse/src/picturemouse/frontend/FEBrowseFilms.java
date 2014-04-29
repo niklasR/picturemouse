@@ -21,6 +21,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public static int selectedFilmID;
     public static String selectedFilmName;
     public static String selectedFilmSynopsis;
+    public static String selectedFilmTrailerURL;
     public static String[] splitSelectedFilmString;
     
     /**
@@ -260,6 +261,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         selectedFilmID = Integer.parseInt(splitFilmString[0].trim());
         selectedFilmName = splitFilmString[1].trim();
         selectedFilmSynopsis = splitFilmString[2].trim();
+        selectedFilmTrailerURL = splitFilmString[3].trim();
         
         //TESTING:
         System.out.println("selectedFilmID:"+ selectedFilmID);
