@@ -41,18 +41,9 @@ public class BrowseFilms extends javax.swing.JFrame {
         
         //Loading in the films into the JList
         picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
-        //filmStrings = action.doIt();
+        String[] filmsData = action.doIt();
         
-        picturemouse.backend.Database database = picturemouse.backend.Database.getInstance();
-        films = database.getFilms();
-        
-        ArrayList<String> filmsData = new ArrayList<>();
-        
-        for (int i=0; i < films.size(); i++){
-            filmsData.add(films.get(i).getFilmName());
-        }
-        
-        this.lbxFilms.setListData(filmsData.toArray());
+        this.lbxFilms.setListData(filmsData);
         
         btnAddFilm.setVisible(isAdmin);
         
