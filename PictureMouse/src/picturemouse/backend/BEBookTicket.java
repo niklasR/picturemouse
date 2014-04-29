@@ -71,7 +71,7 @@ public class BEBookTicket
         String[] screeningStrings = new String[screenings.size()];
         
         //Creating a data formatter
-        Format formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        Format formatter = new SimpleDateFormat("dd-MM-yyyy");
         
         //Iterate through the screenings
         for(int i=0; i<screenings.size(); i++){

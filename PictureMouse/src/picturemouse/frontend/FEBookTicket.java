@@ -5,6 +5,7 @@
 package picturemouse.frontend;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import picturemouse.frontend.FESignOn;
 import picturemouse.backend.BEDatabase;
 
@@ -28,6 +29,9 @@ public class FEBookTicket extends javax.swing.JFrame {
     DefaultComboBoxModel screeningCBXModel;
     DefaultComboBoxModel seatsCBXModel;
     BEDatabase database = BEDatabase.getInstance();
+    boolean screeningSelected;
+    boolean seatSelected;
+    
 
     /**
      * Creates new form SignOn
@@ -38,6 +42,9 @@ public class FEBookTicket extends javax.swing.JFrame {
         //Loading in previously defined variables
         this.filmID = FEBrowseFilms.selectedFilmID;
         this.username = FESignOn.username;
+        //Setting flags
+        screeningSelected = false;
+        seatSelected = false;
         
         //Changing title
         lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
@@ -225,8 +232,16 @@ public class FEBookTicket extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
-        picturemouse.backend.BEBookTicket action = new picturemouse.backend.BEBookTicket();
-        action.doIt(this.filmId, this.screeningID, this.seat, this.username);
+        if (screeningSelected && seatSelected){ //checking that selections are made
+            int result = JOptionPane.showConfirmDialog(this, "Do you wish to book this Ticket?",
+                    "Confirmation Dialog", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                picturemouse.backend.BEBookTicket action = new picturemouse.backend.BEBookTicket();
+                action.doIt(this.filmId, this.screeningID, this.seat, this.username);
+            }
+        } else {
+            //Tell user to make selections
+        }
     }//GEN-LAST:event_btnBookActionPerformed
 
     /**
@@ -236,9 +251,10 @@ public class FEBookTicket extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     private void cbxChooseScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChooseScreeningActionPerformed
-        // TODO add your handling code here:
-        //this.screeningId = cbxChooseScreening.getSelectedIndex(); //something like that
-        //also, need to program which values the box is to fill with before!
+        
+        //Setting the flags
+        screeningSelected = true;
+        seatSelected = false;
         
         //Set contents of the seat number combo box
         
@@ -266,7 +282,11 @@ public class FEBookTicket extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxChooseScreeningActionPerformed
 
     private void cbxChooseSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChooseSeatActionPerformed
-        // TODO add your handling code here:
+        
+        //Setting the flags
+        screeningSelected = true;
+        seatSelected = true;
+        
         //Finding seat number
         int selectedSeatIndex = cbxChooseSeat.getSelectedIndex();
         String selectedSeatString = availableSeats[selectedSeatIndex];
