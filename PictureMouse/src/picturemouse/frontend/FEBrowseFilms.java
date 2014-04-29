@@ -8,7 +8,7 @@ import javax.swing.DefaultListModel;
 
 /**
  *
- * @author John
+ * @author Jake Carr
  */
 public class FEBrowseFilms extends javax.swing.JFrame {
 

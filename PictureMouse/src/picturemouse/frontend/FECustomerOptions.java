@@ -11,7 +11,7 @@ import picturemouse.backend.BEDatabase;
 
 /**
  *
- * @author John
+ * @author Jake Carr
  */
 public class FECustomerOptions extends javax.swing.JFrame {
     BEDatabase d1 = BEDatabase.getInstance();

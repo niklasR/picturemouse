@@ -5,10 +5,12 @@
 package picturemouse.frontend;
 
 import javax.swing.DefaultComboBoxModel;
+import picturemouse.frontend.FESignOn;
+import picturemouse.backend.BEDatabase;
 
 /**
  *
- * @author John
+ * @author Jake Carr
  */
 public class FEBookTicket extends javax.swing.JFrame {
 
@@ -25,6 +27,7 @@ public class FEBookTicket extends javax.swing.JFrame {
     int filmID;
     DefaultComboBoxModel screeningCBXModel;
     DefaultComboBoxModel seatsCBXModel;
+    BEDatabase database = BEDatabase.getInstance();
 
     /**
      * Creates new form SignOn
@@ -37,7 +40,7 @@ public class FEBookTicket extends javax.swing.JFrame {
         this.username = FESignOn.username;
         
         //Changing title
-        lblWelcome.setText("Hello "+username+"!");
+        lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
         
         //Displaying all screenings for the film in the combo box
         //Creating instance of the backend BookTicket class

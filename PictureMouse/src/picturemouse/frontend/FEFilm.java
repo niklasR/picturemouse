@@ -6,7 +6,7 @@ package picturemouse.frontend;
 
 /**
  *
- * @author John
+ * @author Jake Carr
  */
 public class FEFilm extends javax.swing.JFrame {
 
