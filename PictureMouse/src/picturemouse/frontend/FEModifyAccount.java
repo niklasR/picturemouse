@@ -224,15 +224,6 @@ public class FEModifyAccount extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveModificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveModificationsActionPerformed
-        // Close windows and go back to BrowseReviews
-        this.setVisible(false);
-        new BrowseAccounts().setVisible(true);    }//GEN-LAST:event_btnSaveModificationsActionPerformed
-
-    private void tbxPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxPasswordActionPerformed
-        this.setVisible(false);
-        new BrowseAccounts().setVisible(true);    }//GEN-LAST:event_tbxPasswordActionPerformed
-
     private void tbxCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxCreditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tbxCreditActionPerformed
@@ -244,6 +235,16 @@ public class FEModifyAccount extends javax.swing.JFrame {
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void tbxPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbxPasswordActionPerformed
+
+    private void btnSaveModificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveModificationsActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new FEBrowseAccounts().setVisible(true);
+    }//GEN-LAST:event_btnSaveModificationsActionPerformed
 
     /**
      * @param args the command line arguments
