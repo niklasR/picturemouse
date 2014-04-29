@@ -89,9 +89,21 @@ public class CreateTestDatabase {
         database.save(testAdmin);
 
         // Create Review
-        //BEReview r = new BEReview();
-        //r.modify((short)5, 1, "It was fantastic. A must see!", "testUser1", 1);
-        //database.save(r);
+        BEReview r1 = new BEReview();
+        r1.modify((short)5, 1, "It was fantastic. A must see!", "testUser1", 1);
+        database.save(r1);
+        // Create Review
+        BEReview r2 = new BEReview();
+        r2.modify((short)4, 2, "Very good film", "testUser1", 1);
+        database.save(r1);
+        // Create Review
+        BEReview r3 = new BEReview();
+        r3.modify((short)1, 3, "So Boring! Would rather watch paint dry!", "testUser1", 2);
+        database.save(r1);
+        // Create Review
+        BEReview r4 = new BEReview();
+        r4.modify((short)2, 4, "I fell asleep", "testUser1", 2);
+        database.save(r1);
 
         // Save Database
         database.saveToFile();
