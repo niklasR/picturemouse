@@ -38,6 +38,7 @@ public class FEBookTicket extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     public FEBookTicket() {
         initComponents();
+        
         //Loading in previously defined variables
         this.filmID = FEBrowseFilms.selectedFilmID;
         this.username = FESignOn.username;
@@ -47,6 +48,9 @@ public class FEBookTicket extends javax.swing.JFrame {
         
         //Changing title
         lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
+        //Changing labels
+        lblSelectScreening.setVisible(false);
+        lblSelectSeat.setVisible(false);
         
         //Displaying all screenings for the film in the combo box
         //Creating instance of the backend BookTicket class
@@ -89,7 +93,6 @@ public class FEBookTicket extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(421, 350));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -256,17 +259,31 @@ public class FEBookTicket extends javax.swing.JFrame {
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
         if (screeningSelected && seatSelected){ //checking that selections are made
+            //Removing labels
+            lblSelectScreening.setVisible(false);
+            lblSelectSeat.setVisible(false);
+            
+            //Confirmation window:
             int result = JOptionPane.showConfirmDialog(this, "Do you wish to book this Ticket?",
                     "Confirmation Dialog", JOptionPane.YES_NO_OPTION);
             if (result == JOptionPane.YES_OPTION) {
+                //Booking ticket
                 picturemouse.backend.BEBookTicket action = new picturemouse.backend.BEBookTicket();
                 action.doIt(this.filmID, this.screeningID, this.seat, this.username);
                 //Navigating back to customer options
                 this.setVisible(false);
                 new FECustomerOptions().setVisible(true);
             }
+        }
+        
+        //Changing labels is the screening and seat are both not selected
+        if (!screeningSelected){
+            lblSelectScreening.setVisible(true);
         } else {
-            //Tell user to make selections
+            lblSelectScreening.setVisible(false);
+        }
+        if (!seatSelected){
+            lblSelectSeat.setVisible(true);
         }
     }//GEN-LAST:event_btnBookActionPerformed
 
