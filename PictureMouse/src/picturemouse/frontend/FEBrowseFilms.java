@@ -23,7 +23,6 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public static String selectedFilmSynopsis;
     public static String[] splitSelectedFilmString;
     
-    
     /**
      * Creates new form SignOn
      * @param isAdmin
@@ -39,11 +38,11 @@ public class FEBrowseFilms extends javax.swing.JFrame {
 
         //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
         
-        filmStrings = new String[]{"123, Film name 1, Synopsis 1", "234, Film name 2, Synopsis 2",
-            "345, Film name 3, Synopsis 3"}; //This is sample data
+        filmStrings = new String[]{"123\f Film name 1\f Synopsis 1", "234\f Film name 2\f Synopsis 2",
+            "345\f Film name 3\f Synopsis 3"}; //This is sample data
         listModel = new DefaultListModel<String>();
         for (String filmString: filmStrings){
-            String[] splitFilmString = filmString.split(","); //spliting string up
+            String[] splitFilmString = filmString.split("\f"); //spliting string up
             listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name
         }
         lbxFilms.setModel(listModel);
@@ -254,7 +253,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         //element in the JList
         int selectedJListIndex = lbxFilms.getSelectedIndex();
         String filmString = filmStrings[selectedJListIndex]; //Finding string
-        String[] splitFilmString = filmString.split(",");
+        String[] splitFilmString = filmString.split("\f");
         splitSelectedFilmString = splitFilmString; //Saving split string
         
         //Saving attributes as static variables

@@ -29,7 +29,7 @@ public class BEBrowseFilms
         //front-end of the program.
         for (int i = 0; i<films.size(); i++) {
             film = films.get(i);
-            filmStrings[i] = film.getFilmId()+", "+film.getFilmName()+", "+film.getSynopsis();
+            filmStrings[i] = film.getFilmId()+"\f "+film.getFilmName()+"\f "+film.getSynopsis();
         }
         return filmStrings;
     }
