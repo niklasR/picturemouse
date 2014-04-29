@@ -4,7 +4,10 @@
  */
 package picturemouse.frontend;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import picturemouse.backend.BEDatabase;
 
 /**
@@ -34,15 +37,18 @@ public class FEBrowseTickets extends javax.swing.JFrame {
 
         ArrayList<String> displayList = new ArrayList<>();
         
+        //Creating a data formatter
+        Format formatter = new SimpleDateFormat("dd-MM-yyyy");
+        
         //Want to display: Film name, time, date, seat number
         for (int i=0; i < tickets.size(); i++){
             picturemouse.backend.BEFilm film = database.lookupFilm(tickets.get(i).getFilmId(), false);
             picturemouse.backend.BEScreening screening = film.lookupScreening(tickets.get(i).getScreeningId());
-            String date = screening.getDate().toString();
+            Date date = screening.getDate();
+            String formattedDate = formatter.format(date); //Formating date
             String time = screening.getTime().toString();
-            System.out.println("Film: " + film.getFilmName() + " on: " + date + "at: " + time + ". Seat number: " + tickets.get(i).getSeatNumber());
             
-            displayList.add("Film: " + film.getFilmName() + " on: " + date + "at: " + time + ". Seat number: " + tickets.get(i).getSeatNumber());
+            displayList.add("Film: " + film.getFilmName() + " on: " + formattedDate + ", at: " + time + ". Seat number: " + tickets.get(i).getSeatNumber());
             
         }
         
@@ -215,7 +221,6 @@ public class FEBrowseTickets extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int selectedJListIndex = lbxTickets.getSelectedIndex();
-        System.out.println(selectedJListIndex);
         
         //Set static variables
         screeningId = tickets.get(selectedJListIndex).getScreeningId();
