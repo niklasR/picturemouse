@@ -25,7 +25,7 @@ public class FEModifyAccount extends javax.swing.JFrame {
     public FEModifyAccount(picturemouse.backend.BEAccount account) {
         initComponents();
         this.oldUsername = account.getUsername();
-        
+        this.lblWelcome.setText("You are editing" + this.oldUsername + "'s account.");
         this.tbxUsername.setText(account.getUsername());
         this.tbxCredit.setText(String.valueOf(account.getCreditCardNo()));
         this.tbxPassword.setText(account.getPassword());
