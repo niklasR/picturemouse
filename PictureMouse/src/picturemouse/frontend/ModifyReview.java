@@ -4,7 +4,6 @@
  */
 package picturemouse.frontend;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import picturemouse.backend.Review;
 
@@ -17,7 +16,7 @@ import picturemouse.backend.Review;
 public class ModifyReview extends javax.swing.JFrame {
     
     picturemouse.backend.ModifyReview action = new picturemouse.backend.ModifyReview();
-    picturemouse.backend.Review review;
+    Review review;
     
     /**
      * Constructor taking a review to be modified
