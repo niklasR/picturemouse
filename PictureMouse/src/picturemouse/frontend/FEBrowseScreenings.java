@@ -5,7 +5,8 @@
 package picturemouse.frontend;
 import javax.swing.DefaultListModel;
 import picturemouse.backend.BEModifyFilmDetails;
-
+import java.sql.Time;
+import java.util.Date;
 
 /**
  *
@@ -14,6 +15,8 @@ import picturemouse.backend.BEModifyFilmDetails;
 public class FEBrowseScreenings extends javax.swing.JFrame {
     String[] filmScreeningStrings;
     DefaultListModel listModel;
+    public static Time selectedTime;
+    public static Date selectedDate;
     
     /**
      * Creates new form BrowseScreening.
@@ -194,7 +197,8 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         // TODO add your handling code here:
-        
+        this.setVisible(false);
+        new FEModifyScreening().setVisible(true);
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void btnAddScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddScreeningActionPerformed
