@@ -8,6 +8,7 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import picturemouse.backend.BEDatabase;
 
 /**
@@ -213,8 +214,14 @@ public class FEBrowseTickets extends javax.swing.JFrame {
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new FEPrintTicket().setVisible(true);
+        if(!tickets.isEmpty()){
+            this.setVisible(false);
+            new FEPrintTicket().setVisible(true);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "No ticket selected.");
+        }
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void lbxTicketsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxTicketsValueChanged
