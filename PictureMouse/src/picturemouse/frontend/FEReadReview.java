@@ -13,9 +13,12 @@ public class FEReadReview extends javax.swing.JFrame {
     /**
      * Creates new form SignOn
      */
-    public FEReadReview(String reviewText) {
+    public FEReadReview(String reviewText, short stars) {
         initComponents();
+        //Loading in text
         this.tbxReview.setText(reviewText);
+        this.lblWelcome.setText(FEBrowseFilms.selectedFilmName);
+        this.lblStarRating.setText(Short.toString(stars));
     }
 
     /**
