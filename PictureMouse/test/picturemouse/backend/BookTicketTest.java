@@ -6,22 +6,14 @@
 
 package picturemouse.backend;
 
-import picturemouse.backend.BEAccount;
-import picturemouse.backend.BEBookTicket;
-import picturemouse.backend.BEDatabase;
-import picturemouse.backend.BECinemaTicket;
-import picturemouse.backend.BEFilm;
-import picturemouse.backend.BEScreening;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
-import java.io.File;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import org.junit.After;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
@@ -41,7 +33,7 @@ public class BookTicketTest {
         ArrayList<BEScreening> screenings = new ArrayList<>();
         screenings.add(screening);
         //Creating Film
-        film = new BEFilm(1, "film", new File(""), "synopsis", screenings);
+        film = new BEFilm(1, "film", "", "synopsis", screenings);
         //Creating Account
         account = new BEAccount("username1", "password1", true, new ArrayList<BECinemaTicket>(), "Jake", 1234567890123456L);
         //Saving Film to database
