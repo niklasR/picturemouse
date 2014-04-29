@@ -110,7 +110,7 @@ public class BEScreening implements Serializable
     public int[] getAvailibleSeats(){
         //Calculating number of available seats
         int numberOfAvailableSeats = 0;
-        for(int i=0; i<50; i++){
+        for(int i=1; i<51; i++){ //Up to 50 seats in a screening
             if (!seatingPlan.containsKey(i)){
                 numberOfAvailableSeats++;
             }
@@ -120,7 +120,7 @@ public class BEScreening implements Serializable
         int[] availableSeats = new int[numberOfAvailableSeats];
         int index = 0; //index to keep track of element in availableSeats array
         
-        for(int i=0; i<50; i++){ //Iterate through full seating plan again
+        for(int i=1; i<51; i++){ //Iterate through full seating plan again
             if (!seatingPlan.containsKey(i)){
                 availableSeats[index] = i;
                 index++;
