@@ -4,13 +4,6 @@
  */
 package picturemouse.backend;
 
-import picturemouse.backend.BEReview;
-import picturemouse.backend.BENewsletter;
-import picturemouse.backend.BEAccount;
-import picturemouse.backend.BEDatabase;
-import picturemouse.backend.BECinemaTicket;
-import picturemouse.backend.BEFilm;
-import picturemouse.backend.BEScreening;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Time;
@@ -50,7 +43,7 @@ public class DatabaseTest {
         
         BEAccount c = new BEAccount();
         ArrayList<BECinemaTicket> cinemaTickets = new ArrayList<>();
-        BECinemaTicket c1 = new BECinemaTicket(1, 1);
+        BECinemaTicket c1 = new BECinemaTicket(1, 1, 1);
         cinemaTickets.add(c1);
         c.modify("jevery21", "123456", false, cinemaTickets, "John", 1234567894567349L);
         database.save(c);

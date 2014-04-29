@@ -233,7 +233,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         if (isAdmin){
             // Making form invisible and then new form visible
             this.setVisible(false);
-            new FEModifyFilm().setVisible(true);
+            new FEModifyFilm(selectedFilmName, selectedFilmSynopsis).setVisible(true);
         }
         else {
             // Making form invisible and then new form visible

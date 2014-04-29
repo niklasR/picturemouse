@@ -6,18 +6,14 @@
 
 package picturemouse.backend;
 
-import picturemouse.backend.BEAccount;
-import picturemouse.backend.BECinemaTicket;
-import picturemouse.backend.BEScreening;
-import java.util.ArrayList;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import org.junit.After;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
@@ -35,7 +31,7 @@ public class AccountTest {
         }
         //Creating cinema tickets
         for(int i=0; i<9; i++){
-            tickets[i] = new BECinemaTicket(i*2, screenings[i%3].getScreeningId());
+            tickets[i] = new BECinemaTicket(1, i*2, screenings[i%3].getScreeningId());
         }
     }
     

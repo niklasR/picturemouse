@@ -4,9 +4,7 @@
  */
 package picturemouse.frontend;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import picturemouse.backend.BECinemaTicket;
 
 /**
  *

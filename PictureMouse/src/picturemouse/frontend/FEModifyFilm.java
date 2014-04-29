@@ -17,7 +17,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
     /**
      * Creates new form SignOn
      */
-    public FEModifyFilm(BEFilm film) {
+    public FEModifyFilm(String filmName, String filmSynopsis) {
         initComponents();
         this.film = film;
         //Debug code
