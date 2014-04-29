@@ -6,17 +6,17 @@
 
 package picturemouse.frontend;
 
-import picturemouse.backend.Account;
+import picturemouse.backend.BEAccount;
 //import picturemouse.backend.BookTicket;
-import picturemouse.backend.Database;
-import picturemouse.backend.CinemaTicket;
-import picturemouse.backend.Film;
-import picturemouse.backend.Screening;
+import picturemouse.backend.BEDatabase;
+import picturemouse.backend.BECinemaTicket;
+import picturemouse.backend.BEFilm;
+import picturemouse.backend.BEScreening;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import picturemouse.frontend.BookTicket;
+import picturemouse.frontend.FEBookTicket;
 
 import java.io.File;
 import java.sql.Time;
@@ -28,23 +28,23 @@ import java.util.HashMap;
  * @author jakecarr
  */
 public class BookTicketTest {
-    Database database;
-    Film film;
-    Screening screening;
-    Account account;
+    BEDatabase database;
+    BEFilm film;
+    BEScreening screening;
+    BEAccount account;
     
     public BookTicketTest() {
         //Creating database
-        database = Database.getInstance();
+        database = BEDatabase.getInstance();
         //Creating Screening
-        screening = new Screening(1, new Time(15, 0, 0), new Date(114, 3, 10, 15, 0, 0), 1, new HashMap<Integer, String>());
-        ArrayList<Screening> screenings = new ArrayList<>();
+        screening = new BEScreening(1, new Time(15, 0, 0), new Date(114, 3, 10, 15, 0, 0), 1, new HashMap<Integer, String>());
+        ArrayList<BEScreening> screenings = new ArrayList<>();
         screenings.add(screening);
         //Creating Film
-        film = new Film(1, "film", new File(""), "synopsis", screenings);
+        film = new BEFilm(1, "film", new File(""), "synopsis", screenings);
         //Creating Account
-        account = new Account("username1", "password1", true, new ArrayList<CinemaTicket>(), "Jake", 1234567890123456L);
-        BrowseFilms.selectedFilmID = 1;
+        account = new BEAccount("username1", "password1", true, new ArrayList<BECinemaTicket>(), "Jake", 1234567890123456L);
+        FEBrowseFilms.selectedFilmID = 1;
         //Saving Film to database
         database.save(film);
         database.save(account);
@@ -70,7 +70,7 @@ public class BookTicketTest {
         System.out.println(testDate.toGMTString());
         String[] args = null;
         //BookTicket.main(args);
-        new BookTicket().setVisible(true);
+        new FEBookTicket().setVisible(true);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

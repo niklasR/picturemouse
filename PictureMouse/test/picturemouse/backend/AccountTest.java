@@ -6,9 +6,9 @@
 
 package picturemouse.backend;
 
-import picturemouse.backend.Account;
-import picturemouse.backend.CinemaTicket;
-import picturemouse.backend.Screening;
+import picturemouse.backend.BEAccount;
+import picturemouse.backend.BECinemaTicket;
+import picturemouse.backend.BEScreening;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
@@ -24,24 +24,24 @@ import java.util.HashMap;
  * @author jakecarr
  */
 public class AccountTest {
-    Account account;
-    Screening[] screenings = new Screening[3];
-    CinemaTicket[] tickets = new CinemaTicket[9];
+    BEAccount account;
+    BEScreening[] screenings = new BEScreening[3];
+    BECinemaTicket[] tickets = new BECinemaTicket[9];
     
     public AccountTest() {
         //Creating screenings
         for(int i=0; i<3; i++){
-            screenings[i] = new Screening(i+1, new Time(15+i, 0, 0), new Date(2014, 3, 10+i), 1, new HashMap<Integer, String>());
+            screenings[i] = new BEScreening(i+1, new Time(15+i, 0, 0), new Date(2014, 3, 10+i), 1, new HashMap<Integer, String>());
         }
         //Creating cinema tickets
         for(int i=0; i<9; i++){
-            tickets[i] = new CinemaTicket(i*2, screenings[i%3].getScreeningId());
+            tickets[i] = new BECinemaTicket(i*2, screenings[i%3].getScreeningId());
         }
     }
     
     @Before
     public void setUp() {
-        account = new Account("username1", "password1", true, new ArrayList<CinemaTicket>(), "Jake", 1234567890123456L);
+        account = new BEAccount("username1", "password1", true, new ArrayList<BECinemaTicket>(), "Jake", 1234567890123456L);
         for(int i=0; i<5; i++){
             account.addTicket(tickets[i]);
         }
@@ -61,10 +61,10 @@ public class AccountTest {
         String username = "modifiedUsername";
         String password = "modifiedPassword";
         Boolean isAdmin = false;
-        ArrayList<CinemaTicket> ticketsPurchased = null;
+        ArrayList<BECinemaTicket> ticketsPurchased = null;
         String firstName = "modifiedFN";
         long creditCardNo = 6543210987654321L;
-        Account instance = account;
+        BEAccount instance = account;
         instance.modify(username, password, isAdmin, ticketsPurchased, firstName, creditCardNo);
         //Testing that the attributes have changed to the new values
         assertEquals(username, instance.getUsername());
@@ -81,7 +81,7 @@ public class AccountTest {
     @Test
     public void testGetUsername() {
         System.out.println("getUsername");
-        Account instance = account;
+        BEAccount instance = account;
         String expResult = "username1";
         String result = instance.getUsername();
         assertEquals(expResult, result);
@@ -93,7 +93,7 @@ public class AccountTest {
     @Test
     public void testGetPassword() {
         System.out.println("getPassword");
-        Account instance = account;
+        BEAccount instance = account;
         String expResult = "password1";
         String result = instance.getPassword();
         assertEquals(expResult, result);
@@ -105,11 +105,11 @@ public class AccountTest {
     @Test
     public void testAddTicket() {
         System.out.println("addTicket");
-        CinemaTicket ticket1 = tickets[5];
-        CinemaTicket ticket2 = tickets[6];
-        CinemaTicket ticket3 = tickets[7];
-        CinemaTicket ticket4 = tickets[8];
-        Account instance = account;
+        BECinemaTicket ticket1 = tickets[5];
+        BECinemaTicket ticket2 = tickets[6];
+        BECinemaTicket ticket3 = tickets[7];
+        BECinemaTicket ticket4 = tickets[8];
+        BEAccount instance = account;
         instance.addTicket(ticket1);
         instance.addTicket(ticket4);
         instance.addTicket(ticket3);
@@ -131,7 +131,7 @@ public class AccountTest {
     @Test
     public void testSignOn() {
         System.out.println("signOn");
-        Account instance = account;
+        BEAccount instance = account;
         assertEquals(false, account.checkSignedOn());
         instance.signOn();
         assertEquals(true, account.checkSignedOn());
@@ -143,7 +143,7 @@ public class AccountTest {
     @Test
     public void testSignOff() {
         System.out.println("signOff");
-        Account instance = account;
+        BEAccount instance = account;
         instance.signOn();
         assertEquals(true, account.checkSignedOn());
         instance.signOff();
@@ -156,7 +156,7 @@ public class AccountTest {
     @Test
     public void testCheckSignedOn() {
         System.out.println("checkSignedOn");
-        Account instance = account;
+        BEAccount instance = account;
         boolean expResult = false;
         boolean result = instance.checkSignedOn();
         assertEquals(expResult, result);
