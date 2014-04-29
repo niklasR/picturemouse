@@ -84,7 +84,7 @@ public class CreateTestDatabase {
         testCinemaTickets2.add(testTicket4);
         testCinemaTickets2.add(testTicket5);
         testCinemaTickets2.add(testTicket6);
-        BEAccount testAdmin = new BEAccount("Administrator", "pw", true, testCinemaTickets2, "Admin", 1234567890123456L);
+        BEAccount testAdmin = new BEAccount("Administrator", "Liverpool8", true, testCinemaTickets2, "Admin", 1234567890123456L);
 
         database.save(testAdmin);
 

@@ -8,6 +8,8 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,9 +20,17 @@ public class FETrailer extends javax.swing.JFrame{
     /**
      * Creates new form FETrailer
      */
-    public FETrailer() {
+    public FETrailer() throws URISyntaxException {
         initComponents();
-        
+        if (FEBrowseFilms.selectedFilmTrailerURL.equals(""))
+        {
+            this.lblTrailer.setText("Trailer not available at the moment.");
+        }
+        else
+        {
+            final URI uri = new URI(FEBrowseFilms.selectedFilmTrailerURL);
+            open(uri);
+        }
     }
    
 
@@ -51,7 +61,7 @@ public class FETrailer extends javax.swing.JFrame{
 
         lblInfo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblInfo.setForeground(new java.awt.Color(255, 255, 255));
-        lblInfo.setText("Close the web browser and then press cancel when you have finished.");
+        lblInfo.setText("Press cancel to return to previous page.");
 
         javax.swing.GroupLayout upperPanelLayout = new javax.swing.GroupLayout(upperPanel);
         upperPanel.setLayout(upperPanelLayout);
@@ -63,9 +73,9 @@ public class FETrailer extends javax.swing.JFrame{
                         .addGap(66, 66, 66)
                         .addComponent(lblTrailer))
                     .addGroup(upperPanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(90, 90, 90)
                         .addComponent(lblInfo)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         upperPanelLayout.setVerticalGroup(
             upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,13 +182,14 @@ public class FETrailer extends javax.swing.JFrame{
         }
         //</editor-fold>
         // Taken from http://stackoverflow.com/questions/20440484/embed-a-youtube-video-to-jframe.
-        final URI uri = new URI(FEBrowseFilms.selectedFilmTrailerURL);
-            open(uri);
-  
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FETrailer().setVisible(true);
+                try {
+                    new FETrailer().setVisible(true);
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(FETrailer.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
