@@ -57,7 +57,6 @@ public class FEBookTicket extends javax.swing.JFrame {
         
         //Creating new model with new elements
         screeningCBXModel = new DefaultComboBoxModel();
-        screeningCBXModel.addElement("Please select a screening...");
         for (String screening: screenings){
             screeningCBXModel.addElement(screening);
         }
