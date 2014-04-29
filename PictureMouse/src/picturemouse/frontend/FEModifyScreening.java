@@ -63,21 +63,20 @@ public class FEModifyScreening extends javax.swing.JFrame {
 
         lblModifyAccount.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblModifyAccount.setForeground(new java.awt.Color(255, 255, 255));
-        lblModifyAccount.setText("You are editing the <<time>> screening for <<Filmname>>.");
+        lblModifyAccount.setText("You are editing a screening for <<Filmname>>.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(lblWelcome))
-                    .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(lblModifyAccount)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(140, 140, 140)
+                .addComponent(lblWelcome)
+                .addContainerGap(150, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblModifyAccount)
+                .addGap(82, 82, 82))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

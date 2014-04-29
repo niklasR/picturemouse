@@ -15,6 +15,7 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
      */
     public FEBrowseScreenings() {
         initComponents();
+        
     }
 
     /**
@@ -175,10 +176,13 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new FEModifyFilm().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void btnAddScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddScreeningActionPerformed

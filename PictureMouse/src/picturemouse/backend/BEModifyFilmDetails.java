@@ -1,6 +1,5 @@
 package picturemouse.backend;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 
 public class BEModifyFilmDetails
 {
+    BEDatabase database = BEDatabase.getInstance();
     /**
      * This method changes the values of the attributes for a chosen film
      * to new values entered by the user. Then it saves the new film 
@@ -35,13 +35,24 @@ public class BEModifyFilmDetails
             String newTrailer, String newSynopsis, 
             ArrayList<BEScreening> newScreenings)
     {
-        BEDatabase database = BEDatabase.getInstance();
         BEFilm film = database.lookupFilm(filmId, true);
         film.modify(filmId, newName, newTrailer, newSynopsis, 
                                                 newScreenings);
         database.save(film);
     }
     
-    // various methods to help produce the front-end for this use case will
-    // be defined later.
+    public void browseScreenings(int filmId)
+    {
+        BEFilm film = database.lookupFilm(filmId, false);
+        ArrayList<BEScreening> filmScreenings = film.getScreenings();
+        BEScreening screening;
+        String[] screeningStrings = new String[filmScreenings.size()];
+        // Changes the Screening objects into a String object understandable to 
+        // the front-end of the program.
+        for (int i = 0; i<filmScreenings.size(); i++) {
+            screening = filmScreenings.get(i);
+            screeningStrings[i] = screening.getDate() + "\f " + screening.getTime();
+        }
+        return filmStrings;
+    }
 }
