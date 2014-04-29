@@ -91,13 +91,13 @@ public class FEBookTicket extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(421, 400));
+        setPreferredSize(new java.awt.Dimension(421, 350));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
         topPanel.setBackground(new java.awt.Color(51, 102, 255));
         topPanel.setName("topPanel"); // NOI18N
-        topPanel.setPreferredSize(new java.awt.Dimension(421, 40));
+        topPanel.setPreferredSize(new java.awt.Dimension(421, 50));
 
         lblWelcome.setFont(new java.awt.Font("Calibri", 1, 16)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,14 +130,14 @@ public class FEBookTicket extends javax.swing.JFrame {
                 .addComponent(lblWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCustomerOptions)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(topPanel);
         topPanel.getAccessibleContext().setAccessibleName("topPanel");
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
-        centrePanel.setPreferredSize(new java.awt.Dimension(421, 60));
+        centrePanel.setPreferredSize(new java.awt.Dimension(421, 220));
 
         cbxChooseScreening.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Please select a screening..." }));
         cbxChooseScreening.addActionListener(new java.awt.event.ActionListener() {
@@ -160,24 +160,24 @@ public class FEBookTicket extends javax.swing.JFrame {
             .addGroup(centrePanelLayout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbxChooseScreening, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxChooseSeat, 0, 0, Short.MAX_VALUE))
-                .addContainerGap(168, Short.MAX_VALUE))
+                    .addComponent(cbxChooseSeat, 0, 218, Short.MAX_VALUE)
+                    .addComponent(cbxChooseScreening, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centrePanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(34, 34, 34)
                 .addComponent(cbxChooseScreening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(cbxChooseSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(63, 63, 63))
         );
 
         getContentPane().add(centrePanel);
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
-        bottomPanel.setPreferredSize(new java.awt.Dimension(421, 50));
+        bottomPanel.setPreferredSize(new java.awt.Dimension(421, 60));
 
         btnBook.setBackground(new java.awt.Color(255, 255, 255));
         btnBook.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -213,7 +213,7 @@ public class FEBookTicket extends javax.swing.JFrame {
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))

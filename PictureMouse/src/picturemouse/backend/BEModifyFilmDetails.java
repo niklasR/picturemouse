@@ -41,18 +41,18 @@ public class BEModifyFilmDetails
         database.save(film);
     }
     
-    public void browseScreenings(int filmId)
+    public String[] browseScreenings(int filmId)
     {
         BEFilm film = database.lookupFilm(filmId, false);
         ArrayList<BEScreening> filmScreenings = film.getScreenings();
         BEScreening screening;
-        String[] screeningStrings = new String[filmScreenings.size()];
+        String[] filmScreeningStrings = new String[filmScreenings.size()];
         // Changes the Screening objects into a String object understandable to 
         // the front-end of the program.
         for (int i = 0; i<filmScreenings.size(); i++) {
             screening = filmScreenings.get(i);
-            screeningStrings[i] = screening.getDate() + "\f " + screening.getTime();
+            filmScreeningStrings[i] = screening.getDate() + "\f " + screening.getTime();
         }
-        return filmStrings;
+        return filmScreeningStrings;
     }
 }

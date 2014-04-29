@@ -25,7 +25,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public static String[] splitSelectedFilmString;
     
     /**
-     * Creates new form SignOn
+     * Creates new form BrowseFilms
      * @param isAdmin
      */
     @SuppressWarnings("unchecked")
@@ -42,7 +42,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         //filmStrings = new String[]{"123\f Film name 1\f Synopsis 1\f https://www.youtube.com/watch?v=AYaTCPbYGdk", 
         //    "234\f Film name 2\f Synopsis 2\f https://www.youtube.com/watch?v=U1fu_sA7XhE",
         //    "345\f Film name 3\f Synopsis 3\f https://www.youtube.com/watch?v=DSx8Jobx-Gs"}; //This is sample data
-        listModel = new DefaultListModel<String>();
+        listModel = new DefaultListModel<>();
         for (String filmString: filmStrings){
             String[] splitFilmString = filmString.split("\f"); //spliting string up
             listModel.addElement(splitFilmString[1].trim()); //index [1] is the film name

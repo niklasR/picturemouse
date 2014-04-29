@@ -3,19 +3,31 @@
  * and open the template in the editor.
  */
 package picturemouse.frontend;
+import javax.swing.DefaultListModel;
+import picturemouse.backend.BEModifyFilmDetails;
+
 
 /**
  *
  * @author John
  */
 public class FEBrowseScreenings extends javax.swing.JFrame {
-
+    String[] filmScreeningStrings;
+    DefaultListModel listModel;
+    
     /**
-     * Creates new form SignOn
+     * Creates new form BrowseScreening.
      */
     public FEBrowseScreenings() {
         initComponents();
-        
+        BEModifyFilmDetails action = new BEModifyFilmDetails();
+        filmScreeningStrings = action.browseScreenings(FEBrowseFilms.selectedFilmID);
+        listModel = new DefaultListModel<>();
+        for (String filmScreeningString: filmScreeningStrings){
+            String[] splitFilmScreeningString = filmScreeningString.split("\f"); //spliting string up
+            listModel.addElement(splitFilmScreeningString[1].trim()); //index [1] is the film name
+        }
+        lbxScreenings.setModel(listModel);
     }
 
     /**
