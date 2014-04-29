@@ -63,10 +63,6 @@ public class BEBookTicket
         if (film == null){
             return new String[0];
         }
-        if (film.getScreenings() == null){
-            System.out.println("null");
-        }
-        System.out.println(film.getScreenings());
         ArrayList<BEScreening> screenings = film.getScreenings();
         
         //Returned arrray where length = number of screenings
