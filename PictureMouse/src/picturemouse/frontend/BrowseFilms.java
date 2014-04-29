@@ -36,11 +36,7 @@ public class BrowseFilms extends javax.swing.JFrame {
         //Loading in the films into the JList
         picturemouse.backend.BrowseFilms action = new picturemouse.backend.BrowseFilms();
         String[] filmsData = action.doIt();
-        
-<<<<<<< HEAD
-        this.lbxFilms.setListData(filmsData);
-        
-=======
+
         //NEED TO CHANGE THIS AFTER IT IS LINKED TO A DATABASE
         
         filmStrings = new String[]{"123, Film name 1, Synopsis 1", "234, Film name 2, Synopsis 2",
@@ -53,7 +49,6 @@ public class BrowseFilms extends javax.swing.JFrame {
         lbxFilms.setModel(listModel);
         
         //Changing visibility of add film button according to admin setting
->>>>>>> parent of d3ab740... Code for BrowseFilms (all reversible if NA). Issues:
         btnAddFilm.setVisible(isAdmin);
         
     }
