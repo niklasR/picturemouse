@@ -26,7 +26,6 @@ public class BESignOn
                 //If the username exists, check if the user is signed on
                 
             BEAccount account = database.lookupAccount(u, false);
-            System.out.println(u);
             
             if (p.equals(account.getPassword())){
                 return true;
