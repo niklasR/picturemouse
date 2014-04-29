@@ -60,7 +60,7 @@ public class FERefuseSignOn extends javax.swing.JFrame {
 
         lblRefuseSignOn.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblRefuseSignOn.setForeground(new java.awt.Color(255, 255, 255));
-        lblRefuseSignOn.setText("The <thing> was not found in the system.");
+        lblRefuseSignOn.setText("The password entered was incorrect.");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -68,12 +68,13 @@ public class FERefuseSignOn extends javax.swing.JFrame {
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(lblWelcome)
-                .addGap(36, 36, 36))
-            .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(lblRefuseSignOn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
+                        .addComponent(lblWelcome)
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
+                        .addComponent(lblRefuseSignOn)
+                        .addGap(111, 111, 111))))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
