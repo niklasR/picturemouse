@@ -49,7 +49,7 @@ public class FEBrowseReviews extends javax.swing.JFrame {
         // store review Data of relevant reviews for display
         String[] reviewData = new String[filmReviews.size()];
         for (int i=0; i < filmReviews.size(); i++){
-            reviewData[i] = filmReviews.get(i).getUsername() + ": "+ String.valueOf(filmReviews.get(i).getStars());
+            reviewData[i] = filmReviews.get(i).getUsername() + ": "+ String.valueOf(filmReviews.get(i).getStars())+" star";
         }
         
         this.lbxReviews.setListData(reviewData);
@@ -233,7 +233,7 @@ public class FEBrowseReviews extends javax.swing.JFrame {
         }
         else 
         {
-            new FEReadReview(review.getText()).setVisible(true); //pass in reviewId
+            new FEReadReview(review.getText(), review.getStars()).setVisible(true); //pass in reviewId
         }
     }//GEN-LAST:event_btnSelectActionPerformed
 

@@ -21,8 +21,12 @@ public class FEWriteReview extends javax.swing.JFrame {
     public FEWriteReview() {
         initComponents();
         
+        //Changing label
         picturemouse.backend.BEDatabase database = picturemouse.backend.BEDatabase.getInstance();
         lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
+        
+        //Changing 2nd label
+        lblWriteReview.setText("Please enter your review for "+ FEBrowseFilms.selectedFilmName);
         
         this.tbxWriteReview.setText("Write your review here...");
        
