@@ -143,9 +143,9 @@ public class FEBrowseTickets extends javax.swing.JFrame {
             .addGap(0, 421, Short.MAX_VALUE)
             .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centrePanelLayout.createSequentialGroup()
-                    .addGap(102, 102, 102)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                    .addGap(96, 96, 96)))
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         centrePanelLayout.setVerticalGroup(
             centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
