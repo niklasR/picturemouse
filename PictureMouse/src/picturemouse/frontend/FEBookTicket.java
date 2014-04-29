@@ -19,7 +19,6 @@ public class FEBookTicket extends javax.swing.JFrame {
     /**
      * Variables
      */
-    int filmId; //to be assigned when chosen in GUI
     int screeningID; //to be assigned when chosen in GUI
     int seat; //to be assigned when chosen in GUI
     String username; //somehow get username of current user
@@ -160,7 +159,7 @@ public class FEBookTicket extends javax.swing.JFrame {
             .addGroup(centrePanelLayout.createSequentialGroup()
                 .addGap(96, 96, 96)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbxChooseSeat, 0, 218, Short.MAX_VALUE)
+                    .addComponent(cbxChooseSeat, 0, 0, Short.MAX_VALUE)
                     .addComponent(cbxChooseScreening, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
@@ -237,7 +236,7 @@ public class FEBookTicket extends javax.swing.JFrame {
                     "Confirmation Dialog", JOptionPane.YES_NO_OPTION);
             if (result == JOptionPane.YES_OPTION) {
                 picturemouse.backend.BEBookTicket action = new picturemouse.backend.BEBookTicket();
-                action.doIt(this.filmId, this.screeningID, this.seat, this.username);
+                action.doIt(this.filmID, this.screeningID, this.seat, this.username);
             }
         } else {
             //Tell user to make selections
