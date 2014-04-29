@@ -169,7 +169,7 @@ public class FEModifyReview extends javax.swing.JFrame {
 
         btnSave.setBackground(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnSave.setText("Save");
+        btnSave.setText("Save Modifications");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
