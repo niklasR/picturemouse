@@ -112,7 +112,8 @@ public class FEModifyAccount extends javax.swing.JFrame {
         topPanel.getAccessibleContext().setAccessibleName("topPanel");
 
         centrePanel.setBackground(new java.awt.Color(51, 102, 255));
-        centrePanel.setPreferredSize(new java.awt.Dimension(430, 130));
+        centrePanel.setPreferredSize(new java.awt.Dimension(430, 150));
+        centrePanel.setRequestFocusEnabled(false);
 
         lblFirstName.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblFirstName.setForeground(new java.awt.Color(255, 255, 255));
