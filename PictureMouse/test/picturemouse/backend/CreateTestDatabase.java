@@ -65,25 +65,40 @@ public class CreateTestDatabase {
         // Create Account
         // Create tickets purchased
         BECinemaTicket testTicket1 = new BECinemaTicket(1, 1, 1);
-        ArrayList<BECinemaTicket> testCinemaTickets = new ArrayList<>();
-        BEAccount testAccount1 = new BEAccount("testUser1", "testPassword1", false, testCinemaTickets, "Username 1", 1234567890123456L);
+        BECinemaTicket testTicket2 = new BECinemaTicket(5, 2, 2);
+        BECinemaTicket testTicket3 = new BECinemaTicket(23, 3, 2);
+        ArrayList<BECinemaTicket> testCinemaTickets1 = new ArrayList<>();
+        testCinemaTickets1.add(testTicket1);
+        testCinemaTickets1.add(testTicket2);
+        testCinemaTickets1.add(testTicket3);        
+        BEAccount testAccount1 = new BEAccount("testUser1", "testPassword1", false, testCinemaTickets1, "Username 1", 1234567890123456L);
 
         database.save(testAccount1);
 
         // Create Admin
         // Create tickets purchased
-        BECinemaTicket testTicket2 = new BECinemaTicket(2, 1, 1);
+        BECinemaTicket testTicket4 = new BECinemaTicket(2, 1, 1);
+        BECinemaTicket testTicket5 = new BECinemaTicket(11, 2, 2);
+        BECinemaTicket testTicket6 = new BECinemaTicket(1, 3, 2);
         ArrayList<BECinemaTicket> testCinemaTickets2 = new ArrayList<>();
+        testCinemaTickets2.add(testTicket4);
+        testCinemaTickets2.add(testTicket5);
+        testCinemaTickets2.add(testTicket6);
         BEAccount testAdmin = new BEAccount("Administrator", "pw", true, testCinemaTickets2, "Admin", 1234567890123456L);
 
         database.save(testAdmin);
 
         // Create Review
-        BEReview r = new BEReview();
-        r.modify((short)5, 1, "It was fantastic. A must see!", "testUser1", 1);
-        database.save(r);
+        //BEReview r = new BEReview();
+        //r.modify((short)5, 1, "It was fantastic. A must see!", "testUser1", 1);
+        //database.save(r);
 
         // Save Database
         database.saveToFile();
+        
+    }
+    
+    public static void main(String args[]) throws IOException {
+        new CreateTestDatabase();
     }
 }
