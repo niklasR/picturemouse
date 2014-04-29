@@ -24,9 +24,6 @@ public class FEModifyReview extends javax.swing.JFrame {
     public FEModifyReview(picturemouse.backend.BEReview review) {
         initComponents();
         this.review = review;
-        //Debug code
-        System.out.println("Text:" + this.review.getText());
-        System.out.println("Stars:" + String.valueOf(this.review.getStars()));
         
         // Set GUI content
         this.tbxModifyReview.setText(this.review.getText());
