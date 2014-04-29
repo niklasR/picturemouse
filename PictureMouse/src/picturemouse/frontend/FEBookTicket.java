@@ -63,7 +63,6 @@ public class FEBookTicket extends javax.swing.JFrame {
         screeningCBXModel = new DefaultComboBoxModel();
         for (String screening: screenings){
             screeningCBXModel.addElement(screening);
-            System.out.println(screening); //Testing
         }
         cbxChooseScreening.setModel(screeningCBXModel); //Setting model
         
@@ -92,6 +91,7 @@ public class FEBookTicket extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(421, 400));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -275,7 +275,6 @@ public class FEBookTicket extends javax.swing.JFrame {
         seatsCBXModel = new DefaultComboBoxModel();
         for (String seatElement: availableSeats){
             seatsCBXModel.addElement(seatElement);
-            System.out.println(seatElement); //Testing
         }
         cbxChooseSeat.setModel(seatsCBXModel); //Setting model
         
