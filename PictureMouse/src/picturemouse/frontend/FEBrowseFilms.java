@@ -5,7 +5,9 @@
 package picturemouse.frontend;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import picturemouse.backend.BEDatabase;
+import picturemouse.backend.BEModifyFilmDetails;
 
 /**
  *
@@ -26,6 +28,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public static String[] splitSelectedFilmString;
     BEDatabase database = BEDatabase.getInstance();
     boolean filmSelected;
+    
     
     /**
      * Creates new form BrowseFilms
@@ -253,6 +256,16 @@ public class FEBrowseFilms extends javax.swing.JFrame {
 
     private void btnAddFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFilmActionPerformed
         // TODO add your handling code here:
+        System.out.println("Adding Film");
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
+                + "you want to add a default film?", "Add Film Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            new BEModifyFilmDetails().addFilm();
+            JOptionPane.showMessageDialog(this, "Screening has been added.");
+        }
+        ;
     }//GEN-LAST:event_btnAddFilmActionPerformed
 
     private void lbxFilmsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxFilmsValueChanged

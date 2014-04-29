@@ -77,4 +77,10 @@ public class BEModifyFilmDetails
         filmModifying.addScreening(newScreening);
         database.save(filmModifying);
     }
+    
+    public void addFilm()
+    {
+        BEFilm newFilm = new BEFilm(database.getFilms().size(), "", "", "", new ArrayList<BEScreening>());
+        database.save(newFilm);
+    }
 }

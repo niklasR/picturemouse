@@ -221,7 +221,7 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Adding Screening");
         int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
-                + "you want to add a default film?", "Add Film Confirmation", 
+                + "you want to add a default screening to this film?", "Add Screening Confirmation", 
                 JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
