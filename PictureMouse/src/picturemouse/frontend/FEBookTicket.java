@@ -237,6 +237,9 @@ public class FEBookTicket extends javax.swing.JFrame {
             if (result == JOptionPane.YES_OPTION) {
                 picturemouse.backend.BEBookTicket action = new picturemouse.backend.BEBookTicket();
                 action.doIt(this.filmID, this.screeningID, this.seat, this.username);
+                //Navigating back to customer options
+                this.setVisible(false);
+                new FECustomerOptions().setVisible(true);
             }
         } else {
             //Tell user to make selections

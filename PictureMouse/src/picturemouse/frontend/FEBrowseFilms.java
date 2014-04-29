@@ -25,6 +25,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public static String selectedFilmTrailerURL;
     public static String[] splitSelectedFilmString;
     BEDatabase database = BEDatabase.getInstance();
+    boolean filmSelected;
     
     /**
      * Creates new form BrowseFilms
@@ -34,6 +35,9 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     public FEBrowseFilms(boolean isAdmin) {
         initComponents();
         this.isAdmin = isAdmin;
+        //setting Flag
+        filmSelected = false;
+        
         lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
         
         //Loading in the films into the JList
@@ -228,16 +232,22 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
-        //If the user is an admin, then the button leads to a different form
-        if (isAdmin){
-            // Making form invisible and then new form visible
-            this.setVisible(false);
-            new FEModifyFilm().setVisible(true);
-        }
-        else {
-            // Making form invisible and then new form visible
-            this.setVisible(false);
-            new FEFilm().setVisible(true);
+        
+        //Checking if a film is selected
+        if(filmSelected){
+            //If the user is an admin, then the button leads to a different form
+            if (isAdmin){
+                // Making form invisible and then new form visible
+                this.setVisible(false);
+                new FEModifyFilm().setVisible(true);
+            }
+            else {
+                // Making form invisible and then new form visible
+                this.setVisible(false);
+                new FEFilm().setVisible(true);
+            }
+        } else {
+            //Tell user to select film
         }
     }//GEN-LAST:event_btnSelectActionPerformed
 
@@ -246,6 +256,9 @@ public class FEBrowseFilms extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddFilmActionPerformed
 
     private void lbxFilmsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxFilmsValueChanged
+        
+        //Setting Flag
+        filmSelected = true;
         
         //Finding the ID of the film selected using the index of the selected
         //element in the JList
