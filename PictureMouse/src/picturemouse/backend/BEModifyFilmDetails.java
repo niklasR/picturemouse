@@ -97,7 +97,7 @@ public class BEModifyFilmDetails
     public void modifyScreening(int filmId, int screeningId, Time screeningTime, Date screeningDate)
     {
         BEFilm currentFilm = database.lookupFilm(filmId, true);
-        currentFilm.lookupScreening(screeningId, true).modify(screeningTime, screeningDate);
+        currentFilm.lookupScreening(screeningId, false).modify(screeningTime, screeningDate);
         database.save(currentFilm);
     }
 }

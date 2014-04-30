@@ -24,9 +24,7 @@ public class FEModifyScreening extends javax.swing.JFrame {
     int screeningMin;
     int screeningSec;
     Date screeningDate;
-    int screeningYear;
-    int screeningMonth;
-    int screeningDay;
+
     /**
      * Creates new form SignOn
      */
@@ -42,7 +40,7 @@ public class FEModifyScreening extends javax.swing.JFrame {
         System.out.println("Time Min:" + this.screeningMin);
         System.out.println("Time Sec:" + this.screeningSec);
         
-        this.tbxDate.setText(this.screeningYear + "/" + this.screeningMonth + "/" + this.screeningDay);
+        this.tbxDate.setText(this.screeningDate.getDate() + "/" + this.screeningDate.getMonth() + "/" + this.screeningDate.getYear());
         this.tbxHour.setText(Integer.toString(this.screeningHour));
         this.tbxMinute.setText(Integer.toString(this.screeningMin));
     }
@@ -259,10 +257,8 @@ public class FEModifyScreening extends javax.swing.JFrame {
         this.screeningMin = Integer.valueOf(this.tbxMinute.getText());
         this.screeningTime = new Time(this.screeningHour, this.screeningMin, this.screeningSec);
         
-        this.screeningDay = Integer.valueOf(this.tbxDate.getText().split("/")[0]);
-        this.screeningMonth = Integer.valueOf(this.tbxDate.getText().split("/")[1]);
-        this.screeningYear = Integer.valueOf(this.tbxDate.getText().split("/")[2]);
-        this.screeningDate = new Date(this.screeningYear, this.screeningMonth, this.screeningDay);
+        this.screeningDate = new Date(Integer.parseInt(this.tbxDate.getText().split("/")[0]), Integer.parseInt(this.tbxDate.getText().split("/")[1]), Integer.parseInt(this.tbxDate.getText().split("/")[2]));
+        System.out.println("New Date set as: " + this.screeningDate.getDate() + this.screeningDate.getMonth() + this.screeningDate.getYear());
         
         // Modify fields of old screening in database as defined by user but 
         // keep screeningId the same. This is done by pulling out the current 

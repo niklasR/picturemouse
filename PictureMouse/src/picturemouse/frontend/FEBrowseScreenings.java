@@ -40,7 +40,6 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
         filmScreeningStrings = action.browseScreenings(FEBrowseFilms.selectedFilmID);
         listModel = new DefaultListModel<>();
         if (filmScreeningStrings.length > 0){
-            System.out.println("Screenigs Array Length:" + filmScreeningStrings.length);
             for (String filmScreeningString: filmScreeningStrings){
                 String[] splitFilmScreeningString = filmScreeningString.split(", "); //spliting string up
                 listModel.addElement(splitFilmScreeningString[0].trim()); //index [1] is the film name

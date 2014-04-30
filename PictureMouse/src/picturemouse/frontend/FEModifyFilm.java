@@ -40,6 +40,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         this.tbxModifyFilmName.setText(this.filmName);
         this.tbxModifySynopsis.setText(this.filmSynopsis);
         this.tbxModifyTrailerURL.setText(this.trailerURL);
+        this.lblModifyFilm.setText("Modifiyng Film with Id" + this.filmId);
         
     }
 

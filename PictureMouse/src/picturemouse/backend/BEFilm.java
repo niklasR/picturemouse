@@ -92,6 +92,7 @@ public class BEFilm implements Serializable
     
     public ArrayList<BEScreening> getScreenings()
     {
+        System.out.println("Returning " + this.screenings.size() + " Screenings");
         return screenings;
     }
     
@@ -114,13 +115,13 @@ public class BEFilm implements Serializable
      * @param modifying
      * @return The Screening object wanted or null.
      */
-    public synchronized BEScreening lookupScreening(int screeningId, boolean modifying)
+    public synchronized BEScreening lookupScreening(int screeningId, boolean delete)
     {
         for (BEScreening screening : this.screenings)
         {
             if (screening.getScreeningId() == screeningId)
             {
-                if(modifying)
+                if(delete)
                 {
                     this.screenings.remove(screening);
                 }
