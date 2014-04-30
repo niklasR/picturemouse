@@ -19,6 +19,8 @@ public class FETrailer extends javax.swing.JFrame{
 
     /**
      * Creates new form FETrailer
+     * 
+     * Taken from http://stackoverflow.com/questions/20440484/embed-a-youtube-video-to-jframe.
      */
     public FETrailer() throws URISyntaxException {
         initComponents();
@@ -181,7 +183,7 @@ public class FETrailer extends javax.swing.JFrame{
             java.util.logging.Logger.getLogger(FETrailer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        // Taken from http://stackoverflow.com/questions/20440484/embed-a-youtube-video-to-jframe.
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
