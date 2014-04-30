@@ -4,17 +4,46 @@
  */
 package picturemouse.frontend;
 
+import java.sql.Time;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import picturemouse.backend.BEDatabase;
+import picturemouse.backend.BEModifyFilmDetails;
+
 /**
  *
  * @author John
  */
 public class FEModifyScreening extends javax.swing.JFrame {
 
+    BEModifyFilmDetails action = new BEModifyFilmDetails();
+    BEDatabase d1 = BEDatabase.getInstance();
+    Time screeningTime;
+    int screeningHour;
+    int screeningMin;
+    int screeningSec;
+    Date screeningDate;
+    int screeningYear;
+    int screeningMonth;
+    int screeningDay;
     /**
      * Creates new form SignOn
      */
     public FEModifyScreening() {
         initComponents();
+        this.screeningTime = FEBrowseScreenings.selectedTime;
+        screeningHour = this.screeningTime.getHours();
+        screeningMin = this.screeningTime.getMinutes();
+        screeningSec = this.screeningTime.getSeconds();
+        this.screeningDate = FEBrowseScreenings.selectedDate;
+        //Debug code
+        System.out.println("Time Hour:" + this.screeningHour);
+        System.out.println("Time Min:" + this.screeningMin);
+        System.out.println("Time Sec:" + this.screeningSec);
+        
+        this.tbxDate.setText(this.screeningYear + "/" + this.screeningMonth + "/" + this.screeningDay);
+        this.tbxHour.setText(Integer.toString(this.screeningHour));
+        this.tbxMinute.setText(Integer.toString(this.screeningMin));
     }
 
     /**
@@ -38,7 +67,6 @@ public class FEModifyScreening extends javax.swing.JFrame {
         tbxHour = new javax.swing.JTextField();
         tbxMinute = new javax.swing.JTextField();
         lblDivision = new javax.swing.JLabel();
-        cbxPartOfDay = new javax.swing.JComboBox();
         bottomPanel = new javax.swing.JPanel();
         btnSaveModifications = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -103,11 +131,6 @@ public class FEModifyScreening extends javax.swing.JFrame {
         lblTime.setText("Time:");
 
         tbxDate.setText("Currently held data for all.");
-        tbxDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbxDateActionPerformed(evt);
-            }
-        });
 
         lblMin.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblMin.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,8 +143,6 @@ public class FEModifyScreening extends javax.swing.JFrame {
         lblDivision.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblDivision.setForeground(new java.awt.Color(255, 255, 255));
         lblDivision.setText(":");
-
-        cbxPartOfDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AM", "PM" }));
 
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
@@ -144,10 +165,7 @@ public class FEModifyScreening extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMin)
-                            .addGroup(centrePanelLayout.createSequentialGroup()
-                                .addComponent(tbxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbxPartOfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(tbxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
@@ -162,8 +180,7 @@ public class FEModifyScreening extends javax.swing.JFrame {
                     .addComponent(lblTime)
                     .addComponent(tbxHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tbxMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDivision)
-                    .addComponent(cbxPartOfDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDivision))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMin)
@@ -237,18 +254,55 @@ public class FEModifyScreening extends javax.swing.JFrame {
 
     private void btnSaveModificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveModificationsActionPerformed
         // TODO add your handling code here:
+        this.screeningHour = Integer.valueOf(this.tbxHour.getText());
+        this.screeningMin = Integer.valueOf(this.tbxMinute.getText());
+        this.screeningTime = new Time(this.screeningHour, this.screeningMin, this.screeningSec);
+        
+        this.screeningDay = Integer.valueOf(this.tbxDate.getText().split("/")[0]);
+        this.screeningMonth = Integer.valueOf(this.tbxDate.getText().split("/")[1]);
+        this.screeningYear = Integer.valueOf(this.tbxDate.getText().split("/")[2]);
+        this.screeningDate = new Date(this.screeningYear, this.screeningMonth, this.screeningDay);
+        
+        // Show confirmation to Administrator
+        JOptionPane.showMessageDialog(this, "Film has been permanently modified.");
+        // Hide windows and go back to BrowseFilms.
+        this.setVisible(false);
+        new FEBrowseFilms(true).setVisible(true);
     }//GEN-LAST:event_btnSaveModificationsActionPerformed
-
-    private void tbxDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbxDateActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        System.out.println("Cancel modifications of Screening");
+        int result = JOptionPane.showConfirmDialog(this, " All changes to "
+                + "this film will be lost, are you sure that you want to "
+                + "cancel?", "Cancel modification of film Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            new FEBrowseScreenings().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnRemoveScreeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveScreeningActionPerformed
         // TODO add your handling code here:
+        System.out.println("Removing Screening");
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
+                + "you want to remove the screening selected?", "Remove Screening Confirmation", 
+                JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            if (d1.lookupFilm(FEBrowseFilms.selectedFilmID, true).lookupScreening(FEBrowseScreenings.selectedScreeningId, true) == null)
+            {
+                JOptionPane.showMessageDialog(this, "There was a problem and the screening has not been deleted");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "The screening has been successfully deleted.");
+            }
+            new FEBrowseFilms(true).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnRemoveScreeningActionPerformed
 
     /**
@@ -290,7 +344,6 @@ public class FEModifyScreening extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnRemoveScreening;
     private javax.swing.JButton btnSaveModifications;
-    private javax.swing.JComboBox cbxPartOfDay;
     private javax.swing.JPanel centrePanel;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDivision;

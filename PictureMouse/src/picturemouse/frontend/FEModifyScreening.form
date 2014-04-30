@@ -130,11 +130,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblMin" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="tbxMinute" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cbxPartOfDay" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="tbxMinute" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -156,7 +152,6 @@
                       <Component id="tbxHour" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tbxMinute" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblDivision" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbxPartOfDay" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -195,9 +190,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Currently held data for all."/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbxDateActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMin">
           <Properties>
@@ -234,16 +226,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value=":"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cbxPartOfDay">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="AM"/>
-                <StringItem index="1" value="PM"/>
-              </StringArray>
-            </Property>
           </Properties>
         </Component>
       </SubComponents>

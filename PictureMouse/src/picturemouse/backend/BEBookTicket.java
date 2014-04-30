@@ -35,7 +35,7 @@ public class BEBookTicket
         BEDatabase database = BEDatabase.getInstance();
         BEAccount account = database.lookupAccount(username, false);
         BEFilm film = database.lookupFilm(filmId, false);
-        BEScreening screening = film.lookupScreening(screeningId);
+        BEScreening screening = film.lookupScreening(screeningId, false);
         //Creating the CinemaTicket
         BECinemaTicket ticket = new BECinemaTicket(seat, screeningId, filmId);
         //If the seat in screening is availible then book
@@ -101,7 +101,7 @@ public class BEBookTicket
         
         //Finds screening
         BEFilm film = database.lookupFilm(filmID, false);
-        BEScreening screening = film.lookupScreening(screeningID);
+        BEScreening screening = film.lookupScreening(screeningID, false);
         
         int[] availableSeatsInt = screening.getAvailibleSeats();
         String[] availableSeats = new String[availableSeatsInt.length];

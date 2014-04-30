@@ -24,7 +24,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
     public FEModifyFilm() {
         initComponents();
         this.filmId = FEBrowseFilms.selectedFilmID;
-        this.filmName = FEBrowseFilms.selectedFilmName;;
+        this.filmName = FEBrowseFilms.selectedFilmName;
         this.filmSynopsis = FEBrowseFilms.selectedFilmSynopsis;
         this.trailerURL = FEBrowseFilms.selectedFilmTrailerURL;
         //Debug code
@@ -260,7 +260,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         // filmId the same.
         action.doIt(this.filmId, this.filmName, this.trailerURL, this.filmSynopsis, null);
         // Show confirmation to Administrator
-        JOptionPane.showMessageDialog(this, "Film has been Modified.");
+        JOptionPane.showMessageDialog(this, "Film has been permanently modified.");
         // Hide windows and go back to BrowseFilms.
         this.setVisible(false);
         new FEBrowseFilms(true).setVisible(true);
@@ -268,10 +268,11 @@ public class FEModifyFilm extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-        System.out.println("Removing Film");
-        int result = JOptionPane.showConfirmDialog(this, " All changes will "
-                + "be lost, are you sure that you want to cancel?", "Cancel "
-                + "modification of film Confirmation", JOptionPane.YES_NO_OPTION);
+        System.out.println("Cancel modifications of Film");
+        int result = JOptionPane.showConfirmDialog(this, " All changes to the "
+                + "screening will be lost, are you sure that you want to "
+                + "cancel?", "Cancel modification of film Confirmation", 
+                JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
             new FEBrowseFilms(true).setVisible(true);

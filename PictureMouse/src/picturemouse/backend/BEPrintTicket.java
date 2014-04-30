@@ -64,7 +64,7 @@ public class BEPrintTicket implements Printable
         BEDatabase database = BEDatabase.getInstance();
 
         BEFilm film = database.lookupFilm(filmId, false);
-        BEScreening screening = film.lookupScreening(screeningId);
+        BEScreening screening = film.lookupScreening(screeningId, false);
         
         Format formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String date = formatter.format(screening.getDate());

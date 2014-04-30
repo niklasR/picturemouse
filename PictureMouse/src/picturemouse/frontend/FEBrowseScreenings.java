@@ -19,6 +19,7 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
     DefaultListModel listModel;
     public static Time selectedTime;
     public static Date selectedDate;
+    public static int selectedScreeningId;
     private BEModifyFilmDetails action = new BEModifyFilmDetails();
     BEDatabase database = BEDatabase.getInstance();
     boolean filmSelected;
@@ -234,10 +235,10 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
 
     private void lbxScreeningsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lbxScreeningsValueChanged
         // TODO add your handling code here:
-                //Setting Flag
+        // Setting Flag
         filmSelected = true;
         
-        //Finding the ID of the film selected using the index of the selected
+        //Finding the ID of the screening selected using the index of the selected
         //element in the JList
         int selectedJListIndex = this.lbxScreenings.getSelectedIndex();
         String filmScreeningString = filmScreeningStrings[selectedJListIndex]; //Finding string
@@ -245,17 +246,18 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
         splitSelectedFilmScreeningString = splitFilmScreeningString; //Saving split string
         
         //Saving attributes as static variables
-        String[] timeStrings = splitFilmScreeningString[0].trim().split(":");
+        String[] timeStrings = splitFilmScreeningString[1].trim().split(":");
         int hour = Integer.valueOf(timeStrings[0]);
         int min = Integer.valueOf(timeStrings[1]);
         int sec = Integer.valueOf(timeStrings[2]);
         
-        String[] dateStrings = splitFilmScreeningString[1].trim().split("-");
+        String[] dateStrings = splitFilmScreeningString[2].trim().split("-");
         int year = Integer.valueOf(dateStrings[0]);
         int month = Integer.valueOf(dateStrings[1]);
         int day = Integer.valueOf(dateStrings[2]);
         selectedTime = new Time(hour, min, sec);
         selectedDate = new Date(year, month, day);
+        selectedScreeningId = Integer.valueOf(splitFilmScreeningString[1]);
     }//GEN-LAST:event_lbxScreeningsValueChanged
 
     /**

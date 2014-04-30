@@ -113,12 +113,16 @@ public class BEFilm implements Serializable
      * @param screeningId The screeningId of the screening wanted.
      * @return The Screening object wanted or null.
      */
-    public synchronized BEScreening lookupScreening(int screeningId)
+    public synchronized BEScreening lookupScreening(int screeningId, boolean modifying)
     {
         for (BEScreening screening : this.screenings)
         {
             if (screening.getScreeningId() == screeningId)
             {
+                if(modifying)
+                {
+                    this.screenings.remove(screening);
+                }
                 return screening;
             }
         }
