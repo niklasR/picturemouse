@@ -47,7 +47,7 @@ public class FEBookTicket extends javax.swing.JFrame {
         seatSelected = false;
         
         //Changing title
-        lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
+        lblWelcome.setText("Hello " + FESignOn.firstName);
         
         //Displaying all screenings for the film in the combo box
         //Creating instance of the backend BookTicket class

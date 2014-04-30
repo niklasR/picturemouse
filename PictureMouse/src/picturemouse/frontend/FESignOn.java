@@ -13,12 +13,15 @@ import picturemouse.backend.BEDatabase;
 /**
  *
  * @author John
+ * @author Oliver Coleshill
  */
 public class FESignOn extends javax.swing.JFrame {
     
     BEDatabase d1 = BEDatabase.getInstance();
     
     public static String username;
+    public static String firstName;
+    
     /**
      * Creates new form SignOn
      */
@@ -204,6 +207,7 @@ public class FESignOn extends javax.swing.JFrame {
     private void btnSignOnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignOnActionPerformed
             // TODO add your handling code here:
             username = tbxUsername.getText(); 
+            firstName = d1.lookupAccount(FESignOn.username, false).getFirstName();
             char[] charPassword = tbxPassword.getPassword();
             String password = "";
             for(int i = 0; i < charPassword.length; i++)

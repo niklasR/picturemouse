@@ -41,7 +41,7 @@ public class FEBrowseFilms extends javax.swing.JFrame {
         //setting Flag
         filmSelected = false;
         
-        lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
+        lblWelcome.setText("Hello " + FESignOn.firstName);
         
         fillingListBox();
         

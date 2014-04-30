@@ -20,7 +20,7 @@ public class FEReadNewsletter extends javax.swing.JFrame {
         //Load database
         picturemouse.backend.BEDatabase database = picturemouse.backend.BEDatabase.getInstance();
         
-        lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
+        lblWelcome.setText("Hello " + FESignOn.firstName);
         
   
         //Set default for when there is no newsletter

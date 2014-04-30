@@ -18,6 +18,8 @@ public class FEBrowseReviews extends javax.swing.JFrame {
     BEDatabase d1 = BEDatabase.getInstance();
 
     ArrayList<BEReview> filmReviews = new ArrayList<>();
+    
+    
 
     /**
      * Creates new form SignOn
