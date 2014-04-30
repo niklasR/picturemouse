@@ -65,7 +65,7 @@ public class CreateTestDatabase {
         // Create Account
         // Create tickets purchased
         BECinemaTicket testTicket1 = new BECinemaTicket(1, 1, 0);
-        BECinemaTicket testTicket2 = new BECinemaTicket(5, 2, 0);
+        BECinemaTicket testTicket2 = new BECinemaTicket(5, 2, 1);
         BECinemaTicket testTicket3 = new BECinemaTicket(23, 3, 1);
         ArrayList<BECinemaTicket> testCinemaTickets1 = new ArrayList<>();
         testCinemaTickets1.add(testTicket1);
