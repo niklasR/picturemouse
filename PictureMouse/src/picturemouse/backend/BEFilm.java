@@ -127,7 +127,6 @@ public class BEFilm implements Serializable
                 return screening;
             }
         }
-        
         return null;
     }
 }
