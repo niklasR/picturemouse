@@ -294,7 +294,7 @@ public class FEModifyScreening extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Removing Screening");
         int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
-                + "you want to permantly remove the screening selected?", "Remove Screening Confirmation", 
+                + "you want to permanently remove the screening selected?", "Remove Screening Confirmation", 
                 JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
@@ -306,7 +306,7 @@ public class FEModifyScreening extends javax.swing.JFrame {
             else
             {
                 d1.save(currentFilm);
-                JOptionPane.showMessageDialog(this, "The screening has been successfully permantly deleted.");
+                JOptionPane.showMessageDialog(this, "The screening has been successfully permanently deleted.");
             }
             new FEBrowseFilms(true).setVisible(true);
             this.dispose();

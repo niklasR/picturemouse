@@ -290,7 +290,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Removing Film");
         int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
-                + "you want to remove the film selected?", "Remove Film Confirmation", 
+                + "you want to permanently remove the film selected?", "Remove Film Confirmation", 
                 JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
@@ -300,7 +300,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "The film has been successfully deleted.");
+                JOptionPane.showMessageDialog(this, "The film has been successfully and permanently deleted.");
             }
             new FEBrowseFilms(true).setVisible(true);
             this.dispose();
