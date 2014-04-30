@@ -39,9 +39,14 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
     {
         filmScreeningStrings = action.browseScreenings(FEBrowseFilms.selectedFilmID);
         listModel = new DefaultListModel<>();
-        for (String filmScreeningString: filmScreeningStrings){
-            String[] splitFilmScreeningString = filmScreeningString.split("\f"); //spliting string up
-            listModel.addElement(splitFilmScreeningString[1].trim()); //index [1] is the film name
+        if (filmScreeningStrings.length > 0){
+            System.out.println("Screenigs Array Length:" + filmScreeningStrings.length);
+            for (String filmScreeningString: filmScreeningStrings){
+                String[] splitFilmScreeningString = filmScreeningString.split(", "); //spliting string up
+                listModel.addElement(splitFilmScreeningString[0].trim()); //index [1] is the film name
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "There are currently no reviews assigned to this film. Please create new screenings first.");
         }
         lbxScreenings.setModel(listModel);
     }
@@ -242,22 +247,22 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
         //element in the JList
         int selectedJListIndex = this.lbxScreenings.getSelectedIndex();
         String filmScreeningString = filmScreeningStrings[selectedJListIndex]; //Finding string
-        String[] splitFilmScreeningString = filmScreeningString.split("\f");
+        String[] splitFilmScreeningString = filmScreeningString.split(", ");
         splitSelectedFilmScreeningString = splitFilmScreeningString; //Saving split string
         
         //Saving attributes as static variables
-        String[] timeStrings = splitFilmScreeningString[1].trim().split(":");
+        String[] timeStrings = splitFilmScreeningString[2].trim().split(":");
         int hour = Integer.valueOf(timeStrings[0]);
         int min = Integer.valueOf(timeStrings[1]);
         int sec = Integer.valueOf(timeStrings[2]);
         
-        String[] dateStrings = splitFilmScreeningString[2].trim().split("-");
+        String[] dateStrings = splitFilmScreeningString[1].trim().split("-");
         int year = Integer.valueOf(dateStrings[0]);
         int month = Integer.valueOf(dateStrings[1]);
         int day = Integer.valueOf(dateStrings[2]);
         selectedTime = new Time(hour, min, sec);
         selectedDate = new Date(year, month, day);
-        selectedScreeningId = Integer.valueOf(splitFilmScreeningString[1]);
+        selectedScreeningId = Integer.valueOf(splitFilmScreeningString[0]);
     }//GEN-LAST:event_lbxScreeningsValueChanged
 
     /**
