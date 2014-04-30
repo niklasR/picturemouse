@@ -36,7 +36,7 @@ public class CreateTestDatabase {
         HashMap<Integer, String> testSeatingPlan1 = new HashMap<>();
         testSeatingPlan1.put(1, "testUser1");
         testSeatingPlan1.put(2, "Administrator");
-        BEScreening testScreening1 = new BEScreening(1, new Time(9, 30, 0), new Date(114, 5, 1), 1, testSeatingPlan1);
+        BEScreening testScreening1 = new BEScreening(1, new Time(9, 30, 0), new Date(114, 5, 1), 0, testSeatingPlan1);
         testScreenings1.add(testScreening1);
 
         BEFilm testFilm1 = new BEFilm(0, "Test Film 1", "", "Test Synopsis 1", testScreenings1);
@@ -64,9 +64,9 @@ public class CreateTestDatabase {
 
         // Create Account
         // Create tickets purchased
-        BECinemaTicket testTicket1 = new BECinemaTicket(1, 1, 1);
-        BECinemaTicket testTicket2 = new BECinemaTicket(5, 2, 2);
-        BECinemaTicket testTicket3 = new BECinemaTicket(23, 3, 2);
+        BECinemaTicket testTicket1 = new BECinemaTicket(1, 1, 0);
+        BECinemaTicket testTicket2 = new BECinemaTicket(5, 2, 0);
+        BECinemaTicket testTicket3 = new BECinemaTicket(23, 3, 1);
         ArrayList<BECinemaTicket> testCinemaTickets1 = new ArrayList<>();
         testCinemaTickets1.add(testTicket1);
         testCinemaTickets1.add(testTicket2);
@@ -77,9 +77,9 @@ public class CreateTestDatabase {
 
         // Create Admin
         // Create tickets purchased
-        BECinemaTicket testTicket4 = new BECinemaTicket(2, 1, 1);
-        BECinemaTicket testTicket5 = new BECinemaTicket(11, 2, 2);
-        BECinemaTicket testTicket6 = new BECinemaTicket(1, 3, 2);
+        BECinemaTicket testTicket4 = new BECinemaTicket(2, 1, 0);
+        BECinemaTicket testTicket5 = new BECinemaTicket(11, 2, 1);
+        BECinemaTicket testTicket6 = new BECinemaTicket(1, 3, 1);
         ArrayList<BECinemaTicket> testCinemaTickets2 = new ArrayList<>();
         testCinemaTickets2.add(testTicket4);
         testCinemaTickets2.add(testTicket5);
@@ -90,19 +90,19 @@ public class CreateTestDatabase {
 
         // Create Review
         BEReview r1 = new BEReview();
-        r1.modify((short)5, 1, "It was fantastic. A must see!", "testUser1", 1);
+        r1.modify((short)5, 1, "It was fantastic. A must see!", "testUser1", 0);
         database.save(r1);
         // Create Review
         BEReview r2 = new BEReview();
-        r2.modify((short)4, 2, "Very good film", "testUser1", 1);
+        r2.modify((short)4, 2, "Very good film", "testUser1", 0);
         database.save(r2);
         // Create Review
         BEReview r3 = new BEReview();
-        r3.modify((short)1, 3, "So Boring! Would rather watch paint dry!", "testUser1", 2);
+        r3.modify((short)1, 3, "So Boring! Would rather watch paint dry!", "testUser1", 1);
         database.save(r3);
         // Create Review
         BEReview r4 = new BEReview();
-        r4.modify((short)2, 4, "I fell asleep", "testUser1", 2);
+        r4.modify((short)2, 4, "I fell asleep", "testUser1", 1);
         database.save(r4);
 
         // Save Database
