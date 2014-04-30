@@ -44,7 +44,7 @@ public class FEBrowseTickets extends javax.swing.JFrame {
         //Want to display: Film name, time, date, seat number
         for (int i=0; i < tickets.size(); i++){
             picturemouse.backend.BEFilm film = database.lookupFilm(tickets.get(i).getFilmId(), false);
-            picturemouse.backend.BEScreening screening = film.lookupScreening(tickets.get(i).getScreeningId());
+            picturemouse.backend.BEScreening screening = film.lookupScreening(tickets.get(i).getScreeningId(), false);
             Date date = screening.getDate();
             String formattedDate = formatter.format(date); //Formating date
             String time = screening.getTime().toString();
