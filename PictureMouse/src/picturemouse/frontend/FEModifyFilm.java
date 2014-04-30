@@ -275,7 +275,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Cancel modifications of Film");
         int result = JOptionPane.showConfirmDialog(this, " All changes to the "
-                + "screening will be lost, are you sure that you want to "
+                + "film will be lost, are you sure that you want to "
                 + "cancel?", "Cancel modification of film Confirmation", 
                 JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
