@@ -4,9 +4,11 @@
  */
 package picturemouse.frontend;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import picturemouse.backend.BEDatabase;
 import picturemouse.backend.BEModifyFilmDetails;
+import picturemouse.backend.BEScreening;
 /**
  *
  * @author John
@@ -19,6 +21,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
     String filmSynopsis;
     int filmId;
     String trailerURL;
+    ArrayList<BEScreening> screenings;
     
     @SuppressWarnings("empty-statement")
     public FEModifyFilm() {
@@ -27,6 +30,8 @@ public class FEModifyFilm extends javax.swing.JFrame {
         this.filmName = FEBrowseFilms.selectedFilmName;
         this.filmSynopsis = FEBrowseFilms.selectedFilmSynopsis;
         this.trailerURL = FEBrowseFilms.selectedFilmTrailerURL;
+        this.screenings = d1.lookupFilm(filmId, false).getScreenings();
+        
         //Debug code
         System.out.println("Name:" + this.filmName);
         System.out.println("Synopsis:" + this.filmSynopsis);
@@ -258,7 +263,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         this.trailerURL = this.tbxModifyTrailerURL.getText();
         // Modify fields of old film in database as defined by user but keep 
         // filmId the same.
-        action.doIt(this.filmId, this.filmName, this.trailerURL, this.filmSynopsis, null);
+        action.doIt(this.filmId, this.filmName, this.trailerURL, this.filmSynopsis, this.screenings);
         // Show confirmation to Administrator
         JOptionPane.showMessageDialog(this, "Film has been permanently modified.");
         // Hide windows and go back to BrowseFilms.
