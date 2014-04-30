@@ -78,9 +78,26 @@ public class BEModifyFilmDetails
         database.save(filmModifying);
     }
     
+    /**
+     * Adds a film to the database.
+     */
     public void addFilm()
     {
         BEFilm newFilm = new BEFilm(database.getFilms().size(), "default Film, you must modify fields.", "", "", new ArrayList<BEScreening>());
         database.save(newFilm);
+    }
+    
+    /**
+     * Modifies a screening in the database.
+     * @param filmId
+     * @param screeningId
+     * @param screeningTime
+     * @param screeningDate 
+     */
+    public void modifyScreening(int filmId, int screeningId, Time screeningTime, Date screeningDate)
+    {
+        BEFilm currentFilm = database.lookupFilm(filmId, true);
+        currentFilm.lookupScreening(screeningId, true).modify(screeningTime, screeningDate);
+        database.save(currentFilm);
     }
 }

@@ -8,6 +8,7 @@ import java.sql.Time;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import picturemouse.backend.BEDatabase;
+import picturemouse.backend.BEFilm;
 import picturemouse.backend.BEModifyFilmDetails;
 
 /**
@@ -263,8 +264,13 @@ public class FEModifyScreening extends javax.swing.JFrame {
         this.screeningYear = Integer.valueOf(this.tbxDate.getText().split("/")[2]);
         this.screeningDate = new Date(this.screeningYear, this.screeningMonth, this.screeningDay);
         
+        // Modify fields of old screening in database as defined by user but 
+        // keep screeningId the same. This is done by pulling out the current 
+        // by looking it up, adapting it and pushing it back.
+        
+        action.modifyScreening(FEBrowseFilms.selectedFilmID, FEBrowseScreenings.selectedScreeningId, this.screeningTime, this.screeningDate);
         // Show confirmation to Administrator
-        JOptionPane.showMessageDialog(this, "Film has been permanently modified.");
+        JOptionPane.showMessageDialog(this, "The screening has been permanently modified.");
         // Hide windows and go back to BrowseFilms.
         this.setVisible(false);
         new FEBrowseFilms(true).setVisible(true);
@@ -288,17 +294,19 @@ public class FEModifyScreening extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Removing Screening");
         int result = JOptionPane.showConfirmDialog(this, "Are you sure that "
-                + "you want to remove the screening selected?", "Remove Screening Confirmation", 
+                + "you want to permantly remove the screening selected?", "Remove Screening Confirmation", 
                 JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
-            if (d1.lookupFilm(FEBrowseFilms.selectedFilmID, true).lookupScreening(FEBrowseScreenings.selectedScreeningId, true) == null)
+            BEFilm currentFilm = d1.lookupFilm(FEBrowseFilms.selectedFilmID, true);
+            if (currentFilm.lookupScreening(FEBrowseScreenings.selectedScreeningId, true) == null)
             {
                 JOptionPane.showMessageDialog(this, "There was a problem and the screening has not been deleted");
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "The screening has been successfully deleted.");
+                d1.save(currentFilm);
+                JOptionPane.showMessageDialog(this, "The screening has been successfully permantly deleted.");
             }
             new FEBrowseFilms(true).setVisible(true);
             this.dispose();

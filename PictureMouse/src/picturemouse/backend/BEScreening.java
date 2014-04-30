@@ -129,4 +129,15 @@ public class BEScreening implements Serializable
         
         return availableSeats;
     }
+    
+    /**
+     * Modifies the two fields input for a screening.
+     * @param time
+     * @param date 
+     */
+    public void modify(Time time, Date date)
+    {
+        this.time = time;
+        this.date = date;
+    }
 }
