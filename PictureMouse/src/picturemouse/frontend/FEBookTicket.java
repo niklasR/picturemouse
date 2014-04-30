@@ -7,7 +7,6 @@ package picturemouse.frontend;
 import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import picturemouse.frontend.FESignOn;
 import picturemouse.backend.BEDatabase;
 
 /**
@@ -22,19 +21,19 @@ public class FEBookTicket extends javax.swing.JFrame {
      */
     int screeningID; //to be assigned when chosen in GUI
     int seat; //to be assigned when chosen in GUI
-    String username; //somehow get username of current user
+    String username; 
     String[] screenings;
     String[] availableSeats;
     int filmID;
     DefaultComboBoxModel screeningCBXModel;
     DefaultComboBoxModel seatsCBXModel;
     BEDatabase database = BEDatabase.getInstance();
-    boolean screeningSelected;
-    boolean seatSelected;
+    boolean screeningSelected; //Flag to say that selection is made
+    boolean seatSelected; //Flag to say that selection is made
     
 
     /**
-     * Creates new form SignOn
+     * Creates new form FEBookTicket
      */
     @SuppressWarnings("unchecked")
     public FEBookTicket() {
@@ -236,12 +235,24 @@ public class FEBookTicket extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method for when the cancel button is pressed.
+     * This takes you back to the FEFilm form.
+     * @param evt 
+     */
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // Making form invisible and then new form visible
         this.setVisible(false);
         new FEFilm().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    /**
+     * Method for when the action button is pressed.
+     * This checks that the screening and seat are chosen, then brings up a
+     * confirmation window, books the ticket and navigates the user
+     * back to the customer options form.
+     * @param evt 
+     */
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
         if (screeningSelected && seatSelected){ //checking that selections are made
             
@@ -258,7 +269,7 @@ public class FEBookTicket extends javax.swing.JFrame {
             }
         }
         
-        //Changing labels is the screening and seat are both not selected
+        //Changing colour of text if the screening and seat are both not selected
         else if (!screeningSelected){
             this.lblScreening.setForeground(Color.black);
         }
@@ -269,7 +280,7 @@ public class FEBookTicket extends javax.swing.JFrame {
 
     /**
      * Method for when an element is selected in the screening combo box.
-     * This them changes the seat combo box.
+     * This then changes the seat combo box.
      * @param evt 
      */
     @SuppressWarnings("unchecked")
@@ -303,6 +314,11 @@ public class FEBookTicket extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cbxChooseScreeningActionPerformed
 
+    /**
+     * Method for when an element is selected in the seat combo box.
+     * This just sets the right value.
+     * @param evt 
+     */
     private void cbxChooseSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxChooseSeatActionPerformed
         
         //Setting the flags
