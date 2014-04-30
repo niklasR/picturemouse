@@ -18,14 +18,14 @@ public class FEBrowseReviews extends javax.swing.JFrame {
     BEDatabase d1 = BEDatabase.getInstance();
 
     ArrayList<BEReview> filmReviews = new ArrayList<>();
-    
-    
 
     /**
      * Creates new form SignOn
      */
     public FEBrowseReviews() {
         initComponents();
+        
+        lblWelcome.setText("Hello " + FESignOn.firstName);
 
         if (FESignOn.username.equals("Administrator")) // If not signed out through SignOn, this will give a NullPointerException
         {

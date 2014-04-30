@@ -86,7 +86,7 @@ public class FEAdministratorOptions extends javax.swing.JFrame {
         upperPanel.getAccessibleContext().setAccessibleName("topPanel");
 
         lowerPanel.setBackground(new java.awt.Color(51, 102, 255));
-        lowerPanel.setPreferredSize(new java.awt.Dimension(421, 280));
+        lowerPanel.setPreferredSize(new java.awt.Dimension(421, 250));
 
         btnBrowseAccounts.setBackground(new java.awt.Color(255, 255, 255));
         btnBrowseAccounts.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -160,7 +160,7 @@ public class FEAdministratorOptions extends javax.swing.JFrame {
                 .addComponent(btnDistributeNewsletter, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSignOut, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         getContentPane().add(lowerPanel);

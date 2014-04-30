@@ -12,10 +12,7 @@ import picturemouse.backend.BEDatabase;
  * @author Oliver Coleshill
  */
 public class FEPrintTicket extends javax.swing.JFrame {
-    
-    
-    //picturemouse.backend.PrintTicket action = new picturemouse.backend.PrintTicket(String);
-    
+     
     /**
      * Creates new form SignOn
      */
@@ -23,9 +20,10 @@ public class FEPrintTicket extends javax.swing.JFrame {
         initComponents();
         
         picturemouse.backend.BEDatabase database = picturemouse.backend.BEDatabase.getInstance();
-        lblFilmName.setText(database.lookupFilm(FEBrowseTickets.filmId, false).getFilmName());
-                        
-        this.tbxNewsletterText.setText("You are in seat " + FEBrowseTickets.seat + " screening " + FEBrowseTickets.screeningId);
+        String tempFilmName = database.lookupFilm(FEBrowseTickets.filmId, false).getFilmName();
+        lblFilmName.setText(tempFilmName);
+        
+        this.tbxNewsletterText.setText("Picture Mouse Cinema Ticket for " +  tempFilmName + ". Seat number: " + FEBrowseTickets.seat + ". Date: " + FEBrowseTickets.date);
     }
 
     /**
