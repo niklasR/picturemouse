@@ -80,7 +80,7 @@ public class BEModifyFilmDetails
     
     public void addFilm()
     {
-        BEFilm newFilm = new BEFilm(database.getFilms().size(), "", "", "", new ArrayList<BEScreening>());
+        BEFilm newFilm = new BEFilm(database.getFilms().size(), "default Film, you must modify fields.", "", "", new ArrayList<BEScreening>());
         database.save(newFilm);
     }
 }

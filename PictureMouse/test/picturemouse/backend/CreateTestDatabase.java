@@ -39,7 +39,7 @@ public class CreateTestDatabase {
         BEScreening testScreening1 = new BEScreening(1, new Time(9, 30, 0), new Date(114, 5, 1), 1, testSeatingPlan1);
         testScreenings1.add(testScreening1);
 
-        BEFilm testFilm1 = new BEFilm(1, "Test Film 1", "", "Test Synopsis 1", testScreenings1);
+        BEFilm testFilm1 = new BEFilm(0, "Test Film 1", "", "Test Synopsis 1", testScreenings1);
         database.save(testFilm1);
         
         // Create Screening
@@ -57,7 +57,7 @@ public class CreateTestDatabase {
         BEScreening testScreening3 = new BEScreening(3, new Time(11, 30, 0), new Date(114, 5, 2), 1, testSeatingPlan3);
         testScreenings2.add(testScreening3);
         
-        BEFilm testFilm2 = new BEFilm(2, "Test Film 2", "", "Test Synopsis 2", testScreenings2);
+        BEFilm testFilm2 = new BEFilm(1, "Test Film 2", "", "Test Synopsis 2", testScreenings2);
         database.save(testFilm2);
 
 
