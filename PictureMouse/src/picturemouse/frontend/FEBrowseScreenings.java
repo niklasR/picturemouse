@@ -45,7 +45,7 @@ public class FEBrowseScreenings extends javax.swing.JFrame {
                 listModel.addElement(splitFilmScreeningString[0].trim()); //index [1] is the film name
             }
         } else {
-            JOptionPane.showMessageDialog(this, "There are currently no reviews assigned to this film. Please create new screenings first.");
+            JOptionPane.showMessageDialog(this, "There are currently no screenings assigned to this film. Please add new screenings first.");
         }
         lbxScreenings.setModel(listModel);
     }
