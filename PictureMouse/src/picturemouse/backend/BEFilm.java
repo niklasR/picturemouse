@@ -111,6 +111,7 @@ public class BEFilm implements Serializable
      * currently in the database then this method will return null.
      * 
      * @param screeningId The screeningId of the screening wanted.
+     * @param modifying
      * @return The Screening object wanted or null.
      */
     public synchronized BEScreening lookupScreening(int screeningId, boolean modifying)
