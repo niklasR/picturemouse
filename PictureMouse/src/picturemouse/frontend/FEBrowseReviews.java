@@ -226,7 +226,7 @@ public class FEBrowseReviews extends javax.swing.JFrame {
 
         // Get selected review to hand over
 
-            picturemouse.backend.BEReview review = filmReviews.get(lbxReviews.getSelectedIndex());
+        picturemouse.backend.BEReview review = filmReviews.get(lbxReviews.getSelectedIndex());
 
         // Making form invisible and then new form visible
         this.setVisible(false);
