@@ -31,7 +31,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
         this.filmSynopsis = FEBrowseFilms.selectedFilmSynopsis;
         this.trailerURL = FEBrowseFilms.selectedFilmTrailerURL;
         this.screenings = d1.lookupFilm(filmId, false).getScreenings();
-        
+        this.lblModifyFilm.setText("You are editing film with name " + this.filmName + ".");
         //Debug code
         System.out.println("Name:" + this.filmName);
         System.out.println("Synopsis:" + this.filmSynopsis);
@@ -63,16 +63,17 @@ public class FEModifyFilm extends javax.swing.JFrame {
         tbxModifyTrailerURL = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbxModifySynopsis = new javax.swing.JTextArea();
-        btnBrowseScreenings = new javax.swing.JButton();
         bottomPanel = new javax.swing.JPanel();
         btnSaveModifications = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnRemoveFilm = new javax.swing.JButton();
+        btnBrowseScreenings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 153));
         setName("signOn"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(430, 550));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
 
@@ -100,9 +101,9 @@ public class FEModifyFilm extends javax.swing.JFrame {
                         .addGap(140, 140, 140)
                         .addComponent(lblWelcome))
                     .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(72, 72, 72)
                         .addComponent(lblModifyFilm)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,15 +139,6 @@ public class FEModifyFilm extends javax.swing.JFrame {
         tbxModifySynopsis.setRows(5);
         jScrollPane1.setViewportView(tbxModifySynopsis);
 
-        btnBrowseScreenings.setBackground(new java.awt.Color(255, 255, 255));
-        btnBrowseScreenings.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        btnBrowseScreenings.setText("Browse Screenings");
-        btnBrowseScreenings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBrowseScreeningsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout centrePanelLayout = new javax.swing.GroupLayout(centrePanel);
         centrePanel.setLayout(centrePanelLayout);
         centrePanelLayout.setHorizontalGroup(
@@ -165,10 +157,7 @@ public class FEModifyFilm extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tbxModifyTrailerURL, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(centrePanelLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(btnBrowseScreenings, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         centrePanelLayout.setVerticalGroup(
@@ -188,14 +177,13 @@ public class FEModifyFilm extends javax.swing.JFrame {
                 .addGroup(centrePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbxModifyTrailerURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblModifyTrailerURL))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(btnBrowseScreenings, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(centrePanel);
 
         bottomPanel.setBackground(new java.awt.Color(51, 102, 255));
-        bottomPanel.setPreferredSize(new java.awt.Dimension(430, 120));
+        bottomPanel.setPreferredSize(new java.awt.Dimension(430, 150));
 
         btnSaveModifications.setBackground(new java.awt.Color(255, 255, 255));
         btnSaveModifications.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -224,6 +212,15 @@ public class FEModifyFilm extends javax.swing.JFrame {
             }
         });
 
+        btnBrowseScreenings.setBackground(new java.awt.Color(255, 255, 255));
+        btnBrowseScreenings.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        btnBrowseScreenings.setText("Browse Screenings");
+        btnBrowseScreenings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseScreeningsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
@@ -236,13 +233,17 @@ public class FEModifyFilm extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(120, 120, 120)
-                .addComponent(btnRemoveFilm, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBrowseScreenings, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoveFilm, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBrowseScreenings, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoveFilm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

@@ -251,8 +251,10 @@ public class FEBrowseFilms extends javax.swing.JFrame {
                 this.setVisible(false);
                 new FEFilm().setVisible(true);
             }
-        } else {
-            //Tell user to select film
+        } 
+        else 
+        {
+            JOptionPane.showMessageDialog(this, "You have not selected a film, so please select one.");
         }
     }//GEN-LAST:event_btnSelectActionPerformed
 
