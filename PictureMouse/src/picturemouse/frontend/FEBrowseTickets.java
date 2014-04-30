@@ -21,6 +21,7 @@ public class FEBrowseTickets extends javax.swing.JFrame {
     public static int screeningId;
     public static int seat;
     public static int filmId;
+    public static Date date;
     
     BEDatabase database = BEDatabase.getInstance();
         
@@ -34,18 +35,24 @@ public class FEBrowseTickets extends javax.swing.JFrame {
     public FEBrowseTickets() {
         initComponents();
         
-        lblWelcome.setText("Hello " + database.lookupAccount(FESignOn.username, false).getFirstName());
+        lblWelcome.setText("Hello " + FESignOn.firstName);
 
         ArrayList<String> displayList = new ArrayList<>();
         
         //Creating a data formatter
         Format formatter = new SimpleDateFormat("dd-MM-yyyy");
-        
+                
         //Want to display: Film name, time, date, seat number
         for (int i=0; i < tickets.size(); i++){
             picturemouse.backend.BEFilm film = database.lookupFilm(tickets.get(i).getFilmId(), false);
+            
+            
+            if(database.lookupFilm(tickets.get(i).getFilmId(), false) != null){
+            }
+            
+            
             picturemouse.backend.BEScreening screening = film.lookupScreening(tickets.get(i).getScreeningId(), false);
-            Date date = screening.getDate();
+            date = screening.getDate();
             String formattedDate = formatter.format(date); //Formating date
             String time = screening.getTime().toString();
             
